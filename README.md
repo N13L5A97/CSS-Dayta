@@ -35,3 +35,7 @@ to do:
 - https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior
 - https://scroll-driven-animations.style/
 - https://stackoverflow.com/questions/1121748/how-to-make-the-html-link-activated-by-clicking-on-the-li
+- https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin
+- https://stackoverflow.com/questions/65058915/toggle-active-class-using-intersection-observer
+- https://cmda-minor-web.github.io/css-to-the-rescue-2324/themes.html
+- https://developer.mozilla.org/en-US/docs/Web/API/AnimationTimeline
