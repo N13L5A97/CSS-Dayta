@@ -1,7 +1,8 @@
 // fetch css day-ta
 const fetchData = async () => {
     try{
-        const data = await fetch("https://cssday.nl/data.json");
+        const res = await fetch("https://cssday.nl/data.json");
+        const data = await res.json();
         console.log(data);
     }
     catch(error){
