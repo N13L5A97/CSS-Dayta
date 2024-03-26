@@ -25,14 +25,6 @@ function generateDateElement(data, counter) {
         query = 'section:nth-of-type('.concat(counter + ') .ticket div div p');
         document.querySelector(query).appendChild(dateData);
   }
-
-  //for(var k in data) {
-  //    string = data[0].substring(5)
-  //    if (k > 0) {
-  //        string = string.concat(' & ' + data[1].substring(5))
-  //    }
-  //}
-  //context.appendChild(document.createTextNode(txt.concat(string)))
 }
 
 function generateLocationElement(data, counter) {
@@ -58,7 +50,6 @@ function generateMCAltName(data, counter) {
     const mcAltName = document.querySelectorAll('section:nth-of-type('.concat(counter + ') div:nth-of-type(1) img'))
     for(var k in mcAltName) {
         if (mcAltName.hasOwnProperty(k)) {
-            console.log(data[k].name)
             mcAltName[k].setAttribute('alt', data[k].name)
         }
     }
@@ -71,7 +62,13 @@ function generateMCAltName(data, counter) {
           );
         document.querySelector(query).appendChild(mcName)
     }
-    
+}
+
+function generatePriceElement(data, counter) {
+    const price = document.createElement('span');
+    price.appendChild(document.createTextNode('TICKET - €'.concat(data)));
+    query = 'section:nth-of-type('.concat(counter + ') .ticket div h2');
+    document.querySelector(query).appendChild(price);
 }
 
 function generateMostRelevantSpeaker(data, txt) {
@@ -150,15 +147,12 @@ const fetchData = async () => {
     const res = await fetch('https://cssday.nl/data.json');
     const data = await res.json();
     console.log(data);
-    console.log(getYear(data));
     years = getYear(data);
     arrays = getArrayOfYear(data);
 
     for (var k in years) {
       generateYearElement(years[k]);
       generateColorElement(years[k], arrays[k], k);
-
-      generateElement(arrays[k].price, 'Prijs: ');
       generateElement(arrays[k].venue, 'Locatie: ');
       generateElement(arrays[k].attendees.count, 'Aantal bezoekers: ');
       generateMCElement(arrays[k].mc, 'MC: ');
@@ -166,19 +160,20 @@ const fetchData = async () => {
     }
     counter = 0;
     for (var i = years.length - 1; i >= 0; i--) {
-      console.log(years[i]);
       if (years[i] == '2019') {
         counter = counter + 3;
         generateDateElement(arrays[i].date, counter);
         generateLocationElement(arrays[i].venue, counter);
         generateLinkElement(arrays[i].link, counter);
         generateMCAltName(arrays[i].mc, counter)
+        generatePriceElement(arrays[i].price, counter);
       } else {
         counter = counter + 1;
         generateDateElement(arrays[i].date, counter);
         generateLocationElement(arrays[i].venue, counter);
         generateLinkElement(arrays[i].link, counter);
         generateMCAltName(arrays[i].mc, counter)
+        generatePriceElement(arrays[i].price, counter);
       }
     }
   } catch (error) {
