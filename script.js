@@ -12,11 +12,12 @@ function generateElement(data, txt) {
     document.querySelector('body').appendChild(context)
 }
 
-function generateDateElement(data, txt) {
+function generateDateElement(data, counter) {
     for(var k in data) {
-        const date = document.createElement('time')
-        date.appendChild(document.createTextNode(data[k]))
-        document.querySelector('.ticket div div p').appendChild(date)
+        const dateData = document.createElement('time')
+        dateData.appendChild(document.createTextNode(data[k].split('-').reverse().join('-')))
+        query = 'section:nth-of-type('.concat(counter + ') .ticket div div p')
+        document.querySelector(query).appendChild(dateData)
     }
     
     //for(var k in data) {
@@ -102,6 +103,7 @@ const fetchData = async () => {
         console.log(getYear(data))
         years = getYear(data)
         arrays = getArrayOfYear(data)
+        
         for(var k in years) {
             generateYearElement(years[k])
             generateColorElement(years[k], arrays[k], k)
@@ -113,9 +115,16 @@ const fetchData = async () => {
             generateMostRelevantSpeaker(arrays[k].speakers)
         
         }   
+        counter = 0
         for (var i = years.length - 1; i >= 0; i--) {
             console.log(years[i]);
-            generateDateElement(arrays[i].date, years[i]);
+            if (years[i] == '2019' ) {
+                counter = counter + 3
+                generateDateElement(arrays[i].date, counter);
+            } else {
+                counter = counter + 1
+                generateDateElement(arrays[i].date, counter);
+            }
         }
     }
     catch(error){
