@@ -37,7 +37,6 @@
     left top,
     right top,
     right bottom,
-    left bottom,
     left bottom;
   background-repeat: no-repeat;
   filter: drop-shadow(0.5rem 0.5rem 0 rgba(0, 0, 0, 0.2));
@@ -111,12 +110,12 @@
         left: -6.15rem;
         rotate: -90deg;
       }
+    }
 
-      &:last-of-type {
-        right: -6.15rem;
-        rotate: 90deg;
-        transition-delay: 0.25s;
-      }
+    p:has(time):not(p.singleDate) time:last-of-type {
+      right: -6.15rem;
+      rotate: 90deg;
+      transition-delay: 0.25s;
     }
 
     > div {
