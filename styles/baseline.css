@@ -10,6 +10,24 @@
 }
 
 :root {
-  --primary-color: white;
-  --secondary-color: dodgerblue;
+  --primary-color: peachpuff;
+  --secondary-color: black;
+
+  --2024: brown;
+  --2023: chocolate;
+  --2022: blueviolet;
+  --2021: darkolivegreen;
+  --2020: darksalmon;
+  --2019: forestgreen;
+  --2018: gold;
+  --2017: hotpink;
+  --2016: ivory;
+  --2015: indianred;
+  --2014: indigo;
+  --2013: lightgreen;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
