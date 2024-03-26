@@ -14,7 +14,7 @@ main {
   }
 }
 
-main > section {
+main > section:not(#flip-clock) {
   height: 100vh;
   scroll-snap-align: start;
   background-color: color-mix(
@@ -23,51 +23,51 @@ main > section {
     transparent 50%
   );
 
-  &:first-of-type {
+  &:nth-of-type(2) {
     --year-color: var(--2024);
   }
 
-  &:nth-of-type(2) {
+  &:nth-of-type(3) {
     --year-color: var(--2023);
   }
 
-  &:nth-of-type(3) {
+  &:nth-of-type(4) {
     --year-color: var(--2022);
   }
 
-  &:nth-of-type(4) {
+  &:nth-of-type(5) {
     --year-color: var(--2021);
   }
 
-  &:nth-of-type(5) {
+  &:nth-of-type(6) {
     --year-color: var(--2020);
   }
 
-  &:nth-of-type(6) {
+  &:nth-of-type(7) {
     --year-color: var(--2019);
   }
 
-  &:nth-of-type(7) {
+  &:nth-of-type(8) {
     --year-color: var(--2018);
   }
 
-  &:nth-of-type(8) {
+  &:nth-of-type(9) {
     --year-color: var(--2017);
   }
 
-  &:nth-of-type(9) {
+  &:nth-of-type(10) {
     --year-color: var(--2016);
   }
 
-  &:nth-of-type(10) {
+  &:nth-of-type(11) {
     --year-color: var(--2015);
   }
 
-  &:nth-of-type(11) {
+  &:nth-of-type(12) {
     --year-color: var(--2014);
   }
 
-  &:nth-of-type(12) {
+  &:nth-of-type(13) {
     --year-color: var(--2013);
   }
 }
