@@ -96,24 +96,25 @@
       display: block;
       position: absolute;
       background-color: var(--ticket-color);
-      padding: 1rem 1.45rem;
-      top: 5.75rem;
+      padding: 5% 6.8%;
+      top: 38.5%;
       outline: 2px dotted var(--ticket-color);
       box-shadow:
         2px 0 0 var(--ticket-color),
-        -2px 0 0 var(--ticket-color);
+        -2px 0 0 var(--ticket-color),
+        0 -2px 0 var(--ticket-color);
       transition: var(--transition-base);
       text-decoration: underline 1.3px var(--ticket-tertiary-color);
       text-underline-offset: 8px;
 
       &:first-of-type {
-        left: -6.15rem;
+        left: -28.7%;
         rotate: -90deg;
       }
     }
 
     p:has(time):not(p.singleDate) time:last-of-type {
-      right: -6.15rem;
+      right: -28.7%;
       rotate: 90deg;
       transition-delay: 0.25s;
     }
