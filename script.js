@@ -107,13 +107,7 @@ const fetchData = async () => {
             generateMCElement(arrays[k].mc, 'MC: ')
             generateMostRelevantSpeaker(arrays[k].speakers)
         
-        }
-        for(var k in years) {
-            
-        }        
-        for(var k in years) {
-            
-        }    
+        }   
     }
     catch(error){
         console.log(error);
