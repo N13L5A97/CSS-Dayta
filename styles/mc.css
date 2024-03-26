@@ -1,4 +1,4 @@
-img{
-    width: clamp(10em, 15rem, 30vw)
+img {
+  width: clamp(10em, 15rem, 30vw);
+  filter: drop-shadow(5px 0 0 black);
 }
-
