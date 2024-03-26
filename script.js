@@ -13,15 +13,20 @@ function generateElement(data, txt) {
 }
 
 function generateDateElement(data, txt) {
-    const context = document.createElement('p')
     for(var k in data) {
-        string = data[0].substring(5)
-        if (k > 0) {
-            string = string.concat(' & ' + data[1].substring(5))
-        }   
+        const date = document.createElement('time')
+        date.appendChild(document.createTextNode(data[k]))
+        document.querySelector('.ticket div div p').appendChild(date)
     }
-    context.appendChild(document.createTextNode(txt.concat(string)))
-    document.querySelector('body').appendChild(context)  
+    
+    //for(var k in data) {
+    //    string = data[0].substring(5)
+    //    if (k > 0) {
+    //        string = string.concat(' & ' + data[1].substring(5))
+    //    }   
+    //}
+    //context.appendChild(document.createTextNode(txt.concat(string)))
+    
 }
 
 function generateMostRelevantSpeaker(data, txt) {
@@ -73,7 +78,7 @@ function generateColorElement(year, data, k) {
     var sheet = window.document.styleSheets[0];
     colorName = '--'.concat(year)
     k = parseInt(k) + 1
-    selector = 'h2:nth-of-type('.concat(k + ')')
+    selector = 'h5:nth-of-type('.concat(k + ')')
     rule = selector.concat(' { color: var(' + colorName + ');')
     document.documentElement.style.setProperty(colorName, data.color.hex)
     sheet.insertRule(rule, sheet.cssRules.length);
@@ -100,7 +105,7 @@ const fetchData = async () => {
         for(var k in years) {
             generateYearElement(years[k])
             generateColorElement(years[k], arrays[k], k)
-            generateDateElement(arrays[k].date, 'Data: ')
+            
             generateElement(arrays[k].price, 'Prijs: ')
             generateElement(arrays[k].venue, 'Locatie: ')
             generateElement(arrays[k].attendees.count, 'Aantal bezoekers: ')
@@ -108,6 +113,10 @@ const fetchData = async () => {
             generateMostRelevantSpeaker(arrays[k].speakers)
         
         }   
+        for (var i = years.length - 1; i >= 0; i--) {
+            console.log(years[i]);
+            generateDateElement(arrays[i].date, years[i]);
+        }
     }
     catch(error){
         console.log(error);
