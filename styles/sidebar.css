@@ -104,21 +104,6 @@ main {
   height: 100vh;
   right: 0;
   width: 0.5rem;
-  /* background: linear-gradient(
-    to bottom,
-    var(--2024) 0 10%,
-    var(--2023) 10% 18%,
-    var(--2022) 18% 26%,
-    var(--2021) 26% 34%,
-    var(--2020) 34% 42%,
-    var(--2019) 42% 50%,
-    var(--2018) 50% 58%,
-    var(--2017) 58% 66%,
-    var(--2016) 66% 74%,
-    var(--2015) 74% 82%,
-    var(--2014) 82% 90%,
-    var(--2013) 90% 100%
-  ); */
   background-color: rgba(0, 0, 0, 0.5);
 }
 
