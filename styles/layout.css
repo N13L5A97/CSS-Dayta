@@ -1,6 +1,5 @@
-html,
 body {
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 main {
@@ -17,6 +16,8 @@ main {
 main > section:not(#flip-clock) {
   height: 100vh;
   scroll-snap-align: start;
+  position: relative;
+  z-index: 1;
   background-color: color-mix(
     in oklch,
     var(--year-color, papayawhip),
