@@ -13,7 +13,7 @@
   --transition-base: 0.5s ease-out;
   --transition-short: 0.25s ease-out;
 
-  --2024: brown;
+/*  --2024: brown;
   --2023: chocolate;
   --2022: blueviolet;
   --2021: darkolivegreen;
@@ -25,6 +25,7 @@
   --2015: indianred;
   --2014: indigo;
   --2013: lightgreen;
+}*/
 }
 
 body {
