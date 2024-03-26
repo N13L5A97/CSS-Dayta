@@ -53,6 +53,14 @@
       </svg>
     </header>
     <main>
+      <div class="opening-wrapper">
+        <div class="opening">
+          <div class="overlay"></div>
+          <span></span>
+          <span> <span class="number">5</span></span>
+        </div>
+      </div>
+
       <nav>
         <ul>
           <li><a href="#2024">2024</a></li>
@@ -628,6 +636,48 @@
       </section>
     </main>
     <footer></footer>
+
+    <svg>
+      <defs>
+        <filter id="noise1">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="3"
+            numOctaves="3"
+            stitchTiles="stitch"
+            seed="1"
+          />
+        </filter>
+      </defs>
+    </svg>
+
+    <svg>
+      <defs>
+        <filter id="noise2">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="3"
+            numOctaves="3"
+            stitchTiles="stitch"
+            seed="2"
+          />
+        </filter>
+      </defs>
+    </svg>
+
+    <svg>
+      <defs>
+        <filter id="noise3">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="3"
+            numOctaves="3"
+            stitchTiles="stitch"
+            seed="3"
+          />
+        </filter>
+      </defs>
+    </svg>
     <script src="script.js"></script>
   </body>
 </html>

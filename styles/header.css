@@ -5,9 +5,12 @@ header {
   position: fixed;
 
   .logo {
+    --initial-delay: 6.5s;
+
     width: 100%;
 
     rect {
+      --ani-delay: var(--initial-delay);
       animation: var(--ani-name) 1.5s ease-out var(--ani-delay) forwards;
       transform: scaleX(0) scaleY(0);
     }
@@ -16,19 +19,18 @@ header {
       rect {
         &:first-of-type {
           --ani-name: transform-horizontal;
-          --ani-delay: 0s;
         }
 
         &:nth-of-type(2) {
           --ani-name: transform-vertical;
-          --ani-delay: 0.2s;
+          --ani-delay: calc(var(initial-delay) + 0.2s);
 
           transform-origin: 0 100px;
         }
 
         &:nth-of-type(3) {
           --ani-name: transform-horizontal;
-          --ani-delay: 0.6s;
+          --ani-delay: calc(var(initial-delay) + 0.6s);
           transform-origin: 50px;
         }
       }
@@ -38,30 +40,28 @@ header {
       rect {
         &:first-of-type {
           --ani-name: transform-vertical;
-          --ani-delay: 0.2s;
+          --ani-delay: calc(var(initial-delay) + 0.2s);
         }
 
         &:nth-of-type(2) {
           --ani-name: transform-horizontal;
-          --ani-delay: 0s;
           transform-origin: 270px;
         }
 
         &:nth-of-type(3) {
           --ani-name: transform-horizontal;
-          --ani-delay: 0.5s;
+          --ani-delay: calc(var(initial-delay) + 0.5s);
           transform-origin: 300px;
         }
 
         &:nth-of-type(4) {
           --ani-name: transform-vertical;
-          --ani-delay: 0s;
           transform-origin: 0 60px;
         }
 
         &:nth-of-type(5) {
           --ani-name: transform-horizontal;
-          --ani-delay: 0.2s;
+          --ani-delay: calc(var(initial-delay) + 0.2s);
           transform-origin: 340px;
         }
       }
@@ -71,30 +71,28 @@ header {
       rect {
         &:first-of-type {
           --ani-name: transform-vertical;
-          --ani-delay: 0s;
         }
 
         &:nth-of-type(2) {
           --ani-name: transform-horizontal;
-          --ani-delay: 0s;
           transform-origin: 490px;
         }
 
         &:nth-of-type(3) {
           --ani-name: transform-horizontal;
-          --ani-delay: 0.3s;
+          --ani-delay: calc(var(initial-delay) + 0.3s);
           transform-origin: 520px;
         }
 
         &:nth-of-type(4) {
           --ani-name: transform-vertical;
-          --ani-delay: 0.2s;
+          --ani-delay: calc(var(initial-delay) + 0.2s);
           transform-origin: 0 60px;
         }
 
         &:nth-of-type(5) {
           --ani-name: transform-horizontal;
-          --ani-delay: 0.6s;
+          --ani-delay: calc(var(initial-delay) + 0.6s);
           transform-origin: 560px;
         }
       }
@@ -104,24 +102,22 @@ header {
       rect {
         &:first-of-type {
           --ani-name: transform-horizontal;
-          --ani-delay: 0.2s;
+          --ani-delay: calc(var(initial-delay) + 0.2s);
         }
 
         &:nth-of-type(2) {
           --ani-name: transform-vertical;
-          --ani-delay: 0s;
           transform-origin: 0 320px;
         }
 
         &:nth-of-type(3) {
           --ani-name: transform-vertical;
-          --ani-delay: 0.1s;
+          --ani-delay: calc(var(initial-delay) + 0.1s);
           transform-origin: 0 260px;
         }
 
         &:nth-of-type(4) {
           --ani-name: transform-horizontal;
-          --ani-delay: 0s;
           transform-origin: 70px;
         }
       }
@@ -131,25 +127,24 @@ header {
       rect {
         &:first-of-type {
           --ani-name: transform-horizontal;
-          --ani-delay: 0s;
           transform-origin: 215px;
         }
 
         &:nth-of-type(2) {
           --ani-name: transform-vertical;
-          --ani-delay: 0.5s;
+          --ani-delay: calc(var(initial-delay) + 0.5s);
           transform-origin: 0 385px;
         }
 
         &:nth-of-type(3) {
           --ani-name: transform-vertical;
-          --ani-delay: 0.1s;
+          --ani-delay: calc(var(initial-delay) + 0.1s);
           transform-origin: 0 260px;
         }
 
         &:nth-of-type(4) {
           --ani-name: transform-horizontal;
-          --ani-delay: 0.2s;
+          --ani-delay: calc(var(initial-delay) + 0.2s);
           transform-origin: 300px;
         }
       }
@@ -159,25 +154,25 @@ header {
       rect {
         &:first-of-type {
           --ani-name: transform-vertical;
-          --ani-delay: 0.3s;
+          --ani-delay: calc(var(initial-delay) + 0.3s);
           transform-origin: 0 210px;
         }
 
         &:nth-of-type(2) {
           --ani-name: transform-vertical;
-          --ani-delay: 0.2s;
+          --ani-delay: calc(var(initial-delay) + 0.2s);
           transform-origin: 0 385px;
         }
 
         &:nth-of-type(3) {
           --ani-name: transform-horizontal;
-          --ani-delay: 0.6s;
+          --ani-delay: calc(var(initial-delay) + 0.6s);
           transform-origin: 520px;
         }
 
         &:nth-of-type(4) {
           --ani-name: transform-horizontal;
-          --ani-delay: 0.1s;
+          --ani-delay: calc(var(initial-delay) + 0.1s);
           transform-origin: 450px;
         }
       }

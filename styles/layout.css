@@ -7,7 +7,6 @@ main {
   scroll-snap-type: y mandatory;
   overflow-y: auto;
   scroll-behavior: smooth;
-  transform-style: preserve-3d;
 
   &::-webkit-scrollbar {
     display: none;
@@ -18,7 +17,7 @@ main > section {
   height: 100vh;
   scroll-snap-align: start;
   position: relative;
-  z-index: -1;
+  z-index: 1;
   background-color: color-mix(
     in oklch,
     var(--year-color, papayawhip),

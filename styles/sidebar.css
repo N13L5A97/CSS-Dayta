@@ -7,6 +7,7 @@ nav ul {
   flex-direction: column;
   justify-content: space-between;
   padding-right: 2rem;
+  z-index: 10;
 
   li {
     list-style: none;
