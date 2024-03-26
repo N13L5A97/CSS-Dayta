@@ -12,46 +12,42 @@ function generateElement(data, txt) {
   document.querySelector('body').appendChild(context);
 }
 
-
 function generateDateElement(data, counter) {
-    for(var k in data) {
-        const dateData = document.createElement('time')
-        dateData.appendChild(document.createTextNode(data[k].split('-').reverse().join('-')))
-        query = 'section:nth-of-type('.concat(counter + ') .ticket div div p')
-        document.querySelector(query).appendChild(dateData)
-    }
-    
-    //for(var k in data) {
-    //    string = data[0].substring(5)
-    //    if (k > 0) {
-    //        string = string.concat(' & ' + data[1].substring(5))
-    //    }   
-    //}
-    //context.appendChild(document.createTextNode(txt.concat(string)))
-   
+  for (var k in data) {
+    const dateData = document.createElement('time');
+    dateData.appendChild(
+      document.createTextNode(data[k].split('-').reverse().join('-'))
+    );
+    query = 'section:nth-of-type('.concat(counter + ') .ticket div div p');
+    document.querySelector(query).appendChild(dateData);
+  }
+
+  //for(var k in data) {
+  //    string = data[0].substring(5)
+  //    if (k > 0) {
+  //        string = string.concat(' & ' + data[1].substring(5))
+  //    }
+  //}
+  //context.appendChild(document.createTextNode(txt.concat(string)))
 }
 
 function generateLocationElement(data, counter) {
-    const location = document.createElement('p')
-    location.appendChild(document.createTextNode(data))
-    query = 'section:nth-of-type('.concat(counter + ') .ticket div div div:nth-of-type(1)')
-    document.querySelector(query).appendChild(location)
+  const location = document.createElement('p');
+  location.appendChild(document.createTextNode(data));
+  query = 'section:nth-of-type('.concat(
+    counter + ') .ticket div div div:nth-of-type(1)'
+  );
+  document.querySelector(query).appendChild(location);
 }
 
 function generateLinkElement(data, counter) {
-    const link = document.createElement('a')
-    link.setAttribute('href', data)
-    link.appendChild(document.createTextNode('Website'))
-    query = 'section:nth-of-type('.concat(counter + ') .ticket div div div:nth-of-type(2)')
-    document.querySelector(query).appendChild(link)
-}
-
-function generateMCAltName(data, counter) {
-    const mcAltName = document.querySelectorAll('section:nth-of-type('.concat(counter + ') div img'))
-    console.log(mcAltName)
-    for(var k in mcAltName) {
-        console.log(data[k])
-    }
+  const link = document.createElement('a');
+  link.setAttribute('href', data);
+  link.appendChild(document.createTextNode('Website'));
+  query = 'section:nth-of-type('.concat(
+    counter + ') .ticket div div div:nth-of-type(2)'
+  );
+  document.querySelector(query).appendChild(link);
 }
 
 function generateMostRelevantSpeaker(data, txt) {
@@ -126,46 +122,38 @@ function getArrayOfYear(data) {
 
 // fetch css day-ta
 const fetchData = async () => {
-    try{
-        const res = await fetch("https://cssday.nl/data.json");
-        const data = await res.json();
-        console.log(data);
-        console.log(getYear(data))
-        years = getYear(data)
-        arrays = getArrayOfYear(data)
-        
-        for(var k in years) {
-            generateYearElement(years[k])
-            generateColorElement(years[k], arrays[k], k)
-            
-            generateElement(arrays[k].price, 'Prijs: ')
-            generateElement(arrays[k].venue, 'Locatie: ')
-            generateElement(arrays[k].attendees.count, 'Aantal bezoekers: ')
-            generateMCElement(arrays[k].mc, 'MC: ')
-            generateMostRelevantSpeaker(arrays[k].speakers)
-        
-        }   
-        counter = 0
-        for (var i = years.length - 1; i >= 0; i--) {
-            console.log(years[i]);
-            if (years[i] == '2019' ) {
-                counter = counter + 3
-                generateDateElement(arrays[i].date, counter);
-                generateLocationElement(arrays[i].venue, counter)
-                generateLinkElement(arrays[i].link, counter)
-                generateMCAltName(arrays[i].mc.name, counter)
-            } else {
-                counter = counter + 1
-                generateDateElement(arrays[i].date, counter);
-                generateLocationElement(arrays[i].venue, counter)
-                generateLinkElement(arrays[i].link, counter)
-                generateMCAltName(arrays[i].mc, counter)
-            }
-        }
+  try {
+    const res = await fetch('https://cssday.nl/data.json');
+    const data = await res.json();
+    console.log(data);
+    console.log(getYear(data));
+    years = getYear(data);
+    arrays = getArrayOfYear(data);
+
+    for (var k in years) {
+      generateYearElement(years[k]);
+      generateColorElement(years[k], arrays[k], k);
+
+      generateElement(arrays[k].price, 'Prijs: ');
+      generateElement(arrays[k].venue, 'Locatie: ');
+      generateElement(arrays[k].attendees.count, 'Aantal bezoekers: ');
+      generateMCElement(arrays[k].mc, 'MC: ');
+      generateMostRelevantSpeaker(arrays[k].speakers);
     }
+    counter = 0;
     for (var i = years.length - 1; i >= 0; i--) {
       console.log(years[i]);
-      generateDateElement(arrays[i].date, years[i]);
+      if (years[i] == '2019') {
+        counter = counter + 3;
+        generateDateElement(arrays[i].date, counter);
+        generateLocationElement(arrays[i].venue, counter);
+        generateLinkElement(arrays[i].link, counter);
+      } else {
+        counter = counter + 1;
+        generateDateElement(arrays[i].date, counter);
+        generateLocationElement(arrays[i].venue, counter);
+        generateLinkElement(arrays[i].link, counter);
+      }
     }
   } catch (error) {
     console.log(error);
