@@ -44,8 +44,14 @@ function generateLinkElement(data, counter) {
     link.appendChild(document.createTextNode('Website'))
     query = 'section:nth-of-type('.concat(counter + ') .ticket div div div:nth-of-type(2)')
     document.querySelector(query).appendChild(link)
+}
 
-
+function generateMCAltName(data, counter) {
+    const mcAltName = document.querySelectorAll('section:nth-of-type('.concat(counter + ') div img'))
+    console.log(mcAltName)
+    for(var k in mcAltName) {
+        console.log(data[k])
+    }
 }
 
 function generateMostRelevantSpeaker(data, txt) {
@@ -147,11 +153,13 @@ const fetchData = async () => {
                 generateDateElement(arrays[i].date, counter);
                 generateLocationElement(arrays[i].venue, counter)
                 generateLinkElement(arrays[i].link, counter)
+                generateMCAltName(arrays[i].mc.name, counter)
             } else {
                 counter = counter + 1
                 generateDateElement(arrays[i].date, counter);
                 generateLocationElement(arrays[i].venue, counter)
                 generateLinkElement(arrays[i].link, counter)
+                generateMCAltName(arrays[i].mc, counter)
             }
         }
     }
