@@ -1,3 +1,6 @@
+img {
+  width: clamp(10em, 15rem, 30vw);
+  filter: drop-shadow(5px 0 0 black);
 
 .microphone{
     width: 20dvw;
@@ -108,4 +111,3 @@ section:nth-of-type(1) > div img:nth-of-type(2) {
         transform: translateY(-40%) rotateZ(0deg) rotateY(20deg);
     }
 }
-

@@ -6,7 +6,6 @@ nav ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 0.5rem;
   padding-right: 2rem;
 
   li {
@@ -15,10 +14,8 @@ nav ul {
     position: relative;
     flex-basis: 0;
     flex-grow: 1;
-    transition: 0.25s ease-out;
-    border-radius: 0.2rem;
-    outline: 1.5px solid black;
-    padding: 0.5rem;
+    transition: var(--transition-short);
+    padding: 0.25rem;
 
     a {
       height: 100%;
@@ -26,6 +23,10 @@ nav ul {
       display: flex;
       align-items: center;
       justify-content: center;
+      outline: 1.5px solid black;
+      border-radius: 0.2rem;
+      padding: 0.5rem;
+      transition: var(--transition-short);
     }
 
     &::before {
@@ -44,34 +45,49 @@ nav ul {
 
 li:has(+ li + li:hover) {
   flex-grow: 1.2;
-  background-color: #fff1;
+
+  a {
+    background-color: #fff1;
+  }
 }
 
 /* 1 voor hover */
 li:has(+ li:hover) {
   flex-grow: 2;
-  background-color: #fff2;
+
+  a {
+    background-color: #fff2;
+  }
 }
 
 /* hover */
 li:hover {
   flex-grow: 3;
-  background-color: #fff5;
 
   &::before {
     --width: 1rem;
+  }
+
+  a {
+    background-color: #fff5;
   }
 }
 
 /* 1 na hover */
 li:hover + li {
   flex-grow: 2;
-  background-color: #fff2;
+
+  a {
+    background-color: #fff2;
+  }
 }
 
 li:hover + li + li {
   flex-grow: 1.2;
-  background-color: #fff1;
+
+  a {
+    background-color: #fff1;
+  }
 }
 
 main {
