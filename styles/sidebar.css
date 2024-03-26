@@ -73,6 +73,7 @@ li:hover + li + li {
   flex-grow: 1.2;
   background-color: #fff1;
 }
+
 main {
   scroll-timeline: --main;
 }

@@ -1,0 +1,4 @@
+img{
+    width: clamp(10em, 15rem, 30vw)
+}
+
