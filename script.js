@@ -13,17 +13,19 @@ function generateElement(data, txt) {
 }
 
 function generateDateElement(data, counter) {
-    if (data.length === 1) {
-        test = document.querySelector('section:nth-of-type('.concat(counter + ') .ticket div div p'));
-        test.setAttribute('class', 'singleDate')
-    }
-    for (var k in data) {
-        const dateData = document.createElement('time');
-        dateData.appendChild(
-        document.createTextNode(data[k].split('-').reverse().join('-'))
-        );
-        query = 'section:nth-of-type('.concat(counter + ') .ticket div div p');
-        document.querySelector(query).appendChild(dateData);
+  if (data.length === 1) {
+    test = document.querySelector(
+      'section:nth-of-type('.concat(counter + ') .ticket div div p')
+    );
+    test.setAttribute('class', 'singleDate');
+  }
+  for (var k in data) {
+    const dateData = document.createElement('time');
+    dateData.appendChild(
+      document.createTextNode(data[k].split('-').reverse().join('-'))
+    );
+    query = 'section:nth-of-type('.concat(counter + ') .ticket div div p');
+    document.querySelector(query).appendChild(dateData);
   }
 }
 
@@ -183,7 +185,12 @@ const fetchData = async () => {
 
 fetchData();
 
+const openingAudio = new Audio('assets/audio/opening.mp3');
+
+openingAudio.currentTime = 5; // Stel de begintijd in op 5 seconden
+
 const startCountdown = () => {
+  //   openingAudio.play();
   let count = 5;
   const interval = setInterval(() => {
     count--;
@@ -194,6 +201,10 @@ const startCountdown = () => {
       document.querySelector('.opening-wrapper').style.display = 'none';
     }
   }, 1000);
+
+  setTimeout(() => {
+    openingAudio.pause();
+  }, 6500); // 5000 milliseconden = 5 seconden
 };
 
 startCountdown();
