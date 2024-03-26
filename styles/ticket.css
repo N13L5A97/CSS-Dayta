@@ -1,0 +1,194 @@
+@property --p {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 20%;
+}
+
+.ticket {
+  --ticket-color: #fad16c;
+  --ticket-secondary-color: #28232d;
+  --ticket-tertiary-color: #ab0620;
+
+  width: 22rem;
+  aspect-ratio: 1.5 /1;
+  background-image: radial-gradient(
+      circle at left top,
+      transparent var(--p),
+      var(--ticket-color) var(--p)
+    ),
+    radial-gradient(
+      circle at right top,
+      transparent var(--p),
+      var(--ticket-color) var(--p)
+    ),
+    radial-gradient(
+      circle at right bottom,
+      transparent var(--p),
+      var(--ticket-color) var(--p)
+    ),
+    radial-gradient(
+      circle at left bottom,
+      transparent var(--p),
+      var(--ticket-color) var(--p)
+    );
+
+  background-size: 51% 51%;
+  background-position:
+    left top,
+    right top,
+    right bottom,
+    left bottom;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0.5rem 0.5rem 0 rgba(0, 0, 0, 0.2));
+  position: absolute;
+  top: 30vh;
+  left: 10vw;
+  padding: 3rem 3rem;
+  display: flex;
+  justify-content: center;
+  transition: var(--transition-base);
+  z-index: 100;
+
+  &:hover {
+    animation: test 0.5s ease-out infinite;
+    transform: translateY(-0.25rem);
+
+    time {
+      &:first-of-type {
+        transform: translate(-1rem, -1rem) rotate(-10deg);
+      }
+
+      &:last-of-type {
+        transform: translate(1.2rem, -1.2rem) rotate(10deg);
+      }
+    }
+
+    > span {
+      animation: ticket-bounce 0.5s ease-out infinite;
+    }
+  }
+
+  > div {
+    z-index: 100;
+    font-size: var(--font-size-base);
+    text-align: center;
+    color: var(--ticket-secondary-color);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    h2 {
+      display: flex;
+      flex-direction: column;
+      color: var(--ticket-secondary-color);
+      font-size: calc(var(--font-size-base) * 1.8);
+
+      span {
+        font-size: calc(var(--font-size-base) * 1.3);
+      }
+    }
+
+    h3 {
+      color: var(--ticket-tertiary-color);
+    }
+
+    time {
+      display: block;
+      position: absolute;
+      background-color: var(--ticket-color);
+      padding: 1rem 1.45rem;
+      top: 5.75rem;
+      outline: 2px dotted var(--ticket-color);
+      box-shadow:
+        2px 0 0 var(--ticket-color),
+        -2px 0 0 var(--ticket-color);
+      transition: var(--transition-base);
+      text-decoration: underline 1.3px var(--ticket-tertiary-color);
+      text-underline-offset: 8px;
+
+      &:first-of-type {
+        left: -6.15rem;
+        rotate: -90deg;
+      }
+    }
+
+    p:has(time):not(p.singleDate) time:last-of-type {
+      right: -6.15rem;
+      rotate: 90deg;
+      transition-delay: 0.25s;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+
+      > div {
+        display: flex;
+        gap: 1rem;
+      }
+    }
+
+    svg {
+      fill: var(--ticket-secondary-color);
+      stroke-width: 0;
+      width: 1rem;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  > span {
+    background-image: radial-gradient(
+        circle at left top,
+        transparent var(--p),
+        var(--ticket-color) var(--p)
+      ),
+      radial-gradient(
+        circle at right top,
+        transparent var(--p),
+        var(--ticket-color) var(--p)
+      ),
+      radial-gradient(
+        circle at right bottom,
+        transparent var(--p),
+        var(--ticket-color) var(--p)
+      ),
+      radial-gradient(
+        circle at left bottom,
+        transparent var(--p),
+        var(--ticket-color) var(--p)
+      );
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    filter: drop-shadow(1px 2px 0 var(--ticket-secondary-color))
+      drop-shadow(-1px -2px 0 var(--ticket-secondary-color));
+    background-size: 51% 51%;
+    background-position:
+      left top,
+      right top,
+      right bottom,
+      left bottom,
+      left bottom;
+    background-repeat: no-repeat;
+  }
+}
+
+@keyframes ticket-bounce {
+  0% {
+    --p: 19%;
+  }
+
+  50% {
+    --p: 20%;
+  }
+
+  100% {
+    --p: 19%;
+  }
+}
