@@ -39,7 +39,6 @@ const sectionsObserver = new IntersectionObserver(entries => {
     } else if (section2022.isIntersecting) {
         card[1].classList.add("flipped", section2022.isIntersecting);
         card[2].classList.remove("flipped");
-        card[1].style.
     }
 
 
