@@ -89,6 +89,7 @@ li:hover + li + li {
     background-color: #fff1;
   }
 }
+
 main {
   scroll-timeline: --main;
 }
