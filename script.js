@@ -30,6 +30,23 @@ function generateDateElement(data, counter) {
     
 }
 
+function generateLocationElement(data, counter) {
+    const location = document.createElement('p')
+    location.appendChild(document.createTextNode(data))
+    query = 'section:nth-of-type('.concat(counter + ') .ticket div div div:nth-of-type(1)')
+    document.querySelector(query).appendChild(location)
+}
+
+function generateLinkElement(data, counter) {
+    const link = document.createElement('a')
+    link.setAttribute('href', data)
+    link.appendChild(document.createTextNode('Website'))
+    query = 'section:nth-of-type('.concat(counter + ') .ticket div div div:nth-of-type(2)')
+    document.querySelector(query).appendChild(link)
+
+
+}
+
 function generateMostRelevantSpeaker(data, txt) {
 
     array = []
@@ -121,9 +138,13 @@ const fetchData = async () => {
             if (years[i] == '2019' ) {
                 counter = counter + 3
                 generateDateElement(arrays[i].date, counter);
+                generateLocationElement(arrays[i].venue, counter)
+                generateLinkElement(arrays[i].link, counter)
             } else {
                 counter = counter + 1
                 generateDateElement(arrays[i].date, counter);
+                generateLocationElement(arrays[i].venue, counter)
+                generateLinkElement(arrays[i].link, counter)
             }
         }
     }
