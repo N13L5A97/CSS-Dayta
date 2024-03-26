@@ -2,10 +2,10 @@
 
 ## table of contents
 
-1. [maandag](#maandag)
-2. [dinsdag](#dinsdag)
-3. [woensdag](#woensdag)
-4. [donderdag](#donderdag)
+[maandag](#maandag)
+[dinsdag](#dinsdag)
+[woensdag](#woensdag)
+[donderdag](#donderdag)
 
 ## maandag
 
@@ -39,3 +39,11 @@ to do:
 - https://stackoverflow.com/questions/65058915/toggle-active-class-using-intersection-observer
 - https://cmda-minor-web.github.io/css-to-the-rescue-2324/themes.html
 - https://developer.mozilla.org/en-US/docs/Web/API/AnimationTimeline
+- https://developer-mozilla-org.translate.goog/en-US/docs/Web/CSS/border-image?_x_tr_sl=en&_x_tr_tl=nl&_x_tr_hl=nl&_x_tr_pto=sc
+- https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateZ
+- https://stackoverflow.com/questions/53884069/how-can-i-make-an-svg-inline-within-a-paragraph
+- https://stackoverflow.com/questions/12671898/outline-on-only-one-border
+- https://discourse.webflow.com/t/how-to-add-alt-text-to-embedded-svg/187598
+- https://developer.mozilla.org/en-US/docs/Web/CSS/text-underline-offset
+- https://developer.mozilla.org/en-US/docs/Web/CSS/border-style
+- https://www.dofactory.com/html/svg/title
