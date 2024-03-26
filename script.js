@@ -158,7 +158,7 @@ const fetchData = async () => {
       generateMCElement(arrays[k].mc, 'MC: ');
       generateMostRelevantSpeaker(arrays[k].speakers);
     }
-    counter = 0;
+    counter = 1;
     for (var i = years.length - 1; i >= 0; i--) {
       if (years[i] == '2019') {
         counter = counter + 3;
