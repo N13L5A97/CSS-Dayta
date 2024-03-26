@@ -47,3 +47,5 @@ to do:
 - https://developer.mozilla.org/en-US/docs/Web/CSS/text-underline-offset
 - https://developer.mozilla.org/en-US/docs/Web/CSS/border-style
 - https://www.dofactory.com/html/svg/title
+- https://www.freecodecamp.org/news/grainy-css-backgrounds-using-svg-filters/
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import?retiredLocale=nl
