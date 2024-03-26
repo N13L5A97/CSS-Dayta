@@ -13,17 +13,19 @@ function generateElement(data, txt) {
 }
 
 function generateDateElement(data, counter) {
-    if (data.length === 1) {
-        test = document.querySelector('section:nth-of-type('.concat(counter + ') .ticket div div p'));
-        test.setAttribute('class', 'singleDate')
-    }
-    for (var k in data) {
-        const dateData = document.createElement('time');
-        dateData.appendChild(
-        document.createTextNode(data[k].split('-').reverse().join('-'))
-        );
-        query = 'section:nth-of-type('.concat(counter + ') .ticket div div p');
-        document.querySelector(query).appendChild(dateData);
+  if (data.length === 1) {
+    test = document.querySelector(
+      'section:nth-of-type('.concat(counter + ') .ticket div div p')
+    );
+    test.setAttribute('class', 'singleDate');
+  }
+  for (var k in data) {
+    const dateData = document.createElement('time');
+    dateData.appendChild(
+      document.createTextNode(data[k].split('-').reverse().join('-'))
+    );
+    query = 'section:nth-of-type('.concat(counter + ') .ticket div div p');
+    document.querySelector(query).appendChild(dateData);
   }
 
   //for(var k in data) {
@@ -55,23 +57,22 @@ function generateLinkElement(data, counter) {
 }
 
 function generateMCAltName(data, counter) {
-    const mcAltName = document.querySelectorAll('section:nth-of-type('.concat(counter + ') div:nth-of-type(1) img'))
-    for(var k in mcAltName) {
-        if (mcAltName.hasOwnProperty(k)) {
-            console.log(data[k].name)
-            mcAltName[k].setAttribute('alt', data[k].name)
-        }
+  const mcAltName = document.querySelectorAll(
+    'section:nth-of-type('.concat(counter + ') div:nth-of-type(1) img')
+  );
+  for (var k in mcAltName) {
+    if (mcAltName.hasOwnProperty(k)) {
+      console.log(data[k].name);
+      mcAltName[k].setAttribute('alt', data[k].name);
     }
-    
-    for(var x in data) {
-        const mcName = document.createElement('p');
-        mcName.appendChild(document.createTextNode(data[x].name))
-        query = 'section:nth-of-type('.concat(
-            counter + ') div:nth-of-type(1)'
-          );
-        document.querySelector(query).appendChild(mcName)
-    }
-    
+  }
+
+  for (var x in data) {
+    const mcName = document.createElement('p');
+    mcName.appendChild(document.createTextNode(data[x].name));
+    query = 'section:nth-of-type('.concat(counter + ') div:nth-of-type(1)');
+    document.querySelector(query).appendChild(mcName);
+  }
 }
 
 function generateMostRelevantSpeaker(data, txt) {
@@ -172,13 +173,13 @@ const fetchData = async () => {
         generateDateElement(arrays[i].date, counter);
         generateLocationElement(arrays[i].venue, counter);
         generateLinkElement(arrays[i].link, counter);
-        generateMCAltName(arrays[i].mc, counter)
+        generateMCAltName(arrays[i].mc, counter);
       } else {
         counter = counter + 1;
         generateDateElement(arrays[i].date, counter);
         generateLocationElement(arrays[i].venue, counter);
         generateLinkElement(arrays[i].link, counter);
-        generateMCAltName(arrays[i].mc, counter)
+        generateMCAltName(arrays[i].mc, counter);
       }
     }
   } catch (error) {
@@ -188,7 +189,12 @@ const fetchData = async () => {
 
 fetchData();
 
+const openingAudio = new Audio('assets/audio/opening.mp3');
+
+openingAudio.currentTime = 5; // Stel de begintijd in op 5 seconden
+
 const startCountdown = () => {
+  //   openingAudio.play();
   let count = 5;
   const interval = setInterval(() => {
     count--;
@@ -199,6 +205,10 @@ const startCountdown = () => {
       document.querySelector('.opening-wrapper').style.display = 'none';
     }
   }, 1000);
+
+  setTimeout(() => {
+    openingAudio.pause();
+  }, 6500); // 5000 milliseconden = 5 seconden
 };
 
 startCountdown();
