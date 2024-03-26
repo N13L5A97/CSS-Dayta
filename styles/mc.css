@@ -1,6 +1,7 @@
 img {
   width: clamp(10em, 15rem, 30vw);
   filter: drop-shadow(5px 0 0 black);
+}
 
 .microphone{
     width: 20dvw;
