@@ -1,0 +1,222 @@
+header {
+  width: clamp(5rem, 40vw, 15rem);
+  top: 2rem;
+  left: 2rem;
+  position: fixed;
+
+  .logo {
+    width: 100%;
+
+    rect {
+      animation: var(--ani-name) 1.5s ease-out var(--ani-delay) forwards;
+      transform: scaleX(0) scaleY(0);
+    }
+
+    .c {
+      rect {
+        &:first-of-type {
+          --ani-name: transform-horizontal;
+          --ani-delay: 0s;
+        }
+
+        &:nth-of-type(2) {
+          --ani-name: transform-vertical;
+          --ani-delay: 0.2s;
+
+          transform-origin: 0 100px;
+        }
+
+        &:nth-of-type(3) {
+          --ani-name: transform-horizontal;
+          --ani-delay: 0.6s;
+          transform-origin: 50px;
+        }
+      }
+    }
+
+    .s-1 {
+      rect {
+        &:first-of-type {
+          --ani-name: transform-vertical;
+          --ani-delay: 0.2s;
+        }
+
+        &:nth-of-type(2) {
+          --ani-name: transform-horizontal;
+          --ani-delay: 0s;
+          transform-origin: 270px;
+        }
+
+        &:nth-of-type(3) {
+          --ani-name: transform-horizontal;
+          --ani-delay: 0.5s;
+          transform-origin: 300px;
+        }
+
+        &:nth-of-type(4) {
+          --ani-name: transform-vertical;
+          --ani-delay: 0s;
+          transform-origin: 0 60px;
+        }
+
+        &:nth-of-type(5) {
+          --ani-name: transform-horizontal;
+          --ani-delay: 0.2s;
+          transform-origin: 340px;
+        }
+      }
+    }
+
+    .s-2 {
+      rect {
+        &:first-of-type {
+          --ani-name: transform-vertical;
+          --ani-delay: 0s;
+        }
+
+        &:nth-of-type(2) {
+          --ani-name: transform-horizontal;
+          --ani-delay: 0s;
+          transform-origin: 490px;
+        }
+
+        &:nth-of-type(3) {
+          --ani-name: transform-horizontal;
+          --ani-delay: 0.3s;
+          transform-origin: 520px;
+        }
+
+        &:nth-of-type(4) {
+          --ani-name: transform-vertical;
+          --ani-delay: 0.2s;
+          transform-origin: 0 60px;
+        }
+
+        &:nth-of-type(5) {
+          --ani-name: transform-horizontal;
+          --ani-delay: 0.6s;
+          transform-origin: 560px;
+        }
+      }
+    }
+
+    .d {
+      rect {
+        &:first-of-type {
+          --ani-name: transform-horizontal;
+          --ani-delay: 0.2s;
+        }
+
+        &:nth-of-type(2) {
+          --ani-name: transform-vertical;
+          --ani-delay: 0s;
+          transform-origin: 0 320px;
+        }
+
+        &:nth-of-type(3) {
+          --ani-name: transform-vertical;
+          --ani-delay: 0.1s;
+          transform-origin: 0 260px;
+        }
+
+        &:nth-of-type(4) {
+          --ani-name: transform-horizontal;
+          --ani-delay: 0s;
+          transform-origin: 70px;
+        }
+      }
+    }
+
+    .a {
+      rect {
+        &:first-of-type {
+          --ani-name: transform-horizontal;
+          --ani-delay: 0s;
+          transform-origin: 215px;
+        }
+
+        &:nth-of-type(2) {
+          --ani-name: transform-vertical;
+          --ani-delay: 0.5s;
+          transform-origin: 0 385px;
+        }
+
+        &:nth-of-type(3) {
+          --ani-name: transform-vertical;
+          --ani-delay: 0.1s;
+          transform-origin: 0 260px;
+        }
+
+        &:nth-of-type(4) {
+          --ani-name: transform-horizontal;
+          --ani-delay: 0.2s;
+          transform-origin: 300px;
+        }
+      }
+    }
+
+    .y {
+      rect {
+        &:first-of-type {
+          --ani-name: transform-vertical;
+          --ani-delay: 0.3s;
+          transform-origin: 0 210px;
+        }
+
+        &:nth-of-type(2) {
+          --ani-name: transform-vertical;
+          --ani-delay: 0.2s;
+          transform-origin: 0 385px;
+        }
+
+        &:nth-of-type(3) {
+          --ani-name: transform-horizontal;
+          --ani-delay: 0.6s;
+          transform-origin: 520px;
+        }
+
+        &:nth-of-type(4) {
+          --ani-name: transform-horizontal;
+          --ani-delay: 0.1s;
+          transform-origin: 450px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes transform-horizontal {
+  0% {
+    transform: scaleX(0) scaleY(1);
+  }
+
+  60% {
+    transform: scaleX(3.5) scaleY(1);
+  }
+
+  70% {
+    transform: scaleX(2) scaleY(1);
+  }
+
+  100% {
+    transform: scaleX(1) scaleY(1);
+  }
+}
+
+@keyframes transform-vertical {
+  0% {
+    transform: scaleY(0) scaleX(1);
+  }
+
+  60% {
+    transform: scaleY(3) scaleX(1);
+  }
+
+  70% {
+    transform: scaleY(2) scaleX(1);
+  }
+
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+}
