@@ -223,15 +223,15 @@ function generateRelevantSpeaker(data, counter) {
     tempArray.push(mostPopular[k])
   }
   // genereer de benodigde HTML elementen
-  const name = document.createElement('h2')
-  const title = document.createElement('h3')
-  const avatar = document.createElement('img')
-  const thumbnail = document.createElement('img')
-  const country = document.createElement('p')
-  const views = document.createElement('p')
-  const likes = document.createElement('p')
-  const link = document.createElement('a')
-  const close = document.createElement('button')
+  const name = document.createElement('h2');
+  const title = document.createElement('h3');
+  const avatar = document.createElement('img');
+  const link = document.createElement('a');
+  const thumbnail = document.createElement('img');
+  const country = document.createElement('p');
+  const views = document.createElement('p');
+  const likes = document.createElement('p');
+  const close = document.createElement('button');
   // haal het element op waar de gegenereerde HTML elementen aan worden toegevoegd
   const className = document.querySelector('section:nth-of-type('.concat(counter + ') .most-popular'))
   // als het eerste object (meest recente jaar, kan nog geen evenement voor zijn geweest) leeg is, doe dan iets
@@ -244,22 +244,21 @@ function generateRelevantSpeaker(data, counter) {
     name.appendChild(document.createTextNode(tempArray[0]));
     title.appendChild(document.createTextNode(tempArray[1]));
     avatar.setAttribute('src', tempArray[2]);
-
+    link.setAttribute('href', tempArray[7])
+    link.setAttribute('target', '_blank')
     thumbnail.setAttribute('src', tempArray[3])
     country.appendChild(document.createTextNode('Nationaliteit: '.concat(tempArray[4])))
     views.appendChild(document.createTextNode('Views: '.concat(tempArray[5])))
     likes.appendChild(document.createTextNode('Likes: '.concat(tempArray[6])))
-    link.setAttribute('href', tempArray[7])
-    link.setAttribute('target', '_blank')
-    link.appendChild(document.createTextNode('Video'))
+
     close.appendChild(document.createTextNode('x'))
     close.setAttribute('onClick', 'hideMostRelevantSpeaker('.concat(counter + ')'))
     // voeg de gegenereerde HTML elementen toe aan het opgehaalde HTML element.
+    link.appendChild(thumbnail)
     className.appendChild(name)
     className.appendChild(title)
     className.appendChild(avatar)
     className.appendChild(country)
-    className.appendChild(thumbnail)
     className.appendChild(views)
     className.appendChild(likes)
     className.appendChild(link)
