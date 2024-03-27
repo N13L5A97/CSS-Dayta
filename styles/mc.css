@@ -8,7 +8,7 @@
   justify-content: space-around;
   align-items: end;
   border-bottom: 4px black solid;
-    box-shadow: inset 0px 20px 0px 3px black;
+  box-shadow: inset 0px 20px 0px 3px black;
 
   p {
     display: none;
@@ -106,4 +106,28 @@
   background-color: blue;
   opacity: 0.5;
   filter: url(#glitch1);
+}
+
+
+@container style(--party:true) {
+  .mc img{
+    animation: partyImg 2s infinite;
+  }
+}
+
+@keyframes partyImg{
+  from{
+    filter: hue-rotate(0deg);
+  }
+
+  to{
+    filter: hue-rotate(360deg);
+  }
+}
+
+
+@media (max-width: 420px) {
+     .mc{
+       transform: translateX(calc(50vw - 50%));
+     }
 }
