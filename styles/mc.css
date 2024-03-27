@@ -108,3 +108,27 @@
   opacity: 0.5;
   filter: url(#glitch1);
 }
+
+
+@container style(--party:true) {
+  .mc img{
+    animation: partyImg 2s infinite;
+  }
+}
+
+@keyframes partyImg{
+  from{
+    filter: hue-rotate(0deg);
+  }
+
+  to{
+    filter: hue-rotate(360deg);
+  }
+}
+
+
+@media (max-width: 420px) {
+     .mc{
+       transform: translateX(calc(50vw - 50%));
+     }
+}

@@ -10,9 +10,7 @@ header {
   .logo {
     --initial-delay: 0s;
 
-    width: clamp(5rem, 40vw, 15rem);
-    top: 2rem;
-    left: 2rem;
+    width: clamp(11rem, 40vw, 15rem);
     padding: 2rem;
 
     rect {
@@ -292,7 +290,7 @@ body:has(input[name='show']:focus) .showable {
   background-color: white;
   position: absolute;
   top: 0;
-  right: 10rem;
+  right: 20rem;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
@@ -363,7 +361,7 @@ body {
         color-mix(
             in oklch,
             color-mix(in oklch, var(--year-color, papayawhip), transparent 50%),
-            black 25%
+            black 50%
           )
           7.5rem
       );
@@ -371,8 +369,12 @@ body {
 
     .hideable {
       filter: invert(100%);
+
+    .logo{
+      fill: white;
     }
   }
+
 }
 
 @property --angle {
@@ -430,5 +432,25 @@ body {
   }
   100% {
     --angle: 360deg;
+  }
+}
+
+@media (max-width: 790px) {
+  header{
+    display: flex;
+
+    .logo{
+      transform: translateX(calc(50vw - 3.8rem - 50%));
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .showable{
+    display: none;
+  }
+
+  header .logo{
+    transform: translateX(calc(50vw - 50%));
   }
 }
