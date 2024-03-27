@@ -376,6 +376,13 @@ body {
     }
   }
 
+  @media (max-width: 420px){
+    body main > section:not(#flip-clock){
+      background-image: none;
+      background-color: color-mix(in oklch, var(--year-color, papayawhip), transparent 80%);
+    }
+  }
+
 }
 
 @property --angle {
