@@ -226,7 +226,7 @@ header {
   position: absolute;
   width: 0.3rem;
   aspect-ratio: 1 / 30;
-  right: 14rem;
+  right: 30vw;
   background-color: rgb(237, 237, 237);
   transform: translateY(-0.5rem);
   transition: var(--transition-base);
