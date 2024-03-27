@@ -94,7 +94,7 @@ function generateLinkElement(data, counter) {
 
 // verkrijg van elk jaar de MC(s) die op het evenement aanwezig was/waren
 // genereer hiervoor één of meerdere HTML element(en) en plaatst deze op de gespecificeerde plek
-function generateMCAltName(data, counter) {
+function generateMCAltNameOld(data, counter) {
   // haal het element op waar de HTML element aan toe word gevoegd
     const mcAltName = document.querySelectorAll('section:nth-of-type('.concat(counter + ') div:nth-of-type(1) img'))
     // voor elke waarde in mcAltName, doe iets
@@ -118,6 +118,48 @@ function generateMCAltName(data, counter) {
         // zoek het element a.d.h.v. de query en voeg het HTML element toe.
         document.querySelector(query).appendChild(mcName)
     }
+}
+
+// verkrijg van elk jaar de MC(s) die op het evenement aanwezig was/waren
+// genereer hiervoor één of meerdere HTML element(en) en plaatst deze op de gespecificeerde plek
+function generateMCAltName(data, counter) {
+  // voor elke key in data, doe iets
+  for (var k in data) {
+    // als k gelijk is aan 0 (1e positie), doe iets
+    if (k == 0) {
+      // haal het element op waar het alt attribuut aan wordt toegevoegd
+      const mcAltName = document.querySelector('section:nth-of-type('.concat(counter + ') div:nth-of-type(1) img'))
+      // stel als alt attribuut de naam van de MC in.
+      mcAltName.setAttribute('alt', data[k].name)
+      // genereer het HTML element waar de naam van de MC in komt te staan.
+      const mcName = document.createElement('p');
+      // geef het gegenereerde HTML als tekst de naam van de MC mee
+      mcName.appendChild(document.createTextNode(data[k].name))
+        // maak de query voor de locatie waar het HTML element geplaatst moet worden
+        query = 'section:nth-of-type('.concat(
+            counter + ') div:nth-of-type(1) div:nth-of-type(1)'
+          );
+        // zoek het element a.d.h.v. de query en voeg het HTML element toe.
+        document.querySelector(query).appendChild(mcName)
+      
+    } else if (k == 1) {
+      // haal het element op waar het alt attribuut aan wordt toegevoegd
+      const mcAltName = document.querySelector('section:nth-of-type('.concat(counter + ') div:nth-of-type(3) img'))
+      // stel als alt attribuut de naam van de MC in.
+      mcAltName.setAttribute('alt', data[k].name)
+      // genereer het HTML element waar de naam van de MC in komt te staan.
+      const mcName = document.createElement('p');
+      // geef het gegenereerde HTML als tekst de naam van de MC mee
+      mcName.appendChild(document.createTextNode(data[k].name))
+        // maak de query voor de locatie waar het HTML element geplaatst moet worden
+        query = 'section:nth-of-type('.concat(
+            counter + ') div:nth-of-type(3)'
+          );
+        // zoek het element a.d.h.v. de query en voeg het HTML element toe.
+        document.querySelector(query).appendChild(mcName)
+    }
+    
+  }
 }
 
 // verkrijg van elk jaar de prijs van één ticket
