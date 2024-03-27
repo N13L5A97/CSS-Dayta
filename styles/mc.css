@@ -1,80 +1,77 @@
-img {
-  width: clamp(10em, 15rem, 30vw);
-  filter: drop-shadow(5px 0 0 black);
-}
-
-.microphone {
-  width: 20dvw;
-  aspect-ratio: 1 / 1;
-  grid-area: 1 / 1;
-  justify-self: end;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(10, 1fr);
-}
-
-.part1 {
-  grid-area: 9 / 5 / 11 / 7;
-  background-color: lightgrey;
-  transform-style: preserve-3d;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
-  background-image: radial-gradient(
-    at top right,
-    white 10%,
-    transparent 40% 100%
-  );
-}
-
-.part2 {
-  width: 50%;
-  height: 100%;
-  background-color: grey;
-  transform-origin: bottom center;
-  margin: auto;
-  transform-style: preserve-3d;
-  transform: translateY(-40%) rotateY(20deg);
-  border-radius: 10%;
-  box-shadow: inset 0.1em 0.1em 2px lightgrey;
-  animation: microphoneReverse 2s forwards;
-}
-
-.microphone:hover .part2 {
-  animation: microphone 2s forwards;
-}
-
-.head {
-  width: 300%;
-  height: 200%;
-  background-color: lightgrey;
-  border-radius: 10px;
-  transform-origin: bottom center;
-  transform-style: preserve-3d;
-  transform: translateY(-90%) translateX(-32.5%) rotateY(-20deg);
-  background-image: radial-gradient(
-      circle at 70% 10%,
-      white 1%,
-      transparent 30% 100%
-    ),
-    repeating-linear-gradient(lightgrey 30%, darkgrey 40%);
-}
-
-img {
-  width: clamp(10em, 15rem, 25vw);
-}
-
-section:nth-of-type(1) {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-}
-
 .mc {
-  display: grid;
-  align-content: center;
-  justify-content: center;
+  position: relative;
+  border: 2px solid red;
   margin-right: clamp(5%, 0%, 15%);
   grid-area: 1 / 1;
+  height: 19rem;
+  width: clamp(15em, 30vw, 20rem);
+  transform: translateX(calc((50vw - 3.75rem) - 50%));
+
+  img {
+    position: absolute;
+    width: 50%;
+    filter: drop-shadow(5px 0 0 black);
+    bottom: 0;
+  }
+
+  .microphone {
+    position: absolute;
+    width: 10rem;
+    aspect-ratio: 1 / 1;
+    grid-area: 1 / 1;
+    justify-self: end;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    bottom: 0;
+    z-index: 10000000;
+
+    &:hover .part1 .part2 {
+      transform: translateY(-40%) rotateZ(-45deg) rotateY(20deg);
+    }
+
+    .part1 {
+      grid-area: 9 / 5 / 11 / 7;
+      background-color: lightgrey;
+      transform-style: preserve-3d;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      background-image: radial-gradient(
+        at top right,
+        white 10%,
+        transparent 40% 100%
+      );
+
+      .part2 {
+        width: 50%;
+        height: 100%;
+        background-color: grey;
+        transform-origin: bottom center;
+        margin: auto;
+        transform-style: preserve-3d;
+        transform: translateY(-40%) rotateY(20deg);
+        border-radius: 10%;
+        box-shadow: inset 0.1em 0.1em 2px lightgrey;
+        transition: var(--transition-base);
+
+        .head {
+          width: 300%;
+          height: 200%;
+          background-color: lightgrey;
+          border-radius: 10px;
+          transform-origin: bottom center;
+          transform-style: preserve-3d;
+          transform: translateY(-90%) translateX(-32.5%) rotateY(-20deg);
+          background-image: radial-gradient(
+              circle at 70% 10%,
+              white 1%,
+              transparent 30% 100%
+            ),
+            repeating-linear-gradient(lightgrey 30%, darkgrey 40%);
+        }
+      }
+    }
+  }
 }
 
 #glitch1 {
@@ -88,40 +85,4 @@ section:nth-of-type(1) {
   background-color: blue;
   opacity: 0.5;
   filter: url(#glitch1);
-}
-
-.msEmpty2 {
-  width: 100dvw;
-  height: 100dvh;
-}
-
-section:nth-of-type(1) > div img {
-  justify-self: center;
-  align-self: center;
-}
-
-section:nth-of-type(1) > div img:nth-of-type(1) {
-  grid-area: 1 / 1;
-}
-
-section:nth-of-type(1) > div img:nth-of-type(2) {
-  grid-area: 1 / 2;
-}
-
-@keyframes microphone {
-  from {
-    transform: translateY(-40%) rotateZ(0deg) rotateY(20deg);
-  }
-  to {
-    transform: translateY(-40%) rotateZ(-45deg) rotateY(20deg);
-  }
-}
-
-@keyframes microphoneReverse {
-  from {
-    transform: translateY(-40%) rotateZ(-45deg) rotateY(20deg);
-  }
-  to {
-    transform: translateY(-40%) rotateZ(0deg) rotateY(20deg);
-  }
 }
