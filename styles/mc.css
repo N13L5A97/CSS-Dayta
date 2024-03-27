@@ -1,31 +1,42 @@
 .mc {
-  display: flex;
   padding: 0 2em;
-  position: relative;
-  border: 2px solid red;
   grid-area: 1 / 1;
   height: clamp(20em, calc(51vh - 10vw), 50em);
   width: clamp(15em, 30vw, 20rem);
   transform: translateX(calc((50vw - 3.75rem) - 50%));
-  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+  align-items: end;
+
+  p {
+    display: none;
+  }
 
   img {
-    position: absolute;
-    width: 50%;
+    width: 70%;
+    height: fit-content;
     filter: drop-shadow(5px 0 0 black);
     bottom: 0;
+
+    &:first-of-type {
+      left: 0;
+    }
+
+    &:last-of-type {
+      right: 0;
+    }
   }
 
   .microphone {
     position: absolute;
-    width: 10rem;
+    width: clamp(5rem, 12vw, 13rem);
     aspect-ratio: 1 / 1;
     grid-area: 1 / 1;
     justify-self: end;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
-    bottom: 0;
+    bottom: 0.3rem;
     z-index: 10000000;
 
     &:hover .part1 .part2 {
