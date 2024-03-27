@@ -27,6 +27,14 @@
     &:last-of-type {
       right: 0;
     }
+
+    &.noColor2015 {
+      filter: grayscale(100%) sepia(100%) hue-rotate(50deg);
+    }
+
+    &.noColor2013 {
+      filter: grayscale(100%) sepia(200%) hue-rotate(303deg) brightness(1.8) saturate(1.5);    
+    }
   }
 
   .microphone {
