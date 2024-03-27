@@ -329,7 +329,7 @@ body {
   body {
     color-scheme: dark;
 
-    main > section {
+    main > section:not(#flip-clock) {
       background-image: linear-gradient(
         to left,
         color-mix(
@@ -356,7 +356,7 @@ body {
 }
 
 @container style(--party:true) {
-  body main > section {
+  body main > section:not(#flip-clock) {
     background-image: repeating-conic-gradient(
       from var(--angle, 0deg) in oklch,
       var(--clr-1) 0deg,
