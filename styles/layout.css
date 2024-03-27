@@ -18,15 +18,10 @@ main > section:not(#flip-clock) {
   scroll-snap-align: start;
   position: relative;
   z-index: 1;
-  /* background-color: color-mix(
-    in oklch,
-    var(--year-color, papayawhip),
-    transparent 80%
-  ); */
   background-image: linear-gradient(
-    to left,
-    color-mix(in oklch, var(--year-color, papayawhip), transparent 50%) 0 17%,
-    color-mix(in oklch, var(--year-color, papayawhip), transparent 80%) 17%
+    in oklch to left,
+    color-mix(in oklch, var(--year-color, papayawhip), transparent 50%) 0 7.5rem,
+    color-mix(in oklch, var(--year-color, papayawhip), transparent 80%) 7.5rem
   );
 
   &:nth-of-type(2) {
