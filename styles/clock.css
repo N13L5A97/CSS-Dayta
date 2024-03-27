@@ -1,5 +1,6 @@
 #flip-clock {
     height: min-content;
+    z-index: 9999999;
 
     position: fixed;
     display: flex;

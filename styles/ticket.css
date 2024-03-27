@@ -45,7 +45,6 @@
   left: 10vw;
   padding: 3rem 3rem;
   display: flex;
-  display: none;
   justify-content: center;
   transition: var(--transition-base);
   z-index: 100;
