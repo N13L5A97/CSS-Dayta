@@ -118,7 +118,7 @@ function generateMCAltNameOld(data, counter) {
         // zoek het element a.d.h.v. de query en voeg het HTML element toe.
         document.querySelector(query).appendChild(mcName)
     }
-}
+  }
 
 // verkrijg van elk jaar de MC(s) die op het evenement aanwezig was/waren
 // genereer hiervoor één of meerdere HTML element(en) en plaatst deze op de gespecificeerde plek
@@ -193,6 +193,7 @@ function generateRelevantSpeaker(data, counter) {
       viewCount = data[k].talk.video.views;
       likesTalk = data[k].talk.video.likes;
       videoLink = data[k].talk.video['youtube-link'];
+      
       // nieuw Object om tijdelijk de verkregen informatie in op te slaan
       tempObject = {
         name: speakerName,
@@ -204,12 +205,14 @@ function generateRelevantSpeaker(data, counter) {
         likes: likesTalk,
         link: videoLink,
       };
+      
       // zet het tijdelijke Object in de lege array
       array.push(tempObject); 
     } 
   }
   // sorteer de array op de views van de YouTube video, van hoog naar laag
   array.sort((a, b) => b.views - a.views);
+
   // zet het Object dat bovenaan staat (de meest populaire) in mostPopular
   mostPopular = array[0]
   // lege, tijdelijk array
@@ -228,6 +231,7 @@ function generateRelevantSpeaker(data, counter) {
   const views = document.createElement('p')
   const likes = document.createElement('p')
   const link = document.createElement('a')
+  const close = document.createElement('button')
   // haal het element op waar de gegenereerde HTML elementen aan worden toegevoegd
   const className = document.querySelector('section:nth-of-type('.concat(counter + ') .most-popular'))
   // als het eerste object (meest recente jaar, kan nog geen evenement voor zijn geweest) leeg is, doe dan iets
@@ -240,6 +244,7 @@ function generateRelevantSpeaker(data, counter) {
     name.appendChild(document.createTextNode(tempArray[0]));
     title.appendChild(document.createTextNode(tempArray[1]));
     avatar.setAttribute('src', tempArray[2]);
+
     thumbnail.setAttribute('src', tempArray[3])
     country.appendChild(document.createTextNode('Nationaliteit: '.concat(tempArray[4])))
     views.appendChild(document.createTextNode('Views: '.concat(tempArray[5])))
@@ -247,6 +252,8 @@ function generateRelevantSpeaker(data, counter) {
     link.setAttribute('href', tempArray[7])
     link.setAttribute('target', '_blank')
     link.appendChild(document.createTextNode('Video'))
+    close.appendChild(document.createTextNode('x'))
+    close.setAttribute('onClick', 'hideMostRelevantSpeaker('.concat(counter + ')'))
     // voeg de gegenereerde HTML elementen toe aan het opgehaalde HTML element.
     className.appendChild(name)
     className.appendChild(title)
@@ -256,7 +263,19 @@ function generateRelevantSpeaker(data, counter) {
     className.appendChild(views)
     className.appendChild(likes)
     className.appendChild(link)
+    className.appendChild(close)
+    className.style.display = 'none'
   }
+}
+
+function showMostRelevantSpeaker(location) {
+  const className = document.querySelector('section:nth-of-type('.concat(location + ') .most-popular'))
+  className.style.display = 'block'
+}
+
+function hideMostRelevantSpeaker(location) {
+  const className = document.querySelector('section:nth-of-type('.concat(location + ') .most-popular'))
+  className.style.display = 'none'
 }
 
 // fetch css day-ta
@@ -278,17 +297,17 @@ const fetchData = async () => {
         generateDateElement(arrays[i].date, counter);
         generateLocationElement(arrays[i].venue, counter);
         generateLinkElement(arrays[i].link, counter);
-        generateMCAltName(arrays[i].mc, counter)
+        generateMCAltName(arrays[i].mc, counter);
         generatePriceElement(arrays[i].price, counter);
-        generateRelevantSpeaker(arrays[i].speakers, counter)
+        generateRelevantSpeaker(arrays[i].speakers, counter);
       } else {
         counter = counter + 1;
         generateDateElement(arrays[i].date, counter);
         generateLocationElement(arrays[i].venue, counter);
         generateLinkElement(arrays[i].link, counter);
-        generateMCAltName(arrays[i].mc, counter)
+        generateMCAltName(arrays[i].mc, counter);
         generatePriceElement(arrays[i].price, counter);
-        generateRelevantSpeaker(arrays[i].speakers, counter)
+        generateRelevantSpeaker(arrays[i].speakers, counter);
       }
     }
   } catch (error) {
