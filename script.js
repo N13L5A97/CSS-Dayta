@@ -48,6 +48,10 @@ function generateLinkElement(data, counter) {
   document.querySelector(query).appendChild(link);
 }
 
+
+
+
+
 function generateMCAltName(data, counter) {
     const mcAltName = document.querySelectorAll('section:nth-of-type('.concat(counter + ') div:nth-of-type(1) img'))
     for(var k in mcAltName) {
@@ -65,6 +69,7 @@ function generateMCAltName(data, counter) {
         document.querySelector(query).appendChild(mcName)
     }
 }
+
 
 function generatePriceElement(data, counter) {
     const price = document.createElement('span');
@@ -91,10 +96,9 @@ function generateMostRelevantSpeaker(data, txt) {
         slides: slides,
         link: videoLink,
       };
-      array.push(array2);
-    }
+      array.push(array2); 
+    } 
   }
-
   array.sort((a, b) => b.views - a.views);
   const list = document.createElement('ul');
   test = array[0];
@@ -103,8 +107,75 @@ function generateMostRelevantSpeaker(data, txt) {
     listItem.appendChild(document.createTextNode(test[x]));
     list.appendChild(listItem);
   }
-  document.querySelector('body').appendChild(list);
 }
+
+function generateRelevantSpeaker(data, counter) {
+  array = [];
+  for (var k in data) {
+    if (data[k].talk.video.views && data[k].talk.video != 'false') {
+      speakerName = data[k].name;
+      titleTalk = data[k].talk.title;
+      speakerAvatar = data[k].avatar;
+      thumbnailTalk = data[k].talk.video.thumbnail;
+      countrySpeaker = data[k].country;
+      viewCount = data[k].talk.video.views;
+      likesTalk = data[k].talk.video.likes;
+      videoLink = data[k].talk.video['youtube-link'];
+      
+      tempObject = {
+        name: speakerName,
+        title: titleTalk,
+        avatar: speakerAvatar,
+        thumbnail: thumbnailTalk,
+        country: countrySpeaker,
+        views: viewCount,
+        likes: likesTalk,
+        link: videoLink,
+      };
+      array.push(tempObject); 
+    } 
+  }
+
+  array.sort((a, b) => b.views - a.views);
+  mostPopular = array[0]
+  tempArray = []
+  for (var k in mostPopular) {
+    tempArray.push(mostPopular[k])
+  }
+
+  const name = document.createElement('h2')
+  const title = document.createElement('h3')
+  const avatar = document.createElement('img')
+  const thumbnail = document.createElement('img')
+  const country = document.createElement('p')
+  const views = document.createElement('p')
+  const likes = document.createElement('p')
+  const link = document.createElement('a')
+  const className = document.querySelector('section:nth-of-type('.concat(counter + ') .most-popular'))
+  if (tempArray[0] == undefined) {
+    className.remove();
+  } else if (tempArray[0] != undefined) {
+    name.appendChild(document.createTextNode(tempArray[0]));
+    title.appendChild(document.createTextNode(tempArray[1]));
+    avatar.setAttribute('src', tempArray[2]);
+    thumbnail.setAttribute('src', tempArray[3])
+    country.appendChild(document.createTextNode('Nationaliteit: '.concat(tempArray[4])))
+    views.appendChild(document.createTextNode('Views: '.concat(tempArray[5])))
+    likes.appendChild(document.createTextNode('Likes: '.concat(tempArray[6])))
+    link.setAttribute('href', tempArray[7])
+    link.appendChild(document.createTextNode('Video'))
+
+    className.appendChild(name)
+    className.appendChild(title)
+    className.appendChild(avatar)
+    className.appendChild(country)
+    className.appendChild(thumbnail)
+    className.appendChild(views)
+    className.appendChild(likes)
+    className.appendChild(link)
+  }
+}
+
 
 function generateMCElement(data, txt) {
   const context = document.createElement('p');
@@ -158,7 +229,8 @@ const fetchData = async () => {
       generateElement(arrays[k].venue, 'Locatie: ');
       generateElement(arrays[k].attendees.count, 'Aantal bezoekers: ');
       generateMCElement(arrays[k].mc, 'MC: ');
-      generateMostRelevantSpeaker(arrays[k].speakers);
+      //generateMostRelevantSpeaker(arrays[k].speakers);
+      
     }
     counter = 1;
     for (var i = years.length - 1; i >= 0; i--) {
@@ -169,6 +241,7 @@ const fetchData = async () => {
         generateLinkElement(arrays[i].link, counter);
         generateMCAltName(arrays[i].mc, counter)
         generatePriceElement(arrays[i].price, counter);
+        generateRelevantSpeaker(arrays[i].speakers, counter)
       } else {
         counter = counter + 1;
         generateDateElement(arrays[i].date, counter);
@@ -176,6 +249,7 @@ const fetchData = async () => {
         generateLinkElement(arrays[i].link, counter);
         generateMCAltName(arrays[i].mc, counter)
         generatePriceElement(arrays[i].price, counter);
+        generateRelevantSpeaker(arrays[i].speakers, counter)
       }
     }
   } catch (error) {
