@@ -7,7 +7,7 @@ nav ul {
   flex-direction: column;
   justify-content: space-between;
   padding-right: 2rem;
-  z-index: 10;
+  z-index: 4000;
 
   li {
     list-style: none;
@@ -52,7 +52,6 @@ li:has(+ li + li:hover) {
   }
 }
 
-/* 1 voor hover */
 li:has(+ li:hover) {
   flex-grow: 2;
 
@@ -61,7 +60,6 @@ li:has(+ li:hover) {
   }
 }
 
-/* hover */
 li:hover {
   flex-grow: 3;
 
@@ -74,7 +72,6 @@ li:hover {
   }
 }
 
-/* 1 na hover */
 li:hover + li {
   flex-grow: 2;
 
@@ -95,6 +92,10 @@ main {
   scroll-timeline: --main;
 }
 
+/**********/
+/* scrolldriven ani */
+/**********/
+
 .progress-bar {
   animation: adjust-progress-bar linear;
   animation-timeline: --main;
@@ -104,21 +105,6 @@ main {
   height: 100vh;
   right: 0;
   width: 0.5rem;
-  /* background: linear-gradient(
-    to bottom,
-    var(--2024) 0 10%,
-    var(--2023) 10% 18%,
-    var(--2022) 18% 26%,
-    var(--2021) 26% 34%,
-    var(--2020) 34% 42%,
-    var(--2019) 42% 50%,
-    var(--2018) 50% 58%,
-    var(--2017) 58% 66%,
-    var(--2016) 66% 74%,
-    var(--2015) 74% 82%,
-    var(--2014) 82% 90%,
-    var(--2013) 90% 100%
-  ); */
   background-color: rgba(0, 0, 0, 1);
 }
 
