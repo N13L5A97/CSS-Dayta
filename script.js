@@ -6,10 +6,23 @@ function getYear(data) {
   return years;
 }
 
-function generateElement(data, txt) {
-  const context = document.createElement('p');
-  context.appendChild(document.createTextNode(txt.concat(data)));
-  document.querySelector('body').appendChild(context);
+function getArrayOfYear(data) {
+  array = [];
+  for (var k in data) {
+    array.push(data[k]);
+  }
+  return array;
+}
+
+function generateColorElement(year, data, k) {
+  var sheet = window.document.styleSheets[0];
+  colorName = '--'.concat(year);
+  k = parseInt(k) + 1;
+  selector = 'h5:nth-of-type('.concat(k + ')');
+  rule = selector.concat(' { color: var(' + colorName + ');');
+  document.documentElement.style.setProperty(colorName, data.color.hex);
+  sheet.insertRule(rule, sheet.cssRules.length);
+  document.documentElement.style.setProperty('p:nth-of-type(1)', colorName);
 }
 
 function generateDateElement(data, counter) {
@@ -41,16 +54,13 @@ function generateLocationElement(data, counter) {
 function generateLinkElement(data, counter) {
   const link = document.createElement('a');
   link.setAttribute('href', data);
+  link.setAttribute('target', '_blank')
   link.appendChild(document.createTextNode('Website'));
   query = 'section:nth-of-type('.concat(
     counter + ') .ticket div div div:nth-of-type(2)'
   );
   document.querySelector(query).appendChild(link);
 }
-
-
-
-
 
 function generateMCAltName(data, counter) {
     const mcAltName = document.querySelectorAll('section:nth-of-type('.concat(counter + ') div:nth-of-type(1) img'))
@@ -76,37 +86,6 @@ function generatePriceElement(data, counter) {
     price.appendChild(document.createTextNode('TICKET - €'.concat(data)));
     query = 'section:nth-of-type('.concat(counter + ') .ticket div h2');
     document.querySelector(query).appendChild(price);
-}
-
-function generateMostRelevantSpeaker(data, txt) {
-  array = [];
-  for (var k in data) {
-    if (data[k].talk.video.views && data[k].talk.video != 'false') {
-      viewCount = data[k].talk.video.views;
-      speakerName = data[k].name;
-      description = data[k].talk.description;
-      slides = data[k].talk.slides;
-      title = data[k].talk.title;
-      videoLink = data[k].talk.video['youtube-link'];
-      array2 = {
-        views: viewCount,
-        name: speakerName,
-        title: title,
-        description: description,
-        slides: slides,
-        link: videoLink,
-      };
-      array.push(array2); 
-    } 
-  }
-  array.sort((a, b) => b.views - a.views);
-  const list = document.createElement('ul');
-  test = array[0];
-  for (var x in test) {
-    const listItem = document.createElement('li');
-    listItem.appendChild(document.createTextNode(test[x]));
-    list.appendChild(listItem);
-  }
 }
 
 function generateRelevantSpeaker(data, counter) {
@@ -152,6 +131,7 @@ function generateRelevantSpeaker(data, counter) {
   const likes = document.createElement('p')
   const link = document.createElement('a')
   const className = document.querySelector('section:nth-of-type('.concat(counter + ') .most-popular'))
+  
   if (tempArray[0] == undefined) {
     className.remove();
   } else if (tempArray[0] != undefined) {
@@ -163,8 +143,9 @@ function generateRelevantSpeaker(data, counter) {
     views.appendChild(document.createTextNode('Views: '.concat(tempArray[5])))
     likes.appendChild(document.createTextNode('Likes: '.concat(tempArray[6])))
     link.setAttribute('href', tempArray[7])
+    link.setAttribute('target', '_blank')
     link.appendChild(document.createTextNode('Video'))
-
+    
     className.appendChild(name)
     className.appendChild(title)
     className.appendChild(avatar)
@@ -174,44 +155,6 @@ function generateRelevantSpeaker(data, counter) {
     className.appendChild(likes)
     className.appendChild(link)
   }
-}
-
-
-function generateMCElement(data, txt) {
-  const context = document.createElement('p');
-  for (var k in data) {
-    string = String(data[0].name);
-    if (k > 0) {
-      string = string.concat(' & ' + data[1].name);
-    }
-  }
-  context.appendChild(document.createTextNode(txt.concat(string)));
-  document.querySelector('body').appendChild(context);
-}
-
-function generateYearElement(year) {
-  const context = document.createElement('h2');
-  context.appendChild(document.createTextNode(year));
-  document.querySelector('body').appendChild(context);
-}
-
-function generateColorElement(year, data, k) {
-  var sheet = window.document.styleSheets[0];
-  colorName = '--'.concat(year);
-  k = parseInt(k) + 1;
-  selector = 'h5:nth-of-type('.concat(k + ')');
-  rule = selector.concat(' { color: var(' + colorName + ');');
-  document.documentElement.style.setProperty(colorName, data.color.hex);
-  sheet.insertRule(rule, sheet.cssRules.length);
-  document.documentElement.style.setProperty('p:nth-of-type(1)', colorName);
-}
-
-function getArrayOfYear(data) {
-  array = [];
-  for (var k in data) {
-    array.push(data[k]);
-  }
-  return array;
 }
 
 // fetch css day-ta
@@ -224,13 +167,7 @@ const fetchData = async () => {
     arrays = getArrayOfYear(data);
 
     for (var k in years) {
-      generateYearElement(years[k]);
-      generateColorElement(years[k], arrays[k], k);
-      generateElement(arrays[k].venue, 'Locatie: ');
-      generateElement(arrays[k].attendees.count, 'Aantal bezoekers: ');
-      generateMCElement(arrays[k].mc, 'MC: ');
-      //generateMostRelevantSpeaker(arrays[k].speakers);
-      
+      generateColorElement(years[k], arrays[k], k); 
     }
     counter = 1;
     for (var i = years.length - 1; i >= 0; i--) {
