@@ -66,8 +66,6 @@ img{
     width: clamp(10em, 15rem, 25vw)
 }
 
-
-
 section:nth-of-type(1) {
     display: grid;
     justify-content: center;
@@ -80,6 +78,24 @@ section:nth-of-type(1) {
     justify-content: center;
     margin-right: clamp(5%, 0%, 15%);
     grid-area: 1 / 1;
+}
+
+#glitch1 {
+    width: 0;
+    height: 0;
+}
+
+.mcEmpty {
+    width: 100dvw;
+    height: 80dvh;
+    background-color: blue;
+    opacity: 0.5;
+    filter: url(#glitch1)
+}
+
+.msEmpty2 {
+    width: 100dvw;
+    height: 100dvh;
 }
 
 section:nth-of-type(1) > div img {
