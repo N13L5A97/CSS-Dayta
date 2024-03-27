@@ -3,6 +3,10 @@ header {
   position: fixed;
   z-index: 3000;
 
+  /**********/
+  /* LOGO  */
+  /**********/
+
   .logo {
     --initial-delay: 6.5s;
 
@@ -288,36 +292,26 @@ body:has(input[name='show']:checked) .hideable {
 /* SETTINGS */
 /************/
 
-/* prefers-color-scheme:dark */
 @media (prefers-color-scheme: dark) {
   :root {
     --colors: dark;
   }
 }
 
-/* prefers-color-scheme:light */
 @media (prefers-color-scheme: light) {
   :root {
     --colors: light;
   }
 }
 
-/* system checked --> nada */
-:root:has([value='system']:checked) {
-  /* nada	--> volgt prefers-color-scheme */
-}
-
-/* dark checked */
 :root:has([value='dark']:checked) {
   --colors: dark;
 }
 
-/* light checked */
 :root:has([value='light']:checked) {
   --colors: light;
 }
 
-/* space checked --> dark + --space:true */
 :root:has([value='party']:checked) {
   --colors: dark;
   --party: true;
@@ -327,12 +321,10 @@ body:has(input[name='show']:checked) .hideable {
 /* THEMES */
 /**********/
 
-/* default / light theme */
 body {
   color-scheme: light;
 }
 
-/* dark theme */
 @container style(--colors:dark) {
   body {
     color-scheme: dark;
@@ -363,7 +355,6 @@ body {
   initial-value: 0deg;
 }
 
-/* space theme */
 @container style(--party:true) {
   body main > section {
     background-image: repeating-conic-gradient(

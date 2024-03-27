@@ -21,6 +21,7 @@
   inherits: false;
   initial-value: 100%;
 }
+
 .opening-wrapper {
   width: 100dvw;
   height: 100dvh;
