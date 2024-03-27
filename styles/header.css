@@ -225,10 +225,10 @@ header {
 .showable {
   position: absolute;
   width: 0.2rem;
-  aspect-ratio: 1/30;
+  aspect-ratio: 1/50;
   right: 30vw;
   background-color: gold;
-  transform: translateY(-0.5rem);
+  transform: translateY(-2rem);
   transition: var(--transition-base);
 
   &::before {
@@ -282,7 +282,6 @@ body:has(input[name='show']:checked) .showable {
 }
 
 body:has(input[name='show']:focus) .showable {
-  transform: translateY(0);
   box-shadow: 0 0.5rem 0.5rem white;
 }
 
@@ -371,7 +370,7 @@ body {
       filter: invert(100%);
     }
 
-    .logo{
+    .logo {
       fill: white;
     }
   }
@@ -436,21 +435,21 @@ body {
 }
 
 @media (max-width: 790px) {
-  header{
+  header {
     display: flex;
 
-    .logo{
+    .logo {
       transform: translateX(calc(50vw - 3.8rem - 50%));
     }
   }
 }
 
 @media (max-width: 420px) {
-  .showable{
+  .showable {
     display: none;
   }
 
-  header .logo{
+  header .logo {
     transform: translateX(calc(50vw - 50%));
   }
 }
