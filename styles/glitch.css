@@ -86,9 +86,6 @@
     animation-delay: -3s;
 }
 
-
-
-
 @keyframes ronana {
     0%{
         transform: translateY(var(--y)) translateX(var(--x)) rotate(0turn) scaleX(1.1);
