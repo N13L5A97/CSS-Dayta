@@ -1,0 +1,10 @@
+.most-popular {
+  background-color: white;
+  position: relative;
+  padding: 2rem;
+  width: fit-content;
+
+  img {
+    filter: none;
+  }
+}
