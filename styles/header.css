@@ -340,12 +340,17 @@ body {
         color-mix(
             in oklch,
             color-mix(in oklch, var(--year-color, papayawhip), transparent 50%),
-            black 25%
+            black 50%
           )
           7.5rem
       );
     }
+
+    .logo{
+      fill: white;
+    }
   }
+
 }
 
 @property --angle {
