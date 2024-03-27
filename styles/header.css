@@ -1,13 +1,14 @@
 header {
-  width: clamp(5rem, 40vw, 15rem);
-  top: 2rem;
-  left: 2rem;
+  width: 100vw;
   position: fixed;
+  z-index: 3000;
 
   .logo {
     --initial-delay: 6.5s;
 
-    width: 100%;
+    width: clamp(5rem, 40vw, 15rem);
+    top: 2rem;
+    left: 2rem;
 
     rect {
       --ani-delay: var(--initial-delay);
@@ -213,5 +214,204 @@ header {
 
   100% {
     transform: scaleY(1) scaleX(1);
+  }
+}
+
+/* color themes met style queries */
+
+.showable {
+  position: absolute;
+  width: 0.2rem;
+  aspect-ratio: 1/30;
+  right: 8rem;
+  background-color: rgb(237, 237, 237);
+  transform: translateY(-0.5rem);
+  transition: var(--transition-base);
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 0.6rem;
+    aspect-ratio: 1/2;
+    background-color: black;
+    bottom: -0.3rem;
+    border-radius: 50% 50% 0 0;
+    left: calc(50% - 0.3rem);
+  }
+
+  &:active,
+  &:hover {
+    transform: translateY(0);
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+}
+
+body:has(input[name='show']:checked) .showable {
+  filter: invert(1);
+}
+
+body:has(input[name='show']:focus) .showable {
+  transform: translateY(0);
+  box-shadow: 0 0.5rem 0.5rem white;
+}
+
+.hideable {
+  background-color: white;
+  position: absolute;
+  top: 0;
+  right: 10rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+  width: 12rem;
+  transform: translateY(-10rem);
+  transition: var(--transition-base);
+
+  label {
+    flex: 1 1 4rem;
+  }
+}
+
+body:has(input[name='show']:checked) .hideable {
+  transform: translateY(0);
+}
+
+/************/
+/* SETTINGS */
+/************/
+
+/* prefers-color-scheme:dark */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --colors: dark;
+  }
+}
+
+/* prefers-color-scheme:light */
+@media (prefers-color-scheme: light) {
+  :root {
+    --colors: light;
+  }
+}
+
+/* system checked --> nada */
+:root:has([value='system']:checked) {
+  /* nada	--> volgt prefers-color-scheme */
+}
+
+/* dark checked */
+:root:has([value='dark']:checked) {
+  --colors: dark;
+}
+
+/* light checked */
+:root:has([value='light']:checked) {
+  --colors: light;
+}
+
+/* space checked --> dark + --space:true */
+:root:has([value='party']:checked) {
+  --colors: dark;
+  --party: true;
+}
+
+/**********/
+/* THEMES */
+/**********/
+
+/* default / light theme */
+body {
+  color-scheme: light;
+}
+
+/* dark theme */
+@container style(--colors:dark) {
+  body {
+    color-scheme: dark;
+
+    main > section {
+      background-image: linear-gradient(
+        to left,
+        color-mix(
+            in oklch,
+            color-mix(in oklch, var(--year-color, papayawhip), transparent 50%),
+            black 10%
+          )
+          0 17%,
+        color-mix(
+            in oklch,
+            color-mix(in oklch, var(--year-color, papayawhip), transparent 50%),
+            black 25%
+          )
+          17%
+      );
+    }
+  }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/* space theme */
+@container style(--party:true) {
+  body main > section {
+    background-image: repeating-conic-gradient(
+      from var(--angle, 0deg) in oklch,
+      var(--clr-1) 0deg,
+      var(--clr-2),
+      var(--clr-3),
+      var(--clr-1) 30deg
+    );
+
+    &:nth-of-type(4n - 3) {
+      --clr-1: blueviolet;
+      --clr-2: cyan;
+      --clr-3: yellow;
+
+      animation: draaien 30s infinite linear reverse;
+    }
+
+    &:nth-of-type(4n - 2) {
+      --clr-1: indigo;
+      --clr-2: green;
+      --clr-3: gold;
+
+      animation: draaien 30s infinite linear;
+    }
+
+    &:nth-of-type(4n - 1) {
+      --clr-1: gold;
+      --clr-2: hotpink;
+      --clr-3: cornflowerblue;
+
+      animation: draaien 30s infinite linear reverse;
+    }
+    &:nth-of-type(4n) {
+      --clr-1: mediumvioletred;
+      --clr-2: seagreen;
+      --clr-3: sandybrown;
+
+      animation: draaien 30s infinite linear;
+    }
+  }
+}
+
+@keyframes draaien {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
   }
 }

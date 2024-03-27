@@ -9,6 +9,7 @@
   --ticket-secondary-color: #28232d;
   --ticket-tertiary-color: #ab0620;
 
+  scale: 0.8;
   width: 22rem;
   aspect-ratio: 1.5 /1;
   background-image: radial-gradient(
@@ -139,6 +140,18 @@
     a {
       text-decoration: underline;
     }
+
+    p + div:has(a) {
+      transition: var(--transition-short);
+    }
+
+    p + div:has(a:focus),
+    p + div:has(a:hover) {
+      opacity: 0.8;
+      scale: 1.1;
+      outline: 4px dotted var(--ticket-tertiary-color);
+      outline-offset: 3px;
+    }
   }
 
   > span {
@@ -177,6 +190,18 @@
       left bottom,
       left bottom;
     background-repeat: no-repeat;
+  }
+}
+
+@container style(--colors:dark) {
+  .ticket {
+    --ticket-color: #1b58a3;
+    --ticket-secondary-color: #fffdf2;
+    --ticket-tertiary-color: #ff8585;
+
+    a {
+      color: var(--ticket-secondary-color);
+    }
   }
 }
 
