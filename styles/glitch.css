@@ -1,0 +1,26 @@
+#glitch1 {
+    width: 0;
+    height: 0;
+}
+
+.mcEmpty {
+    width: 100dvw;
+    height: 90dvh;
+    filter: url(#glitch1);
+    animation: glitchEffect 0.1s infinite;
+}
+
+@keyframes glitchEffect {
+    0%{
+        filter: url(#glitch1);
+    }
+    50%{
+        filter: url(#glitch2);
+    }
+    70%{
+        filter: url(#glitch3);
+    }
+    100%{
+        filter: url(#glitch1);
+    }
+}
