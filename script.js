@@ -54,7 +54,7 @@ function generateLocationElement(data, counter) {
 function generateLinkElement(data, counter) {
   const link = document.createElement('a');
   link.setAttribute('href', data);
-  link.setAttribute('target', '_blank')
+  link.setAttribute('target', '_blank');
   link.appendChild(document.createTextNode('Website'));
   query = 'section:nth-of-type('.concat(
     counter + ') .ticket div div div:nth-of-type(2)'
@@ -63,29 +63,28 @@ function generateLinkElement(data, counter) {
 }
 
 function generateMCAltName(data, counter) {
-    const mcAltName = document.querySelectorAll('section:nth-of-type('.concat(counter + ') div:nth-of-type(1) img'))
-    for(var k in mcAltName) {
-        if (mcAltName.hasOwnProperty(k)) {
-            mcAltName[k].setAttribute('alt', data[k].name)
-        }
+  const mcAltName = document.querySelectorAll(
+    'section:nth-of-type('.concat(counter + ') div:nth-of-type(1) img')
+  );
+  for (var k in mcAltName) {
+    if (mcAltName.hasOwnProperty(k)) {
+      mcAltName[k].setAttribute('alt', data[k].name);
     }
-    
-    for(var x in data) {
-        const mcName = document.createElement('p');
-        mcName.appendChild(document.createTextNode(data[x].name))
-        query = 'section:nth-of-type('.concat(
-            counter + ') div:nth-of-type(1)'
-          );
-        document.querySelector(query).appendChild(mcName)
-    }
+  }
+
+  for (var x in data) {
+    const mcName = document.createElement('p');
+    mcName.appendChild(document.createTextNode(data[x].name));
+    query = 'section:nth-of-type('.concat(counter + ') div:nth-of-type(1)');
+    document.querySelector(query).appendChild(mcName);
+  }
 }
 
-
 function generatePriceElement(data, counter) {
-    const price = document.createElement('span');
-    price.appendChild(document.createTextNode('TICKET - €'.concat(data)));
-    query = 'section:nth-of-type('.concat(counter + ') .ticket div h2');
-    document.querySelector(query).appendChild(price);
+  const price = document.createElement('span');
+  price.appendChild(document.createTextNode('TICKET - €'.concat(data)));
+  query = 'section:nth-of-type('.concat(counter + ') .ticket div h2');
+  document.querySelector(query).appendChild(price);
 }
 
 function generateRelevantSpeaker(data, counter) {
@@ -100,7 +99,7 @@ function generateRelevantSpeaker(data, counter) {
       viewCount = data[k].talk.video.views;
       likesTalk = data[k].talk.video.likes;
       videoLink = data[k].talk.video['youtube-link'];
-      
+
       tempObject = {
         name: speakerName,
         title: titleTalk,
@@ -111,49 +110,53 @@ function generateRelevantSpeaker(data, counter) {
         likes: likesTalk,
         link: videoLink,
       };
-      array.push(tempObject); 
-    } 
+      array.push(tempObject);
+    }
   }
 
   array.sort((a, b) => b.views - a.views);
-  mostPopular = array[0]
-  tempArray = []
+  mostPopular = array[0];
+  tempArray = [];
   for (var k in mostPopular) {
-    tempArray.push(mostPopular[k])
+    tempArray.push(mostPopular[k]);
   }
 
-  const name = document.createElement('h2')
-  const title = document.createElement('h3')
-  const avatar = document.createElement('img')
-  const thumbnail = document.createElement('img')
-  const country = document.createElement('p')
-  const views = document.createElement('p')
-  const likes = document.createElement('p')
-  const link = document.createElement('a')
-  const className = document.querySelector('section:nth-of-type('.concat(counter + ') .most-popular'))
-  
+  const name = document.createElement('h2');
+  const title = document.createElement('h3');
+  const avatar = document.createElement('img');
+  const thumbnail = document.createElement('img');
+  const country = document.createElement('p');
+  const views = document.createElement('p');
+  const likes = document.createElement('p');
+  const link = document.createElement('a');
+  const className = document.querySelector(
+    'section:nth-of-type('.concat(counter + ') .most-popular')
+  );
+
   if (tempArray[0] == undefined) {
     className.remove();
   } else if (tempArray[0] != undefined) {
     name.appendChild(document.createTextNode(tempArray[0]));
     title.appendChild(document.createTextNode(tempArray[1]));
     avatar.setAttribute('src', tempArray[2]);
-    thumbnail.setAttribute('src', tempArray[3])
-    country.appendChild(document.createTextNode('Nationaliteit: '.concat(tempArray[4])))
-    views.appendChild(document.createTextNode('Views: '.concat(tempArray[5])))
-    likes.appendChild(document.createTextNode('Likes: '.concat(tempArray[6])))
-    link.setAttribute('href', tempArray[7])
-    link.setAttribute('target', '_blank')
-    link.appendChild(document.createTextNode('Video'))
-    
-    className.appendChild(name)
-    className.appendChild(title)
-    className.appendChild(avatar)
-    className.appendChild(country)
-    className.appendChild(thumbnail)
-    className.appendChild(views)
-    className.appendChild(likes)
-    className.appendChild(link)
+    thumbnail.setAttribute('src', tempArray[3]);
+    country.appendChild(
+      document.createTextNode('Nationaliteit: '.concat(tempArray[4]))
+    );
+    views.appendChild(document.createTextNode('Views: '.concat(tempArray[5])));
+    likes.appendChild(document.createTextNode('Likes: '.concat(tempArray[6])));
+    link.setAttribute('href', tempArray[7]);
+    link.setAttribute('target', '_blank');
+    link.appendChild(document.createTextNode('Video'));
+
+    className.appendChild(name);
+    className.appendChild(title);
+    className.appendChild(avatar);
+    className.appendChild(country);
+    className.appendChild(thumbnail);
+    className.appendChild(views);
+    className.appendChild(likes);
+    className.appendChild(link);
   }
 }
 
@@ -167,7 +170,7 @@ const fetchData = async () => {
     arrays = getArrayOfYear(data);
 
     for (var k in years) {
-      generateColorElement(years[k], arrays[k], k); 
+      generateColorElement(years[k], arrays[k], k);
     }
     counter = 1;
     for (var i = years.length - 1; i >= 0; i--) {
@@ -176,17 +179,17 @@ const fetchData = async () => {
         generateDateElement(arrays[i].date, counter);
         generateLocationElement(arrays[i].venue, counter);
         generateLinkElement(arrays[i].link, counter);
-        generateMCAltName(arrays[i].mc, counter)
+        generateMCAltName(arrays[i].mc, counter);
         generatePriceElement(arrays[i].price, counter);
-        generateRelevantSpeaker(arrays[i].speakers, counter)
+        generateRelevantSpeaker(arrays[i].speakers, counter);
       } else {
         counter = counter + 1;
         generateDateElement(arrays[i].date, counter);
         generateLocationElement(arrays[i].venue, counter);
         generateLinkElement(arrays[i].link, counter);
-        generateMCAltName(arrays[i].mc, counter)
+        generateMCAltName(arrays[i].mc, counter);
         generatePriceElement(arrays[i].price, counter);
-        generateRelevantSpeaker(arrays[i].speakers, counter)
+        generateRelevantSpeaker(arrays[i].speakers, counter);
       }
     }
   } catch (error) {

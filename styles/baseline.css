@@ -20,3 +20,8 @@ a {
   text-decoration: none;
   color: black;
 }
+
+button {
+  background-color: transparent;
+  border: none;
+}
