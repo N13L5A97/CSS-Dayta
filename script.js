@@ -270,11 +270,15 @@ function generateRelevantSpeaker(data, counter) {
 function showMostRelevantSpeaker(location) {
   const className = document.querySelector('section:nth-of-type('.concat(location + ') .most-popular'))
   className.style.display = 'block'
+  const cameraAnimation = document.querySelector('section:nth-of-type('.concat(location + ') .camera-wrapper'))
+  cameraAnimation.classList.add('playing')
 }
 
 function hideMostRelevantSpeaker(location) {
   const className = document.querySelector('section:nth-of-type('.concat(location + ') .most-popular'))
   className.style.display = 'none'
+  const cameraAnimation = document.querySelector('section:nth-of-type('.concat(location + ') .camera-wrapper'))
+  cameraAnimation.classList.remove('playing')
 }
 
 // fetch css day-ta
