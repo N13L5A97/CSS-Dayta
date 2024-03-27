@@ -369,6 +369,7 @@ body {
 
     .hideable {
       filter: invert(100%);
+    }
 
     .logo{
       fill: white;
