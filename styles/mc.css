@@ -8,7 +8,7 @@
   justify-content: space-around;
   align-items: end;
   border-bottom: 4px black solid;
-    box-shadow: inset 0px 20px 0px 3px black;
+  box-shadow: inset 0px 20px 0px 3px black;
 
   p {
     display: none;
@@ -123,4 +123,11 @@
   to{
     filter: hue-rotate(360deg);
   }
+}
+
+
+@media (max-width: 420px) {
+     .mc{
+       transform: translateX(calc(50vw - 50%));
+     }
 }

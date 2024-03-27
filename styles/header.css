@@ -10,9 +10,7 @@ header {
   .logo {
     --initial-delay: 0s;
 
-    width: clamp(5rem, 40vw, 15rem);
-    top: 2rem;
-    left: 2rem;
+    width: clamp(11rem, 40vw, 15rem);
     padding: 2rem;
 
     rect {
@@ -405,5 +403,25 @@ body {
   }
   100% {
     --angle: 360deg;
+  }
+}
+
+@media (max-width: 790px) {
+  header{
+    display: flex;
+
+    .logo{
+      transform: translateX(calc(50vw - 3.8rem - 50%));
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .showable{
+    display: none;
+  }
+
+  header .logo{
+    transform: translateX(calc(50vw - 50%));
   }
 }
