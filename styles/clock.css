@@ -1,20 +1,20 @@
 #flip-clock {
-  height: min-content;
-  z-index: 9999999;
+  width: clamp(10rem, 50vw, 40rem);
+  z-index: 9000;
 
   position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+  transform: translate(calc((50vw - 3.75rem) - 50%), calc(50vh - 50%));
   background-color: black;
   padding: 1rem;
   gap: 1rem;
   border-radius: 0.5rem;
 
   /* 3D omgeving / de scene */
-  perspective: 45em;
+  perspective: 100rem;
   transform-style: preserve-3d;
 
   & ul {
@@ -48,7 +48,7 @@
   }
 
   & svg {
-    width: clamp(3rem, 10vw, 6rem);
+    width: 100%;
   }
 
   /* 0 */
