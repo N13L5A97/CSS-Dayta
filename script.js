@@ -59,7 +59,7 @@ function generateDateElement(data, counter) {
 }
 
 // verkrijg van elk jaar de locatie waarop het evenement werd gehouden
-// genereer hiervoor een HTML element en plaatst deze op de gespecificeerde plek 
+// genereer hiervoor een HTML element en plaatst deze op de gespecificeerde plek
 function generateLocationElement(data, counter) {
   // genereer het element voor de locatie
   const location = document.createElement('p');
@@ -81,7 +81,7 @@ function generateLinkElement(data, counter) {
   // zet de URL naar de desbetreffende site als attribuut in het HTML element
   link.setAttribute('href', data);
   // stel een attribuut in waardoor de URL op een nieuw tablad wordt geopend
-  link.setAttribute('target', '_blank')
+  link.setAttribute('target', '_blank');
   // voeg tekst toe aan het gegenereerde element.
   link.appendChild(document.createTextNode('Website'));
   // maak de query voor de locatie waar het HTML element geplaatst moet worden
@@ -96,29 +96,29 @@ function generateLinkElement(data, counter) {
 // genereer hiervoor één of meerdere HTML element(en) en plaatst deze op de gespecificeerde plek
 function generateMCAltNameOld(data, counter) {
   // haal het element op waar de HTML element aan toe word gevoegd
-    const mcAltName = document.querySelectorAll('section:nth-of-type('.concat(counter + ') div:nth-of-type(1) img'))
-    // voor elke waarde in mcAltName, doe iets
-    for(var k in mcAltName) {
-        // als mcAltName een eigen property heeft, doe dan iets 
-        if (mcAltName.hasOwnProperty(k)) {
-            // geef het alt attribuut als waarde een naam van een mc uit data.
-            mcAltName[k].setAttribute('alt', data[k].name)
-        }
-    }
-    // voor elke key in data, doe iets
-    for(var x in data) {
-        // genereer het HTML element voor de naam van de MC
-        const mcName = document.createElement('p');
-        // voeg de naam van de MC toe aan het HTML element
-        mcName.appendChild(document.createTextNode(data[x].name))
-        // maak de query voor de locatie waar het HTML element geplaatst moet worden
-        query = 'section:nth-of-type('.concat(
-            counter + ') div:nth-of-type(1)'
-          );
-        // zoek het element a.d.h.v. de query en voeg het HTML element toe.
-        document.querySelector(query).appendChild(mcName)
+  const mcAltName = document.querySelectorAll(
+    'section:nth-of-type('.concat(counter + ') div:nth-of-type(1) img')
+  );
+  // voor elke waarde in mcAltName, doe iets
+  for (var k in mcAltName) {
+    // als mcAltName een eigen property heeft, doe dan iets
+    if (mcAltName.hasOwnProperty(k)) {
+      // geef het alt attribuut als waarde een naam van een mc uit data.
+      mcAltName[k].setAttribute('alt', data[k].name);
     }
   }
+  // voor elke key in data, doe iets
+  for (var x in data) {
+    // genereer het HTML element voor de naam van de MC
+    const mcName = document.createElement('p');
+    // voeg de naam van de MC toe aan het HTML element
+    mcName.appendChild(document.createTextNode(data[x].name));
+    // maak de query voor de locatie waar het HTML element geplaatst moet worden
+    query = 'section:nth-of-type('.concat(counter + ') div:nth-of-type(1)');
+    // zoek het element a.d.h.v. de query en voeg het HTML element toe.
+    document.querySelector(query).appendChild(mcName);
+  }
+}
 
 // verkrijg van elk jaar de MC(s) die op het evenement aanwezig was/waren
 // genereer hiervoor één of meerdere HTML element(en) en plaatst deze op de gespecificeerde plek
@@ -128,51 +128,51 @@ function generateMCAltName(data, counter) {
     // als k gelijk is aan 0 (1e positie), doe iets
     if (k == 0) {
       // haal het element op waar het alt attribuut aan wordt toegevoegd
-      const mcAltName = document.querySelector('section:nth-of-type('.concat(counter + ') div:nth-of-type(1) img'))
+      const mcAltName = document.querySelector(
+        'section:nth-of-type('.concat(counter + ') div:nth-of-type(1) img')
+      );
       // stel als alt attribuut de naam van de MC in.
-      mcAltName.setAttribute('alt', data[k].name)
+      mcAltName.setAttribute('alt', data[k].name);
       // genereer het HTML element waar de naam van de MC in komt te staan.
       const mcName = document.createElement('p');
       // geef het gegenereerde HTML als tekst de naam van de MC mee
-      mcName.appendChild(document.createTextNode(data[k].name))
-        // maak de query voor de locatie waar het HTML element geplaatst moet worden
-        query = 'section:nth-of-type('.concat(
-            counter + ') div:nth-of-type(1) div:nth-of-type(1)'
-          );
-        // zoek het element a.d.h.v. de query en voeg het HTML element toe.
-        document.querySelector(query).appendChild(mcName)
-      
+      mcName.appendChild(document.createTextNode(data[k].name));
+      // maak de query voor de locatie waar het HTML element geplaatst moet worden
+      query = 'section:nth-of-type('.concat(
+        counter + ') div:nth-of-type(1) div:nth-of-type(1)'
+      );
+      // zoek het element a.d.h.v. de query en voeg het HTML element toe.
+      document.querySelector(query).appendChild(mcName);
     } else if (k == 1) {
       // haal het element op waar het alt attribuut aan wordt toegevoegd
-      const mcAltName = document.querySelector('section:nth-of-type('.concat(counter + ') div:nth-of-type(3) img'))
+      const mcAltName = document.querySelector(
+        'section:nth-of-type('.concat(counter + ') div:nth-of-type(3) img')
+      );
       // stel als alt attribuut de naam van de MC in.
-      mcAltName.setAttribute('alt', data[k].name)
+      mcAltName.setAttribute('alt', data[k].name);
       // genereer het HTML element waar de naam van de MC in komt te staan.
       const mcName = document.createElement('p');
       // geef het gegenereerde HTML als tekst de naam van de MC mee
-      mcName.appendChild(document.createTextNode(data[k].name))
-        // maak de query voor de locatie waar het HTML element geplaatst moet worden
-        query = 'section:nth-of-type('.concat(
-            counter + ') div:nth-of-type(3)'
-          );
-        // zoek het element a.d.h.v. de query en voeg het HTML element toe.
-        document.querySelector(query).appendChild(mcName)
+      mcName.appendChild(document.createTextNode(data[k].name));
+      // maak de query voor de locatie waar het HTML element geplaatst moet worden
+      query = 'section:nth-of-type('.concat(counter + ') div:nth-of-type(3)');
+      // zoek het element a.d.h.v. de query en voeg het HTML element toe.
+      document.querySelector(query).appendChild(mcName);
     }
-    
   }
 }
 
 // verkrijg van elk jaar de prijs van één ticket
 // genereer hiervoor één HTML element en plaatst deze op de gespecificeerde plek
 function generatePriceElement(data, counter) {
-    // genereer het HTML element voor de prijs van een ticket
-    const price = document.createElement('span');
-    // voeg de prijs van de ticket toe aan het HTML element
-    price.appendChild(document.createTextNode('TICKET - €'.concat(data)));
-    // maak de query voor de locatie waar het HTML element geplaatst moet worden
-    query = 'section:nth-of-type('.concat(counter + ') .ticket div h2');
-    // zoek het element a.d.h.v. de query en voeg het HTML element toe.
-    document.querySelector(query).appendChild(price);
+  // genereer het HTML element voor de prijs van een ticket
+  const price = document.createElement('span');
+  // voeg de prijs van de ticket toe aan het HTML element
+  price.appendChild(document.createTextNode('TICKET - €'.concat(data)));
+  // maak de query voor de locatie waar het HTML element geplaatst moet worden
+  query = 'section:nth-of-type('.concat(counter + ') .ticket div h2');
+  // zoek het element a.d.h.v. de query en voeg het HTML element toe.
+  document.querySelector(query).appendChild(price);
 }
 
 // verkrijg van elk jaar de meest relevante spreker, met de bijbehorende informatie, op basis van de views op de YouTube video van het evenement.
@@ -193,7 +193,7 @@ function generateRelevantSpeaker(data, counter) {
       viewCount = data[k].talk.video.views;
       likesTalk = data[k].talk.video.likes;
       videoLink = data[k].talk.video['youtube-link'];
-      
+
       // nieuw Object om tijdelijk de verkregen informatie in op te slaan
       tempObject = {
         name: speakerName,
@@ -205,22 +205,22 @@ function generateRelevantSpeaker(data, counter) {
         likes: likesTalk,
         link: videoLink,
       };
-      
+
       // zet het tijdelijke Object in de lege array
-      array.push(tempObject); 
-    } 
+      array.push(tempObject);
+    }
   }
   // sorteer de array op de views van de YouTube video, van hoog naar laag
   array.sort((a, b) => b.views - a.views);
 
   // zet het Object dat bovenaan staat (de meest populaire) in mostPopular
-  mostPopular = array[0]
+  mostPopular = array[0];
   // lege, tijdelijk array
-  tempArray = []
+  tempArray = [];
   // voor elke key (elk stukje informatie) in mostPopular, doe iets
   for (var k in mostPopular) {
     // zet elke key uit het Object in een array
-    tempArray.push(mostPopular[k])
+    tempArray.push(mostPopular[k]);
   }
   // genereer de benodigde HTML elementen
   const name = document.createElement('h2');
@@ -233,52 +233,71 @@ function generateRelevantSpeaker(data, counter) {
   const likes = document.createElement('p');
   const close = document.createElement('button');
   // haal het element op waar de gegenereerde HTML elementen aan worden toegevoegd
-  const className = document.querySelector('section:nth-of-type('.concat(counter + ') .most-popular'))
+  const className = document.querySelector(
+    'section:nth-of-type('.concat(counter + ') .most-popular')
+  );
   // als het eerste object (meest recente jaar, kan nog geen evenement voor zijn geweest) leeg is, doe dan iets
   if (tempArray[0] == undefined) {
     // verwijder het element waar de HTML elementen aan toe zouden worden gevoegd.
     className.remove();
-  // als het eerste object niet leeg is, doe dan iets
+    // als het eerste object niet leeg is, doe dan iets
   } else if (tempArray[0] != undefined) {
     // voeg de juiste attribuut/informatie toe aan het gegenereerde HTML element
     name.appendChild(document.createTextNode(tempArray[0]));
     title.appendChild(document.createTextNode(tempArray[1]));
     avatar.setAttribute('src', tempArray[2]);
-    link.setAttribute('href', tempArray[7])
-    link.setAttribute('target', '_blank')
-    thumbnail.setAttribute('src', tempArray[3])
-    country.appendChild(document.createTextNode('Nationaliteit: '.concat(tempArray[4])))
-    views.appendChild(document.createTextNode('Views: '.concat(tempArray[5])))
-    likes.appendChild(document.createTextNode('Likes: '.concat(tempArray[6])))
+    link.setAttribute('href', tempArray[7]);
+    link.setAttribute('target', '_blank');
+    thumbnail.setAttribute('src', tempArray[3]);
+    country.appendChild(
+      document.createTextNode('Nationaliteit: '.concat(tempArray[4]))
+    );
+    views.appendChild(document.createTextNode('Views: '.concat(tempArray[5])));
+    likes.appendChild(document.createTextNode('Likes: '.concat(tempArray[6])));
 
-    close.appendChild(document.createTextNode('x'))
-    close.setAttribute('onClick', 'hideMostRelevantSpeaker('.concat(counter + ')'))
+    close.appendChild(document.createTextNode('x'));
+    close.setAttribute(
+      'onClick',
+      'hideMostRelevantSpeaker('.concat(counter + ')')
+    );
     // voeg de gegenereerde HTML elementen toe aan het opgehaalde HTML element.
-    link.appendChild(thumbnail)
-    className.appendChild(name)
-    className.appendChild(title)
-    className.appendChild(avatar)
-    className.appendChild(country)
-    className.appendChild(views)
-    className.appendChild(likes)
-    className.appendChild(link)
-    className.appendChild(close)
-    className.style.display = 'none'
+    link.appendChild(thumbnail);
+    className.appendChild(name);
+    className.appendChild(title);
+    className.appendChild(avatar);
+    className.appendChild(country);
+    className.appendChild(views);
+    className.appendChild(likes);
+    className.appendChild(link);
+    className.appendChild(close);
+    className.style.display = 'none';
   }
 }
 
 function showMostRelevantSpeaker(location) {
-  const className = document.querySelector('section:nth-of-type('.concat(location + ') .most-popular'))
-  className.style.display = 'block'
-  const cameraAnimation = document.querySelector('section:nth-of-type('.concat(location + ') .camera-wrapper'))
-  cameraAnimation.classList.add('playing')
+  const className = document.querySelector(
+    'section:nth-of-type('.concat(location + ') .most-popular')
+  );
+  className.style.display = 'block';
+  const cameraAnimation = document.querySelector(
+    'section:nth-of-type('.concat(location + ') .camera-wrapper')
+  );
+  const flipKlok = document.querySelector('#flip-clock');
+  flipKlok.style.display = 'none';
+  cameraAnimation.classList.add('playing');
 }
 
 function hideMostRelevantSpeaker(location) {
-  const className = document.querySelector('section:nth-of-type('.concat(location + ') .most-popular'))
-  className.style.display = 'none'
-  const cameraAnimation = document.querySelector('section:nth-of-type('.concat(location + ') .camera-wrapper'))
-  cameraAnimation.classList.remove('playing')
+  const className = document.querySelector(
+    'section:nth-of-type('.concat(location + ') .most-popular')
+  );
+  className.style.display = 'none';
+  const cameraAnimation = document.querySelector(
+    'section:nth-of-type('.concat(location + ') .camera-wrapper')
+  );
+  const flipKlok = document.querySelector('#flip-clock');
+  flipKlok.style.display = 'flex';
+  cameraAnimation.classList.remove('playing');
 }
 
 // fetch css day-ta
@@ -291,7 +310,7 @@ const fetchData = async () => {
     arrays = getArrayOfYear(data);
 
     for (var k in years) {
-      generateColorElement(years[k], arrays[k]); 
+      generateColorElement(years[k], arrays[k]);
     }
     counter = 1;
     for (var i = years.length - 1; i >= 0; i--) {
