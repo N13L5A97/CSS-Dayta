@@ -7,6 +7,8 @@
   display: flex;
   justify-content: space-around;
   align-items: end;
+  border-bottom: 4px black solid;
+    box-shadow: inset 0px 20px 0px 3px black;
 
   p {
     display: none;
@@ -28,16 +30,14 @@
   }
 
   .microphone {
-    position: absolute;
-    width: clamp(5rem, 12vw, 13rem);
+    width: 9em;
+    height: 10em;
+    margin: 0 -5em;
     aspect-ratio: 1 / 1;
-    grid-area: 1 / 1;
     justify-self: end;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    bottom: 0.3rem;
-    z-index: 10000000;
+    z-index: 10;
 
     &:hover .part1 .part2 {
       transform: translateY(-40%) rotateZ(-45deg) rotateY(20deg);
