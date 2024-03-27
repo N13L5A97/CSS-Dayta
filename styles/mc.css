@@ -15,18 +15,10 @@
     }
 
     img {
-        width: 70%;
-        height: fit-content;
+        width: clamp(5rem, 100%, 10rem);
+        /* height: fit-content; */
         filter: drop-shadow(5px 0 0 black);
         bottom: 0;
-
-        &:first-of-type {
-            left: 0;
-        }
-
-        &:last-of-type {
-            right: 0;
-        }
 
         &.noColor2015 {
             filter: grayscale(100%) sepia(100%) hue-rotate(50deg);
@@ -39,11 +31,10 @@
     }
 
     .microphone {
-        width: 9em;
+        width: 10em;
         height: 10em;
-        margin: 0 -5em;
+        margin: 0em -5em;
         aspect-ratio: 1 / 1;
-        justify-self: end;
         display: grid;
         grid-template-columns: repeat(10, 1fr);
         z-index: 10;
