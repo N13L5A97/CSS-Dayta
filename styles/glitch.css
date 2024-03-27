@@ -8,7 +8,101 @@
     height: 90dvh;
     filter: url(#glitch1);
     animation: glitchEffect 0.1s infinite;
+    opacity: 0.2;
+    position: absolute;
 }
+
+.ronana, .ronana2{
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.ronana > img, .ronana2 > img {
+    z-index: 10;
+    animation: ronana 5s infinite alternate ease-in-out;
+}
+
+.rona1 {
+    scale: 0.5;
+    --x:10em;
+    --y:5em;
+    animation-delay: -2s;
+}
+
+.rona2 {
+    scale: 2;
+    --x:9em;
+    --y:-6em;
+    animation-delay: -5s;
+}
+
+.rona3 {
+    scale: 0.2;
+    --x:-3em;
+    --y:5em;
+    animation-delay: -1s;
+    
+}
+
+.rona4 {
+    --x:-8em;
+    --y:10em;
+    animation-delay: -2s;
+}
+
+.rona5 {
+    --x:-4em;
+    --y:10em;
+}
+
+.rona6 {
+    --x:4em;
+    --y:-1em;
+    animation-delay: -1s;
+}
+
+.rona7 {
+    --x:9em;
+    --y:7em;
+    animation-delay: -4;
+}
+
+.rona8 {
+    --x:-8em;
+    --y:10em;
+}
+
+.rona9 {
+    --x:-9em;
+    --y:-7em;
+    animation-delay: -5s;
+}
+
+.rona10 {
+    --x:-20em;
+    --y:-10em;
+    animation-delay: -3s;
+}
+
+
+
+
+@keyframes ronana {
+    0%{
+        transform: translateY(var(--y)) translateX(var(--x)) rotate(0turn) scaleX(1.1);
+        filter: invert(50%) sepia(95%) saturate(2269%) hue-rotate(88deg) brightness(123%) contrast(125%);
+    }
+    50%{
+        transform: translateY(calc(var(--y)*4.3)) translateX(calc(var(--y)*4.8)) rotate(0.5turn);
+        filter: invert(71%) sepia(60%) saturate(1860%) hue-rotate(104deg) brightness(109%) contrast(101%);
+    }
+    100%{
+        transform: translateY(calc(var(--y)/5.3)) translateX(calc(var(--y)/5.9)) rotate(1turn);
+        filter: invert(50%) sepia(95%) saturate(2269%) hue-rotate(88deg) brightness(123%) contrast(125%);
+    }
+} 
 
 @keyframes glitchEffect {
     0%{
