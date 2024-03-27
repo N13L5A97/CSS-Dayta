@@ -1,373 +1,373 @@
 #flip-clock {
-    height: min-content;
-    z-index: 9999999;
+  height: min-content;
+  z-index: 9999999;
 
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    transform: translate(calc(50vw - 50%), calc(50vh - 50%));
-    background-color: black;
-    padding: 1rem;
-    gap: 1rem;
-    border-radius: 0.5rem;
+  transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+  background-color: black;
+  padding: 1rem;
+  gap: 1rem;
+  border-radius: 0.5rem;
 
-    /* 3D omgeving / de scene */
-    perspective: 45em;
+  /* 3D omgeving / de scene */
+  perspective: 45em;
+  transform-style: preserve-3d;
+
+  & ul {
+    display: grid;
+    list-style: none;
+
+    /* 3D omgeving */
     transform-style: preserve-3d;
 
-    & ul {
-        display: grid;
-        list-style: none;
+    & li {
+      display: grid;
+      grid-area: 1/1;
+      rotate: X calc(var(--angle) - var(--tiental, 0) * 1turn);
 
-        /* 3D omgeving */
-        transform-style: preserve-3d;
+      /* 3D omgeving */
+      transform-style: preserve-3d;
+      transition: 0.8s ease-in-out;
 
-        & li {
-            display: grid;
-            grid-area: 1/1;
-            rotate: X calc( var(--angle) - var(--tiental, 0) * 1turn );
+      > div {
+        grid-area: 1/1;
+        backface-visibility: hidden;
+      }
 
-            /* 3D omgeving */
-            transform-style: preserve-3d;
-            transition: 0.8s ease-in-out;
+      > div:nth-of-type(2) {
+        background-color: #fff;
 
-            > div {
-                grid-area: 1/1;
-                backface-visibility: hidden;
-            }
+        /* initieel omgedraaid en dus niet zichtbaar */
+        transform: rotateX(180deg);
+      }
+    }
+  }
 
-            > div:nth-of-type(2) {
-                background-color: #fff;
+  & svg {
+    width: clamp(3rem, 10vw, 6rem);
+  }
 
-                /* initieel omgedraaid en dus niet zichtbaar */
-                transform: rotateX(180deg);
-            }
-        }
-    }
+  /* 0 */
+  & ul[data-nummer='0'] li:nth-of-type(1) {
+    --angle: -9deg;
+  }
+  & ul[data-nummer='0'] li:nth-of-type(2) {
+    --angle: -7deg;
+  }
+  & ul[data-nummer='0'] li:nth-of-type(3) {
+    --angle: -5deg;
+  }
+  & ul[data-nummer='0'] li:nth-of-type(4) {
+    --angle: -3deg;
+  }
+  & ul[data-nummer='0'] li:nth-of-type(5) {
+    --angle: -1deg;
+  }
+  & ul[data-nummer='0'] li:nth-of-type(6) {
+    --angle: -171deg;
+  }
+  & ul[data-nummer='0'] li:nth-of-type(7) {
+    --angle: -173deg;
+  }
+  & ul[data-nummer='0'] li:nth-of-type(8) {
+    --angle: -175deg;
+  }
+  & ul[data-nummer='0'] li:nth-of-type(9) {
+    --angle: -173deg;
+  }
+  & ul[data-nummer='0'] li:nth-of-type(10) {
+    --angle: -171deg;
+  }
 
-    & svg {
-        width: clamp(3rem, 10vw, 10rem);
-    }
+  /* 1 */
+  & ul[data-nummer='1'] li:nth-of-type(1) {
+    --angle: -171deg;
+  }
+  & ul[data-nummer='1'] li:nth-of-type(2) {
+    --angle: -9deg;
+  }
+  & ul[data-nummer='1'] li:nth-of-type(3) {
+    --angle: -7deg;
+  }
+  & ul[data-nummer='1'] li:nth-of-type(4) {
+    --angle: -5deg;
+  }
+  & ul[data-nummer='1'] li:nth-of-type(5) {
+    --angle: -3deg;
+  }
+  & ul[data-nummer='1'] li:nth-of-type(6) {
+    --angle: -359deg;
+  }
+  & ul[data-nummer='1'] li:nth-of-type(7) {
+    --angle: -179deg;
+  }
+  & ul[data-nummer='1'] li:nth-of-type(8) {
+    --angle: -177deg;
+  }
+  & ul[data-nummer='1'] li:nth-of-type(9) {
+    --angle: -175deg;
+  }
+  & ul[data-nummer='1'] li:nth-of-type(10) {
+    --angle: -173deg;
+  }
 
-    /* 0 */
-    & ul[data-nummer="0"] li:nth-of-type(1) {
-        --angle: -9deg;
-    }
-    & ul[data-nummer="0"] li:nth-of-type(2) {
-        --angle: -7deg;
-    }
-    & ul[data-nummer="0"] li:nth-of-type(3) {
-        --angle: -5deg;
-    }
-    & ul[data-nummer="0"] li:nth-of-type(4) {
-        --angle: -3deg;
-    }
-    & ul[data-nummer="0"] li:nth-of-type(5) {
-        --angle: -1deg;
-    }
-    & ul[data-nummer="0"] li:nth-of-type(6) {
-        --angle: -171deg;
-    }
-    & ul[data-nummer="0"] li:nth-of-type(7) {
-        --angle: -173deg;
-    }
-    & ul[data-nummer="0"] li:nth-of-type(8) {
-        --angle: -175deg;
-    }
-    & ul[data-nummer="0"] li:nth-of-type(9) {
-        --angle: -173deg;
-    }
-    & ul[data-nummer="0"] li:nth-of-type(10) {
-        --angle: -171deg;
-    }
+  /* 2 */
+  & ul[data-nummer='2'] li:nth-of-type(1) {
+    --angle: -173deg;
+  }
+  & ul[data-nummer='2'] li:nth-of-type(2) {
+    --angle: -171deg;
+  }
+  & ul[data-nummer='2'] li:nth-of-type(3) {
+    --angle: -9deg;
+  }
+  & ul[data-nummer='2'] li:nth-of-type(4) {
+    --angle: -7deg;
+  }
+  & ul[data-nummer='2'] li:nth-of-type(5) {
+    --angle: -5deg;
+  }
+  & ul[data-nummer='2'] li:nth-of-type(6) {
+    --angle: -361deg;
+  }
+  & ul[data-nummer='2'] li:nth-of-type(7) {
+    --angle: -359deg;
+  }
+  & ul[data-nummer='2'] li:nth-of-type(8) {
+    --angle: -179deg;
+  }
+  & ul[data-nummer='2'] li:nth-of-type(9) {
+    --angle: -177deg;
+  }
+  & ul[data-nummer='2'] li:nth-of-type(10) {
+    --angle: -175deg;
+  }
 
-    /* 1 */
-    & ul[data-nummer="1"] li:nth-of-type(1) {
-        --angle: -171deg;
-    }
-    & ul[data-nummer="1"] li:nth-of-type(2) {
-        --angle: -9deg;
-    }
-    & ul[data-nummer="1"] li:nth-of-type(3) {
-        --angle: -7deg;
-    }
-    & ul[data-nummer="1"] li:nth-of-type(4) {
-        --angle: -5deg;
-    }
-    & ul[data-nummer="1"] li:nth-of-type(5) {
-        --angle: -3deg;
-    }
-    & ul[data-nummer="1"] li:nth-of-type(6) {
-        --angle: -359deg;
-    }
-    & ul[data-nummer="1"] li:nth-of-type(7) {
-        --angle: -179deg;
-    }
-    & ul[data-nummer="1"] li:nth-of-type(8) {
-        --angle: -177deg;
-    }
-    & ul[data-nummer="1"] li:nth-of-type(9) {
-        --angle: -175deg;
-    }
-    & ul[data-nummer="1"] li:nth-of-type(10) {
-        --angle: -173deg;
-    }
+  /* 3 */
+  & ul[data-nummer='3'] li:nth-of-type(1) {
+    --angle: -175deg;
+  }
+  & ul[data-nummer='3'] li:nth-of-type(2) {
+    --angle: -173deg;
+  }
+  & ul[data-nummer='3'] li:nth-of-type(3) {
+    --angle: -171deg;
+  }
+  & ul[data-nummer='3'] li:nth-of-type(4) {
+    --angle: -9deg;
+  }
+  & ul[data-nummer='3'] li:nth-of-type(5) {
+    --angle: -7deg;
+  }
+  & ul[data-nummer='3'] li:nth-of-type(6) {
+    --angle: -363deg;
+  }
+  & ul[data-nummer='3'] li:nth-of-type(7) {
+    --angle: -361deg;
+  }
+  & ul[data-nummer='3'] li:nth-of-type(8) {
+    --angle: -359deg;
+  }
+  & ul[data-nummer='3'] li:nth-of-type(9) {
+    --angle: -179deg;
+  }
+  & ul[data-nummer='3'] li:nth-of-type(10) {
+    --angle: -177deg;
+  }
 
-    /* 2 */
-    & ul[data-nummer="2"] li:nth-of-type(1) {
-        --angle: -173deg;
-    }
-    & ul[data-nummer="2"] li:nth-of-type(2) {
-        --angle: -171deg;
-    }
-    & ul[data-nummer="2"] li:nth-of-type(3) {
-        --angle: -9deg;
-    }
-    & ul[data-nummer="2"] li:nth-of-type(4) {
-        --angle: -7deg;
-    }
-    & ul[data-nummer="2"] li:nth-of-type(5) {
-        --angle: -5deg;
-    }
-    & ul[data-nummer="2"] li:nth-of-type(6) {
-        --angle: -361deg;
-    }
-    & ul[data-nummer="2"] li:nth-of-type(7) {
-        --angle: -359deg;
-    }
-    & ul[data-nummer="2"] li:nth-of-type(8) {
-        --angle: -179deg;
-    }
-    & ul[data-nummer="2"] li:nth-of-type(9) {
-        --angle: -177deg;
-    }
-    & ul[data-nummer="2"] li:nth-of-type(10) {
-        --angle: -175deg;
-    }
+  /* 4 */
+  & ul[data-nummer='4'] li:nth-of-type(1) {
+    --angle: -177deg;
+  }
+  & ul[data-nummer='4'] li:nth-of-type(2) {
+    --angle: -175deg;
+  }
+  & ul[data-nummer='4'] li:nth-of-type(3) {
+    --angle: -173deg;
+  }
+  & ul[data-nummer='4'] li:nth-of-type(4) {
+    --angle: -171deg;
+  }
+  & ul[data-nummer='4'] li:nth-of-type(5) {
+    --angle: -9deg;
+  }
+  & ul[data-nummer='4'] li:nth-of-type(6) {
+    --angle: -365deg;
+  }
+  & ul[data-nummer='4'] li:nth-of-type(7) {
+    --angle: -363deg;
+  }
+  & ul[data-nummer='4'] li:nth-of-type(8) {
+    --angle: -361deg;
+  }
+  & ul[data-nummer='4'] li:nth-of-type(9) {
+    --angle: -359deg;
+  }
+  & ul[data-nummer='4'] li:nth-of-type(10) {
+    --angle: -179deg;
+  }
 
-    /* 3 */
-    & ul[data-nummer="3"] li:nth-of-type(1) {
-        --angle: -175deg;
-    }
-    & ul[data-nummer="3"] li:nth-of-type(2) {
-        --angle: -173deg;
-    }
-    & ul[data-nummer="3"] li:nth-of-type(3) {
-        --angle: -171deg;
-    }
-    & ul[data-nummer="3"] li:nth-of-type(4) {
-        --angle: -9deg;
-    }
-    & ul[data-nummer="3"] li:nth-of-type(5) {
-        --angle: -7deg;
-    }
-    & ul[data-nummer="3"] li:nth-of-type(6) {
-        --angle: -363deg;
-    }
-    & ul[data-nummer="3"] li:nth-of-type(7) {
-        --angle: -361deg;
-    }
-    & ul[data-nummer="3"] li:nth-of-type(8) {
-        --angle: -359deg;
-    }
-    & ul[data-nummer="3"] li:nth-of-type(9) {
-        --angle: -179deg;
-    }
-    & ul[data-nummer="3"] li:nth-of-type(10) {
-        --angle: -177deg;
-    }
+  /* 5 */
+  & ul[data-nummer='5'] li:nth-of-type(1) {
+    --angle: -179deg;
+  }
+  & ul[data-nummer='5'] li:nth-of-type(2) {
+    --angle: -177deg;
+  }
+  & ul[data-nummer='5'] li:nth-of-type(3) {
+    --angle: -175deg;
+  }
+  & ul[data-nummer='5'] li:nth-of-type(4) {
+    --angle: -173deg;
+  }
+  & ul[data-nummer='5'] li:nth-of-type(5) {
+    --angle: -171deg;
+  }
+  & ul[data-nummer='5'] li:nth-of-type(6) {
+    --angle: -367deg;
+  }
+  & ul[data-nummer='5'] li:nth-of-type(7) {
+    --angle: -365deg;
+  }
+  & ul[data-nummer='5'] li:nth-of-type(8) {
+    --angle: -363deg;
+  }
+  & ul[data-nummer='5'] li:nth-of-type(9) {
+    --angle: -361deg;
+  }
+  & ul[data-nummer='5'] li:nth-of-type(10) {
+    --angle: -359deg;
+  }
 
-    /* 4 */
-    & ul[data-nummer="4"] li:nth-of-type(1) {
-        --angle: -177deg;
-    }
-    & ul[data-nummer="4"] li:nth-of-type(2) {
-        --angle: -175deg;
-    }
-    & ul[data-nummer="4"] li:nth-of-type(3) {
-        --angle: -173deg;
-    }
-    & ul[data-nummer="4"] li:nth-of-type(4) {
-        --angle: -171deg;
-    }
-    & ul[data-nummer="4"] li:nth-of-type(5) {
-        --angle: -9deg;
-    }
-    & ul[data-nummer="4"] li:nth-of-type(6) {
-        --angle: -365deg;
-    }
-    & ul[data-nummer="4"] li:nth-of-type(7) {
-        --angle: -363deg;
-    }
-    & ul[data-nummer="4"] li:nth-of-type(8) {
-        --angle: -361deg;
-    }
-    & ul[data-nummer="4"] li:nth-of-type(9) {
-        --angle: -359deg;
-    }
-    & ul[data-nummer="4"] li:nth-of-type(10) {
-        --angle: -179deg;
-    }
+  /* 6 */
+  & ul[data-nummer='6'] li:nth-of-type(1) {
+    --angle: -359deg;
+  }
+  & ul[data-nummer='6'] li:nth-of-type(2) {
+    --angle: -179deg;
+  }
+  & ul[data-nummer='6'] li:nth-of-type(3) {
+    --angle: -177deg;
+  }
+  & ul[data-nummer='6'] li:nth-of-type(4) {
+    --angle: -175deg;
+  }
+  & ul[data-nummer='6'] li:nth-of-type(5) {
+    --angle: -173deg;
+  }
+  & ul[data-nummer='6'] li:nth-of-type(6) {
+    --angle: -531deg;
+  }
+  & ul[data-nummer='6'] li:nth-of-type(7) {
+    --angle: -367deg;
+  }
+  & ul[data-nummer='6'] li:nth-of-type(8) {
+    --angle: -365deg;
+  }
+  & ul[data-nummer='6'] li:nth-of-type(9) {
+    --angle: -363deg;
+  }
+  & ul[data-nummer='6'] li:nth-of-type(10) {
+    --angle: -361deg;
+  }
 
-    /* 5 */
-    & ul[data-nummer="5"] li:nth-of-type(1) {
-        --angle: -179deg;
-    }
-    & ul[data-nummer="5"] li:nth-of-type(2) {
-        --angle: -177deg;
-    }
-    & ul[data-nummer="5"] li:nth-of-type(3) {
-        --angle: -175deg;
-    }
-    & ul[data-nummer="5"] li:nth-of-type(4) {
-        --angle: -173deg;
-    }
-    & ul[data-nummer="5"] li:nth-of-type(5) {
-        --angle: -171deg;
-    }
-    & ul[data-nummer="5"] li:nth-of-type(6) {
-        --angle: -367deg;
-    }
-    & ul[data-nummer="5"] li:nth-of-type(7) {
-        --angle: -365deg;
-    }
-    & ul[data-nummer="5"] li:nth-of-type(8) {
-        --angle: -363deg;
-    }
-    & ul[data-nummer="5"] li:nth-of-type(9) {
-        --angle: -361deg;
-    }
-    & ul[data-nummer="5"] li:nth-of-type(10) {
-        --angle: -359deg;
-    }
+  /* 7 */
+  & ul[data-nummer='7'] li:nth-of-type(1) {
+    --angle: -361deg;
+  }
+  & ul[data-nummer='7'] li:nth-of-type(2) {
+    --angle: -359deg;
+  }
+  & ul[data-nummer='7'] li:nth-of-type(3) {
+    --angle: -179deg;
+  }
+  & ul[data-nummer='7'] li:nth-of-type(4) {
+    --angle: -177deg;
+  }
+  & ul[data-nummer='7'] li:nth-of-type(5) {
+    --angle: -175deg;
+  }
+  & ul[data-nummer='7'] li:nth-of-type(6) {
+    --angle: -533deg;
+  }
+  & ul[data-nummer='7'] li:nth-of-type(7) {
+    --angle: -531deg;
+  }
+  & ul[data-nummer='7'] li:nth-of-type(8) {
+    --angle: -367deg;
+  }
+  & ul[data-nummer='7'] li:nth-of-type(9) {
+    --angle: -365deg;
+  }
+  & ul[data-nummer='7'] li:nth-of-type(10) {
+    --angle: -363deg;
+  }
 
-    /* 6 */
-    & ul[data-nummer="6"] li:nth-of-type(1) {
-        --angle: -359deg;
-    }
-    & ul[data-nummer="6"] li:nth-of-type(2) {
-        --angle: -179deg;
-    }
-    & ul[data-nummer="6"] li:nth-of-type(3) {
-        --angle: -177deg;
-    }
-    & ul[data-nummer="6"] li:nth-of-type(4) {
-        --angle: -175deg;
-    }
-    & ul[data-nummer="6"] li:nth-of-type(5) {
-        --angle: -173deg;
-    }
-    & ul[data-nummer="6"] li:nth-of-type(6) {
-        --angle: -531deg;
-    }
-    & ul[data-nummer="6"] li:nth-of-type(7) {
-        --angle: -367deg;
-    }
-    & ul[data-nummer="6"] li:nth-of-type(8) {
-        --angle: -365deg;
-    }
-    & ul[data-nummer="6"] li:nth-of-type(9) {
-        --angle: -363deg;
-    }
-    & ul[data-nummer="6"] li:nth-of-type(10) {
-        --angle: -361deg;
-    }
+  /* 8 */
+  & ul[data-nummer='8'] li:nth-of-type(1) {
+    --angle: -363deg;
+  }
+  & ul[data-nummer='8'] li:nth-of-type(2) {
+    --angle: -361deg;
+  }
+  & ul[data-nummer='8'] li:nth-of-type(3) {
+    --angle: -359deg;
+  }
+  & ul[data-nummer='8'] li:nth-of-type(4) {
+    --angle: -179deg;
+  }
+  & ul[data-nummer='8'] li:nth-of-type(5) {
+    --angle: -177deg;
+  }
+  & ul[data-nummer='8'] li:nth-of-type(6) {
+    --angle: -535deg;
+  }
+  & ul[data-nummer='8'] li:nth-of-type(7) {
+    --angle: -533deg;
+  }
+  & ul[data-nummer='8'] li:nth-of-type(8) {
+    --angle: -531deg;
+  }
+  & ul[data-nummer='8'] li:nth-of-type(9) {
+    --angle: -367deg;
+  }
+  & ul[data-nummer='8'] li:nth-of-type(10) {
+    --angle: -365deg;
+  }
 
-    /* 7 */
-    & ul[data-nummer="7"] li:nth-of-type(1) {
-        --angle: -361deg;
-    }
-    & ul[data-nummer="7"] li:nth-of-type(2) {
-        --angle: -359deg;
-    }
-    & ul[data-nummer="7"] li:nth-of-type(3) {
-        --angle: -179deg;
-    }
-    & ul[data-nummer="7"] li:nth-of-type(4) {
-        --angle: -177deg;
-    }
-    & ul[data-nummer="7"] li:nth-of-type(5) {
-        --angle: -175deg;
-    }
-    & ul[data-nummer="7"] li:nth-of-type(6) {
-        --angle: -533deg;
-    }
-    & ul[data-nummer="7"] li:nth-of-type(7) {
-        --angle: -531deg;
-    }
-    & ul[data-nummer="7"] li:nth-of-type(8) {
-        --angle: -367deg;
-    }
-    & ul[data-nummer="7"] li:nth-of-type(9) {
-        --angle: -365deg;
-    }
-    & ul[data-nummer="7"] li:nth-of-type(10) {
-        --angle: -363deg;
-    }
-
-    /* 8 */
-    & ul[data-nummer="8"] li:nth-of-type(1) {
-        --angle: -363deg;
-    }
-    & ul[data-nummer="8"] li:nth-of-type(2) {
-        --angle: -361deg;
-    }
-    & ul[data-nummer="8"] li:nth-of-type(3) {
-        --angle: -359deg;
-    }
-    & ul[data-nummer="8"] li:nth-of-type(4) {
-        --angle: -179deg;
-    }
-    & ul[data-nummer="8"] li:nth-of-type(5) {
-        --angle: -177deg;
-    }
-    & ul[data-nummer="8"] li:nth-of-type(6) {
-        --angle: -535deg;
-    }
-    & ul[data-nummer="8"] li:nth-of-type(7) {
-        --angle: -533deg;
-    }
-    & ul[data-nummer="8"] li:nth-of-type(8) {
-        --angle: -531deg;
-    }
-    & ul[data-nummer="8"] li:nth-of-type(9) {
-        --angle: -367deg;
-    }
-    & ul[data-nummer="8"] li:nth-of-type(10) {
-        --angle: -365deg;
-    }
-
-    /* 9 */
-    & ul[data-nummer="9"] li:nth-of-type(1) {
-        --angle: -365deg;
-    }
-    & ul[data-nummer="9"] li:nth-of-type(2) {
-        --angle: -363deg;
-    }
-    & ul[data-nummer="9"] li:nth-of-type(3) {
-        --angle: -361deg;
-    }
-    & ul[data-nummer="9"] li:nth-of-type(4) {
-        --angle: -359deg;
-    }
-    & ul[data-nummer="9"] li:nth-of-type(5) {
-        --angle: -179deg;
-    }
-    & ul[data-nummer="9"] li:nth-of-type(6) {
-        --angle: -537deg;
-    }
-    & ul[data-nummer="9"] li:nth-of-type(7) {
-        --angle: -535deg;
-    }
-    & ul[data-nummer="9"] li:nth-of-type(8) {
-        --angle: -533deg;
-    }
-    & ul[data-nummer="9"] li:nth-of-type(9) {
-        --angle: -531deg;
-    }
-    & ul[data-nummer="9"] li:nth-of-type(10) {
-        --angle: -367deg;
-    }
+  /* 9 */
+  & ul[data-nummer='9'] li:nth-of-type(1) {
+    --angle: -365deg;
+  }
+  & ul[data-nummer='9'] li:nth-of-type(2) {
+    --angle: -363deg;
+  }
+  & ul[data-nummer='9'] li:nth-of-type(3) {
+    --angle: -361deg;
+  }
+  & ul[data-nummer='9'] li:nth-of-type(4) {
+    --angle: -359deg;
+  }
+  & ul[data-nummer='9'] li:nth-of-type(5) {
+    --angle: -179deg;
+  }
+  & ul[data-nummer='9'] li:nth-of-type(6) {
+    --angle: -537deg;
+  }
+  & ul[data-nummer='9'] li:nth-of-type(7) {
+    --angle: -535deg;
+  }
+  & ul[data-nummer='9'] li:nth-of-type(8) {
+    --angle: -533deg;
+  }
+  & ul[data-nummer='9'] li:nth-of-type(9) {
+    --angle: -531deg;
+  }
+  & ul[data-nummer='9'] li:nth-of-type(10) {
+    --angle: -367deg;
+  }
 }

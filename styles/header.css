@@ -337,13 +337,13 @@ body {
             color-mix(in oklch, var(--year-color, papayawhip), transparent 50%),
             black 10%
           )
-          0 17%,
+          0 7.5rem,
         color-mix(
             in oklch,
             color-mix(in oklch, var(--year-color, papayawhip), transparent 50%),
             black 25%
           )
-          17%
+          7.5rem
       );
     }
   }

@@ -1,4 +1,19 @@
-img {
-  width: clamp(10em, 15rem, 30vw);
-  filter: drop-shadow(5px 0 0 black);
+.mc {
+  position: relative;
+  width: 40vw;
+  aspect-ratio: 2/1;
+  border: 2px solid #f09;
+  transform-origin: bottom;
+  transform: translateX(calc(50vw - 50%)) translateY(20vh);
+
+  img {
+    width: 50%;
+    filter: drop-shadow(5px 0 0 black);
+    position: absolute;
+    bottom: 0;
+
+    &:last-of-type {
+      right: 0;
+    }
+  }
 }
