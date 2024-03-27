@@ -26,7 +26,7 @@
   width: 100dvw;
   height: 100dvh;
   position: fixed;
-  z-index: 2000;
+  z-index: 10000;
   scale: 1.2;
   animation: shake 0.4s infinite alternate;
 
@@ -101,6 +101,7 @@
 
       .number {
         font-size: 10rem;
+        color: black;
       }
     }
   }
