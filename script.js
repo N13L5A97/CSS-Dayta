@@ -18,7 +18,7 @@ function getArrayOfYear(data) {
 
 // verkrijg de kleur van het bijbehorende jaar
 // genereer een regel dat van de kleur een CSS variabele maakt en zet deze in de stylesheet
-function generateColorElement(year, data, k) {
+function generateColorElement(year, data) {
   // pak een stylesheet uit de browser
   var sheet = window.document.styleSheets[0];
   // stel de kleurnaam in a.d.h.v. het jaar
@@ -227,7 +227,7 @@ const fetchData = async () => {
     arrays = getArrayOfYear(data);
 
     for (var k in years) {
-      generateColorElement(years[k], arrays[k], k); 
+      generateColorElement(years[k], arrays[k]); 
     }
     counter = 1;
     for (var i = years.length - 1; i >= 0; i--) {
