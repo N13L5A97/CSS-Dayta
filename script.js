@@ -24,7 +24,7 @@ function generateColorElement(year, data) {
   // stel de kleurnaam in a.d.h.v. het jaar
   colorName = '--'.concat(year);
   // maak een regel aan voor in de stylesheet
-  rule = selector.concat(' { color: var(' + colorName + ');');
+  rule = ':root { color: var(' + colorName + ')';
   // voeg de styling toe aan de regel
   document.documentElement.style.setProperty(colorName, data.color.hex);
   // voer de regel toe aan de stylesheet
