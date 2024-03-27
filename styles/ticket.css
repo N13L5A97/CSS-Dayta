@@ -42,8 +42,9 @@
   background-repeat: no-repeat;
   filter: drop-shadow(0.5rem 0.5rem 0 rgba(0, 0, 0, 0.2));
   position: absolute;
-  top: 68vh;
-  left: 10vw;
+  top: 65vh;
+  right: 16vw;
+  transform: rotate(-13deg);
   padding: 3rem 3rem;
   display: flex;
   justify-content: center;

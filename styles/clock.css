@@ -1,5 +1,5 @@
 #flip-clock {
-  width: clamp(10rem, 50vw, 40rem);
+  width: clamp(10rem, 40vw, 30rem);
   z-index: 9000;
 
   position: fixed;

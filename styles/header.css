@@ -13,6 +13,7 @@ header {
     width: clamp(5rem, 40vw, 15rem);
     top: 2rem;
     left: 2rem;
+    padding: 2rem;
 
     rect {
       --ani-delay: var(--initial-delay);
