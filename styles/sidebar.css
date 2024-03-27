@@ -28,6 +28,11 @@ nav ul {
       border-radius: 0.2rem;
       padding: 0.5rem;
       transition: var(--transition-short);
+
+      &.current{
+        background-color: black;
+        color: white;
+      }
     }
 
     &::before {
