@@ -229,7 +229,7 @@ header {
   width: 0.2rem;
   aspect-ratio: 1/30;
   right: 8rem;
-  background-color: rgb(237, 237, 237);
+  background-color: gold;
   transform: translateY(-0.5rem);
   transition: var(--transition-base);
 
@@ -238,10 +238,31 @@ header {
     position: absolute;
     width: 0.6rem;
     aspect-ratio: 1/2;
-    background-color: black;
+    background-color: goldenrod;
     bottom: -0.3rem;
     border-radius: 50% 50% 0 0;
     left: calc(50% - 0.3rem);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0.6rem;
+    aspect-ratio: 1/2;
+    bottom: -1rem;
+    left: calc(50% - 0.3rem);
+    background-image: linear-gradient(
+      in oklch to right,
+      goldenrod 0 10%,
+      transparent 10% 20%,
+      goldenrod 20% 30%,
+      transparent 30% 40%,
+      goldenrod 40% 55%,
+      transparent 55% 70%,
+      goldenrod 70% 80%,
+      transparent 80% 90%,
+      goldenrod 90% 100%
+    );
   }
 
   &:active,
@@ -346,6 +367,10 @@ body {
           )
           7.5rem
       );
+    }
+
+    .hideable {
+      filter: invert(100%);
     }
   }
 }

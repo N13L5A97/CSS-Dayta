@@ -8,7 +8,7 @@
   justify-content: space-around;
   align-items: end;
   border-bottom: 4px black solid;
-    box-shadow: inset 0px 20px 0px 3px black;
+  box-shadow: inset 0px 20px 0px 3px black;
 
   p {
     display: none;
@@ -33,7 +33,8 @@
     }
 
     &.noColor2013 {
-      filter: grayscale(100%) sepia(200%) hue-rotate(303deg) brightness(1.8) saturate(1.5);    
+      filter: grayscale(100%) sepia(200%) hue-rotate(303deg) brightness(1.8)
+        saturate(1.5);
     }
   }
 
