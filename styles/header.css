@@ -8,11 +8,10 @@ header {
   /**********/
 
   .logo {
-    --initial-delay: 6.5s;
+    --initial-delay: 0s;
 
     width: clamp(5rem, 40vw, 15rem);
-    top: 2rem;
-    left: 2rem;
+    transform: translate(2rem, 2rem);
 
     rect {
       --ani-delay: var(--initial-delay);

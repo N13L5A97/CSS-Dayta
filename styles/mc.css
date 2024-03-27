@@ -3,8 +3,7 @@
   width: 40vw;
   aspect-ratio: 2/1;
   border: 2px solid #f09;
-  transform-origin: bottom;
-  transform: translateX(calc(50vw - 50%)) translateY(20vh);
+  transform: translateX(calc((50vw - 3.75rem) - 50%));
 
   img {
     width: 50%;
