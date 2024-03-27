@@ -29,9 +29,14 @@ nav ul {
       padding: 0.5rem;
       transition: var(--transition-short);
 
-      &.current{
+      &.current {
         background-color: black;
         color: white;
+      }
+
+      &:focus {
+        outline: 1.5px dashed white;
+        box-shadow: 0 0 0.5rem black;
       }
     }
 
