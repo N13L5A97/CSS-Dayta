@@ -371,3 +371,10 @@
     --angle: -367deg;
   }
 }
+
+
+@media (max-width: 420px) {
+  #flip-clock {
+    transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+  }
+}
