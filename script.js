@@ -73,6 +73,74 @@ function generateLocationElement(data, counter) {
   document.querySelector(query).appendChild(location);
 }
 
+// Store original href attribute values
+var originalLinks = {};
+
+function partyModeVideo(applyPartyMode) {
+  var counter = 2;
+  var array = {
+    video1: 'https://www.youtube.com/watch?v=PyBSlVx1lIo&list=PLTn904sHp33WB-VZEwEQCdEUM-gvMfhiL&index=14',
+    video2: 'https://www.youtube.com/watch?v=IaQzApy9E68&list=PLTn904sHp33WB-VZEwEQCdEUM-gvMfhiL&index=11',
+    video3: 'https://www.youtube.com/watch?v=M4CH6XKZwa0',
+    video4: '',
+    video5: '',
+    video6: 'https://www.youtube.com/watch?v=4eUYVRLME6Y',
+    video7: 'https://www.youtube.com/watch?v=ioB9Axc4m3s',
+    video8: 'https://www.youtube.com/watch?v=8Es9cIGhjUA',
+    video9: 'https://www.youtube.com/watch?v=T6xc2lQbWMw',
+    video10: 'https://www.youtube.com/watch?v=iLUS0mV2jx0',
+    video11: 'https://www.youtube.com/watch?v=uLm6l2csLKQ',
+    video12: 'https://www.youtube.com/watch?v=hrT4RmjYpLw',
+  };
+  
+  for (var x in array) {
+    // Skip sections 5 and 6
+    if (counter === 5 || counter === 6) {
+      console.log('Skipping section', counter);
+      counter++;
+      continue;
+    }
+    
+    var link1 = document.querySelector('section:nth-of-type(' + counter + ') .most-popular a');
+    var link2 = document.querySelector('section:nth-of-type(' + counter + ') .ticket div div div:nth-of-type(2) a');
+    
+    console.log('Link 1:', link1);
+    console.log('Link 2:', link2);
+  
+    if (link1 !== null) {
+      console.log('Link1 found');
+      if (applyPartyMode) {
+        originalLinks[counter] = originalLinks[counter] || {};
+        originalLinks[counter].link1 = originalLinks[counter].link1 || link1.getAttribute('href');
+        link1.removeAttribute('href');
+        link1.setAttribute('href', array[x]);
+        console.log('Modified Link 1:', link1);
+      } else if (originalLinks[counter] && originalLinks[counter].link1 !== null) {
+        link1.setAttribute('href', originalLinks[counter].link1);
+      }
+    } else {
+      console.log('Link1 not found, skipping...');
+    }
+  
+    if (link2 !== null) {
+      console.log('Link2 found');
+      if (applyPartyMode) {
+        originalLinks[counter] = originalLinks[counter] || {};
+        originalLinks[counter].link2 = originalLinks[counter].link2 || link2.getAttribute('href');
+        link2.removeAttribute('href');
+        link2.setAttribute('href', array[x]);
+        console.log('Modified Link 2:', link2);
+      } else if (originalLinks[counter] && originalLinks[counter].link2 !== null) {
+        link2.setAttribute('href', originalLinks[counter].link2);
+      }
+    } else {
+      console.log('Link2 not found, skipping...');
+    }
+  
+    counter++;
+  }
+}
+
 // verkrijg van elk jaar de URL naar de bijbehorende pagina op cssday.nl
 // genereer hiervoor een HTML element en plaatst deze op de gespecificeerde plek
 function generateLinkElement(data, counter) {
@@ -90,6 +158,7 @@ function generateLinkElement(data, counter) {
   );
   // zoek het element a.d.h.v. de query en voeg het HTML element toe.
   document.querySelector(query).appendChild(link);
+
 }
 
 // verkrijg van elk jaar de MC(s) die op het evenement aanwezig was/waren
@@ -363,3 +432,4 @@ const startCountdown = () => {
 };
 
 startCountdown();
+
