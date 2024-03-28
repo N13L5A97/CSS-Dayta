@@ -1,5 +1,5 @@
 header {
-  width: 100vw;
+  width: 30vw;
   position: fixed;
   z-index: 3000;
 
@@ -226,7 +226,7 @@ header {
   position: absolute;
   width: 0.2rem;
   aspect-ratio: 1/50;
-  right: 30vw;
+  right: -50vw;
   background-color: gold;
   transform: translateY(-2rem);
   transition: var(--transition-base);
@@ -289,20 +289,14 @@ body:has(input[name='show']:focus) .showable {
   background-color: white;
   position: absolute;
   top: 0;
-  right: 20rem;
+  left: 0;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   padding: 1rem;
   width: 12rem;
-  transform: translateY(-10rem);
+  transform: translateY(10rem) translateX(-20rem);
   transition: var(--transition-base);
-
-  @media (max-width: 1190px) {
-    transform: translateY(10rem) translateX(-20rem);
-    left: 0;
-    right: auto;
-  }
 
   label {
     flex: 1 1 4rem;
@@ -310,11 +304,7 @@ body:has(input[name='show']:focus) .showable {
 }
 
 body:has(input[name='show']:checked) .hideable {
-  transform: translateY(0);
-
-  @media (max-width: 1190px) {
-    transform: translateY(10rem) translateX(0);
-  }
+  transform: translateY(10rem) translateX(0);
 }
 
 /************/
