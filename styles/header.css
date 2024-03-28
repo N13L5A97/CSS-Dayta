@@ -349,21 +349,47 @@ body {
     color-scheme: dark;
 
     main > section:not(#flip-clock) {
-      background-image: linear-gradient(
-        to left,
-        color-mix(
-            in oklch,
-            color-mix(in oklch, var(--year-color, papayawhip), transparent 50%),
-            black 12.5%
-          )
-          0 7.5rem,
-        color-mix(
-            in oklch,
-            color-mix(in oklch, var(--year-color, papayawhip), transparent 50%),
-            black 20%
-          )
-          7.5rem
-      );
+      --bg-clr: #0f1219;
+      --bg-clr-2: #102a43;
+      --deg-1: 45deg;
+      --deg-2: 135deg;
+      --deg-3: 225deg;
+      --deg-4: 315deg;
+      --circle-position: bottom;
+
+      background-image: radial-gradient(
+          circle at var(--circle-position) in oklch,
+          rgba(13, 90, 168, 0.7) 1% 2%,
+          transparent 80%
+        ),
+        linear-gradient(
+          var(--deg-1) in oklch,
+          var(--bg-clr) 0%,
+          transparent 70%
+        ),
+        linear-gradient(
+          var(--deg-2) in oklch,
+          var(--bg-clr-2) 10%,
+          transparent 80%
+        ),
+        linear-gradient(
+          var(--deg-3) in oklch,
+          var(--bg-clr-2) 10%,
+          transparent 80%
+        ),
+        linear-gradient(
+          var(--deg-4) in oklch,
+          var(--bg-clr) 100%,
+          transparent 70%
+        );
+
+      &:nth-of-type(2n) {
+        --deg-1: 225deg;
+        --deg-2: 315deg;
+        --deg-3: -45deg;
+        --deg-4: -135deg;
+        --circle-position: top;
+      }
     }
 
     .hideable {
@@ -375,8 +401,8 @@ body {
     }
   }
 
-  @media (max-width: 420px){
-    body main > section:not(#flip-clock){
+  @media (max-width: 420px) {
+    body main > section:not(#flip-clock) {
       background-image: none;
       background-color: color-mix(
         in oklch,
@@ -385,7 +411,6 @@ body {
       );
     }
   }
-
 }
 
 @property --angle {
