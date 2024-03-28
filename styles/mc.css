@@ -1,109 +1,138 @@
 .mc {
-  padding: 0 2em;
-  grid-area: 1 / 1;
-  height: clamp(20em, calc(51vh - 10vw), 50em);
-  width: clamp(15em, 30vw, 20rem);
-  transform: translateX(calc((50vw - 3.75rem) - 50%));
-  display: flex;
-  justify-content: space-around;
-  align-items: end;
-  border-bottom: 4px black solid;
+    padding: 0 2em;
+    grid-area: 1 / 1;
+    height: clamp(23em, calc(51vh - 10vw), 50em);
+    width: clamp(15em, 30vw, 20rem);
+    transform: translateX(calc((50vw - 3.75rem) - 50%));
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    border-bottom: 4px black solid;
     box-shadow: inset 0px 20px 0px 3px black;
 
-  p {
-    display: none;
-  }
-
-  img {
-    width: 70%;
-    height: fit-content;
-    filter: drop-shadow(5px 0 0 black);
-    bottom: 0;
-
-    &:first-of-type {
-      left: 0;
+    p {
+        display: none;
     }
 
-    &:last-of-type {
-      right: 0;
-    }
+    img {
+        width: clamp(5rem, 100%, 10rem);
+        /* height: fit-content; */
+        filter: drop-shadow(5px 0 0 black);
+        display: block;
 
-    &.noColor2015 {
-      filter: grayscale(100%) sepia(100%) hue-rotate(50deg);
-    }
-
-    &.noColor2013 {
-      filter: grayscale(100%) sepia(200%) hue-rotate(303deg) brightness(1.8) saturate(1.5);    
-    }
-  }
-
-  .microphone {
-    width: 9em;
-    height: 10em;
-    margin: 0 -5em;
-    aspect-ratio: 1 / 1;
-    justify-self: end;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    z-index: 10;
-
-    &:hover .part1 .part2 {
-      transform: translateY(-40%) rotateZ(-45deg) rotateY(20deg);
-    }
-
-    .part1 {
-      grid-area: 9 / 5 / 11 / 7;
-      background-color: lightgrey;
-      transform-style: preserve-3d;
-      border-top-left-radius: 50%;
-      border-top-right-radius: 50%;
-      background-image: radial-gradient(
-        at top right,
-        white 10%,
-        transparent 40% 100%
-      );
-
-      .part2 {
-        width: 50%;
-        height: 100%;
-        background-color: grey;
-        transform-origin: bottom center;
-        margin: auto;
-        transform-style: preserve-3d;
-        transform: translateY(-40%) rotateY(20deg);
-        border-radius: 10%;
-        box-shadow: inset 0.1em 0.1em 2px lightgrey;
-        transition: var(--transition-base);
-
-        .head {
-          width: 300%;
-          height: 200%;
-          background-color: lightgrey;
-          border-radius: 10px;
-          transform-origin: bottom center;
-          transform-style: preserve-3d;
-          transform: translateY(-90%) translateX(-32.5%) rotateY(-20deg);
-          background-image: radial-gradient(
-              circle at 70% 10%,
-              white 1%,
-              transparent 30% 100%
-            ),
-            repeating-linear-gradient(lightgrey 30%, darkgrey 40%);
+        &.noColor2015 {
+            filter: grayscale(100%) sepia(100%) hue-rotate(50deg);
         }
-      }
+
+        &.noColor2013 {
+            filter: grayscale(100%) sepia(200%) hue-rotate(303deg)
+                brightness(1.8) saturate(1.5);
+        }
     }
-  }
+
+    .microphone {
+        width: 10em;
+        height: 10em;
+        margin: 0em -5em;
+        aspect-ratio: 1 / 1;
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        z-index: 10;
+
+        &:hover .part1 .part2 {
+            transform: translateY(-40%) rotateZ(-45deg) rotateY(20deg);
+        }
+
+        .part1 {
+            grid-area: 9 / 5 / 11 / 7;
+            background-color: lightgrey;
+            transform-style: preserve-3d;
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+            background-image: radial-gradient(
+                at top right,
+                white 10%,
+                transparent 40% 100%
+            );
+
+            .part2 {
+                width: 50%;
+                height: 100%;
+                background-color: grey;
+                transform-origin: bottom center;
+                margin: auto;
+                transform-style: preserve-3d;
+                transform: translateY(-40%) rotateY(20deg);
+                border-radius: 10%;
+                box-shadow: inset 0.1em 0.1em 2px lightgrey;
+                transition: var(--transition-base);
+
+                .head {
+                    width: 300%;
+                    height: 200%;
+                    background-color: lightgrey;
+                    border-radius: 10px;
+                    transform-origin: bottom center;
+                    transform-style: preserve-3d;
+                    transform: translateY(-90%) translateX(-32.5%)
+                        rotateY(-20deg);
+                    background-image: radial-gradient(
+                            circle at 70% 10%,
+                            white 1%,
+                            transparent 30% 100%
+                        ),
+                        repeating-linear-gradient(lightgrey 30%, darkgrey 40%);
+                }
+            }
+        }
+    }
 }
 
 #glitch1 {
-  width: 0;
-  height: 0;
+    width: 0;
+    height: 0;
 }
 
 .mcEmpty {
-  width: 100dvw;
-  height: 80dvh;
-  background-color: blue;
-  opacity: 0.5;
-  filter: url(#glitch1);
+    width: 100dvw;
+    height: 80dvh;
+    background-color: blue;
+    opacity: 0.5;
+    filter: url(#glitch1);
+}
+
+@container style(--party:true) {
+    .mc img {
+        animation: partyImg 2s infinite;
+    }
+}
+
+@keyframes partyImg {
+    from {
+        filter: hue-rotate(0deg);
+    }
+
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+
+@media (max-width: 700px) {
+    .mc{
+        height: clamp(17rem, calc(46.5vh - 20vw), 44rem);
+
+    .microphone {
+        width: 5em;
+        height: 6em;
+        margin: 0 -3em;
+    }
+}
+}
+
+@media (max-width: 420px) {
+    .mc {
+        transform: translate(calc(50vw - 50%));
+        height: clamp(6em, 36vh, 40em);
+    }
 }

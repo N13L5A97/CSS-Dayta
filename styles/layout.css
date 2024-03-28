@@ -72,3 +72,14 @@ main > section:not(#flip-clock) {
     --year-color: var(--2013);
   }
 }
+
+@media (max-width: 420px) {
+  main > section:not(#flip-clock) {
+    background-image: none;
+    background-color: color-mix(
+      in oklch,
+      var(--year-color, papayawhip),
+      transparent 50%
+    );
+  }
+}

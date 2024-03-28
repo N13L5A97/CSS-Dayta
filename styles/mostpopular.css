@@ -36,30 +36,58 @@
   }
 
   h2,
+  h3,
+  p {
+    color: black;
+  }
+
+  h2,
   h3 {
-    color: var(--ticket-secondary-color);
     font-size: var(--font-size-base);
+  }
+
+  p {
+    font-size: calc(var(--font-size-base) * 0.8);
+  }
+
+  > img {
+    border-radius: 50%;
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    width: 7%;
   }
 
   img {
     filter: none;
+  }
 
-    &:first-of-type {
-      border-radius: 50%;
-      position: absolute;
-      right: 2rem;
-      bottom: 2rem;
-      width: 7%;
-    }
+  a {
+    text-decoration: underline;
 
-    &:last-of-type {
+    img {
       width: 100%;
       border: 1px solid grey;
     }
   }
 
-  a {
-    text-decoration: underline;
+  > button {
+    --width: 3rem;
+    position: absolute;
+    background-color: black;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1;
+    width: var(--width);
+    top: -1rem;
+    right: calc(var(--width) * -1);
+    transition: var(--transition-base);
+
+    &:hover {
+      opacity: 0.8;
+      transform: translateY(-0.2rem);
+    }
   }
 }
 
@@ -73,6 +101,15 @@ body:has(.mostpopular:target) #flip-clock {
   aspect-ratio: 1 / 1.75;
   scale: 0.5;
   bottom: -15vh;
+  cursor: pointer;
+
+  &.playing,
+  &:hover {
+    .base .circle-1,
+    .base .circle-2 {
+      animation-play-state: running;
+    }
+  }
 
   .base {
     position: absolute;
@@ -88,6 +125,7 @@ body:has(.mostpopular:target) #flip-clock {
       black 15% 100%
     );
     top: 5rem;
+    z-index: 100;
 
     &::before {
       content: '';
@@ -126,7 +164,7 @@ body:has(.mostpopular:target) #flip-clock {
         ),
         conic-gradient(white 0 15%, gray 15% 50%, white 50% 65%, gray 65% 100%);
 
-      animation: spin-that-shit 1s infinite linear;
+      animation: spin-that-shit 1s infinite linear paused;
     }
 
     .circle-2 {
@@ -160,12 +198,14 @@ body:has(.mostpopular:target) #flip-clock {
         ),
         linear-gradient(-160deg in okLCH, transparent 0 2.5rem, black 2.5rem);
     }
+
+
   }
 
   .statief {
     width: 80%;
-    height: 14.5rem;
-    bottom: 0;
+    height: 14rem;
+    bottom: 1.5rem;
     position: absolute;
     background-image: conic-gradient(
       transparent 0 45%,
@@ -177,6 +217,12 @@ body:has(.mostpopular:target) #flip-clock {
 
     background-size: 100% 250%;
     background-position: center bottom;
+  }
+
+  @media (max-width: 700px){
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-150%);
   }
 }
 

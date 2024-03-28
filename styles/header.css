@@ -1,5 +1,5 @@
 header {
-  width: 100vw;
+  width: 30vw;
   position: fixed;
   z-index: 3000;
 
@@ -10,9 +10,7 @@ header {
   .logo {
     --initial-delay: 0s;
 
-    width: clamp(5rem, 40vw, 15rem);
-    top: 2rem;
-    left: 2rem;
+    width: clamp(11rem, 40vw, 15rem);
     padding: 2rem;
 
     rect {
@@ -227,10 +225,10 @@ header {
 .showable {
   position: absolute;
   width: 0.2rem;
-  aspect-ratio: 1/30;
-  right: 8rem;
-  background-color: rgb(237, 237, 237);
-  transform: translateY(-0.5rem);
+  aspect-ratio: 1/50;
+  right: -50vw;
+  background-color: gold;
+  transform: translateY(-2rem);
   transition: var(--transition-base);
 
   &::before {
@@ -238,10 +236,31 @@ header {
     position: absolute;
     width: 0.6rem;
     aspect-ratio: 1/2;
-    background-color: black;
+    background-color: goldenrod;
     bottom: -0.3rem;
     border-radius: 50% 50% 0 0;
     left: calc(50% - 0.3rem);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0.6rem;
+    aspect-ratio: 1/2;
+    bottom: -1rem;
+    left: calc(50% - 0.3rem);
+    background-image: linear-gradient(
+      in oklch to right,
+      goldenrod 0 10%,
+      transparent 10% 20%,
+      goldenrod 20% 30%,
+      transparent 30% 40%,
+      goldenrod 40% 55%,
+      transparent 55% 70%,
+      goldenrod 70% 80%,
+      transparent 80% 90%,
+      goldenrod 90% 100%
+    );
   }
 
   &:active,
@@ -263,7 +282,6 @@ body:has(input[name='show']:checked) .showable {
 }
 
 body:has(input[name='show']:focus) .showable {
-  transform: translateY(0);
   box-shadow: 0 0.5rem 0.5rem white;
 }
 
@@ -271,13 +289,13 @@ body:has(input[name='show']:focus) .showable {
   background-color: white;
   position: absolute;
   top: 0;
-  right: 10rem;
+  left: 0;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   padding: 1rem;
   width: 12rem;
-  transform: translateY(-10rem);
+  transform: translateY(10rem) translateX(-20rem);
   transition: var(--transition-base);
 
   label {
@@ -286,7 +304,7 @@ body:has(input[name='show']:focus) .showable {
 }
 
 body:has(input[name='show']:checked) .hideable {
-  transform: translateY(0);
+  transform: translateY(10rem) translateX(0);
 }
 
 /************/
@@ -331,28 +349,68 @@ body {
     color-scheme: dark;
 
     main > section:not(#flip-clock) {
-      background-image: linear-gradient(
-        to left,
-        color-mix(
-            in oklch,
-            color-mix(in oklch, var(--year-color, papayawhip), transparent 50%),
-            black 10%
-          )
-          0 7.5rem,
-        color-mix(
-            in oklch,
-            color-mix(in oklch, var(--year-color, papayawhip), transparent 50%),
-            black 50%
-          )
-          7.5rem
-      );
+      --bg-clr: #0f1219;
+      --bg-clr-2: #102a43;
+      --deg-1: 45deg;
+      --deg-2: 135deg;
+      --deg-3: 225deg;
+      --deg-4: 315deg;
+      --circle-position: bottom;
+
+      background-image: radial-gradient(
+          circle at var(--circle-position) in oklch,
+          rgba(13, 90, 168, 0.7) 1% 2%,
+          transparent 80%
+        ),
+        linear-gradient(
+          var(--deg-1) in oklch,
+          var(--bg-clr) 0%,
+          transparent 70%
+        ),
+        linear-gradient(
+          var(--deg-2) in oklch,
+          var(--bg-clr-2) 10%,
+          transparent 80%
+        ),
+        linear-gradient(
+          var(--deg-3) in oklch,
+          var(--bg-clr-2) 10%,
+          transparent 80%
+        ),
+        linear-gradient(
+          var(--deg-4) in oklch,
+          var(--bg-clr) 100%,
+          transparent 70%
+        );
+
+      &:nth-of-type(2n) {
+        --deg-1: 225deg;
+        --deg-2: 315deg;
+        --deg-3: -45deg;
+        --deg-4: -135deg;
+        --circle-position: top;
+      }
     }
 
-    .logo{
+    .hideable {
+      filter: invert(100%);
+    }
+
+    .logo {
       fill: white;
     }
   }
 
+  @media (max-width: 420px) {
+    body main > section:not(#flip-clock) {
+      background-image: none;
+      background-color: color-mix(
+        in oklch,
+        color-mix(in oklch, var(--year-color, papayawhip), transparent 50%),
+        black 20%
+      );
+    }
+  }
 }
 
 @property --angle {
@@ -410,5 +468,30 @@ body {
   }
   100% {
     --angle: 360deg;
+  }
+}
+
+@media (max-width: 790px) {
+  header {
+    display: flex;
+
+    .logo {
+      transform: translateX(calc(50vw - 3.8rem - 50%));
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .showable {
+    display: none;
+  }
+
+  .hideable {
+    display: none;
+  }
+
+  header .logo {
+    transform: translateX(calc(50vw - 50%));
+    padding: 2rem 0;
   }
 }
