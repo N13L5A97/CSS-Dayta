@@ -29,6 +29,11 @@
   z-index: 10000;
   scale: 1.2;
   animation: shake 0.4s infinite alternate;
+  display: none;
+
+  @media (prefers-reduced-motion: no-preference) {
+    display: block;
+  }
 
   .opening {
     --grey: #c3c3c3;
@@ -160,6 +165,7 @@
 }
 
 .opening-pt2-wrapper {
+  --delay: 2s;
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -169,7 +175,11 @@
   justify-content: center;
   flex-direction: column;
   background-color: black;
-  animation: fade-out 2s forwards 10s;
+  animation: fade-out 2s forwards var(--delay);
+
+  @media (prefers-reduced-motion: no-preference) {
+    --delay: 10s;
+  }
 
   div {
     display: flex;

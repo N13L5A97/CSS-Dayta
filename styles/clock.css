@@ -31,7 +31,10 @@
 
       /* 3D omgeving */
       transform-style: preserve-3d;
-      transition: 0.8s ease-in-out;
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: 0.8s ease-in-out;
+      }
 
       > div {
         grid-area: 1/1;
@@ -372,13 +375,11 @@
   }
 }
 
-
 @media (max-width: 700px) {
   #flip-clock {
-    transform: translate(calc((50vw - 3.75rem) - 50%) , calc(40vh - 50%));
+    transform: translate(calc((50vw - 3.75rem) - 50%), calc(40vh - 50%));
   }
 }
-
 
 @media (max-width: 420px) {
   #flip-clock {

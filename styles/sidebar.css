@@ -15,8 +15,11 @@ nav ul {
     position: relative;
     flex-basis: 0;
     flex-grow: 1;
-    transition: var(--transition-short);
     padding: 0.25rem;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: var(--transition-short);
+    }
 
     a {
       height: 100%;
@@ -27,7 +30,10 @@ nav ul {
       outline: 1.5px solid black;
       border-radius: 0.2rem;
       padding: 0.5rem;
-      transition: var(--transition-short);
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: var(--transition-short);
+      }
 
       &.current {
         background-color: black;
@@ -49,7 +55,10 @@ nav ul {
       height: 0.1rem;
       right: calc(var(--width) * -1);
       top: 50%;
-      transition: 0.25s ease-out;
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: 0.25s ease-out;
+      }
     }
   }
 }
