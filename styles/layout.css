@@ -73,10 +73,13 @@ main > section:not(#flip-clock) {
   }
 }
 
-
-@media (max-width: 420px){
-  main > section:not(#flip-clock){
+@media (max-width: 420px) {
+  main > section:not(#flip-clock) {
     background-image: none;
-    background-color: color-mix(in oklch, var(--year-color, papayawhip), transparent 80%);
+    background-color: color-mix(
+      in oklch,
+      var(--year-color, papayawhip),
+      transparent 50%
+    );
   }
 }

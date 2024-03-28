@@ -1,5 +1,5 @@
 header {
-  width: 100vw;
+  width: 30vw;
   position: fixed;
   z-index: 3000;
 
@@ -225,10 +225,10 @@ header {
 .showable {
   position: absolute;
   width: 0.2rem;
-  aspect-ratio: 1/30;
-  right: 30vw;
+  aspect-ratio: 1/50;
+  right: -50vw;
   background-color: gold;
-  transform: translateY(-0.5rem);
+  transform: translateY(-2rem);
   transition: var(--transition-base);
 
   &::before {
@@ -282,7 +282,6 @@ body:has(input[name='show']:checked) .showable {
 }
 
 body:has(input[name='show']:focus) .showable {
-  transform: translateY(0);
   box-shadow: 0 0.5rem 0.5rem white;
 }
 
@@ -290,13 +289,13 @@ body:has(input[name='show']:focus) .showable {
   background-color: white;
   position: absolute;
   top: 0;
-  right: 20rem;
+  left: 0;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   padding: 1rem;
   width: 12rem;
-  transform: translateY(-10rem);
+  transform: translateY(10rem) translateX(-20rem);
   transition: var(--transition-base);
 
   label {
@@ -305,7 +304,7 @@ body:has(input[name='show']:focus) .showable {
 }
 
 body:has(input[name='show']:checked) .hideable {
-  transform: translateY(0);
+  transform: translateY(10rem) translateX(0);
 }
 
 /************/
@@ -371,7 +370,7 @@ body {
       filter: invert(100%);
     }
 
-    .logo{
+    .logo {
       fill: white;
     }
   }
@@ -448,21 +447,25 @@ body {
 }
 
 @media (max-width: 790px) {
-  header{
+  header {
     display: flex;
 
-    .logo{
+    .logo {
       transform: translateX(calc(50vw - 3.8rem - 50%));
     }
   }
 }
 
 @media (max-width: 420px) {
-  .showable{
+  .showable {
     display: none;
   }
 
-  header .logo{
+  .hideable {
+    display: none;
+  }
+
+  header .logo {
     transform: translateX(calc(50vw - 50%));
   }
 }
