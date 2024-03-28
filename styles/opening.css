@@ -158,3 +158,53 @@
     transform: translateX(0.05rem) translateY(0.1rem);
   }
 }
+
+.opening-pt2-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: black;
+  animation: fade-out 2s forwards 10s;
+
+  div {
+    display: flex;
+    gap: 2rem;
+  }
+
+  p {
+    font-size: calc(var(--font-size-base) * 2);
+    color: white;
+  }
+
+  svg {
+    width: 50%;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    width: 100vw;
+    height: 100vh;
+    scale: 1;
+  }
+
+  50% {
+    opacity: 0;
+    width: 100vw;
+    height: 100vh;
+    scale: 1;
+  }
+
+  100% {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    scale: 0;
+  }
+}

@@ -5,7 +5,8 @@
 }
 
 .ticket {
-  --ticket-color: #fad16c;
+  --ticket-color: color-mix(in oklch, var(--year-color), white 50%);
+
   --ticket-secondary-color: #28232d;
   --ticket-tertiary-color: #ab0620;
 
@@ -68,6 +69,16 @@
     > span {
       animation: ticket-bounce 0.5s ease-out infinite;
     }
+
+    @media (max-width: 700px) {
+      scale: 0.8;
+      transform: translateX(calc(-50vw + 9rem)) translateY(10vh);
+    }
+  }
+
+  @media (max-width: 420px){
+    transform: translateX(3rem) translateY(10vh);
+    scale: 0.7;
   }
 
   @media (max-width: 700px) {
@@ -206,7 +217,7 @@
 
 @container style(--colors:dark) {
   .ticket {
-    --ticket-color: #1b58a3;
+    --ticket-color: color-mix(in oklch, var(--year-color), black 30%);
     --ticket-secondary-color: #fffdf2;
     --ticket-tertiary-color: #ff8585;
 
