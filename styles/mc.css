@@ -7,8 +7,9 @@
     display: flex;
     justify-content: space-around;
     align-items: end;
-    border-bottom: 4px black solid;
-    box-shadow: inset 0px 20px 0px 3px black;
+    /* background-image: url(../assets/mc/filmrol.png);
+    background-size: cover;
+    border-bottom: 4px black solid; */
 
     p {
         display: none;
@@ -87,6 +88,16 @@
         }
     }
 }
+
+/* .mc::after {
+  content: "";
+  position: absolute;
+  width: clamp(15em, 30vw, 20rem);
+  height: 250%;
+  background-image: url(../assets/mc/filmrollutje.png);
+  background-size: 100%;
+  transform: translateY(50dvh);
+} */
 
 #glitch1 {
     width: 0;
