@@ -10,8 +10,25 @@
     border-bottom: 4px black solid;
     box-shadow: inset 0px 20px 0px 3px black;
 
-    p {
-        display: none;
+    > div:not(.microphone){
+        position: relative;
+
+        p {
+            position: absolute;
+            background-color: white;
+            padding: 0.5rem;
+            text-align: center;
+            color: var(--year-color);
+            top: -5vh;
+            left: -5rem;
+            white-space: nowrap;
+        }
+    }
+
+    > div:nth-of-type(3){
+        p {
+            left: 7vw;
+        }
     }
 
     img {

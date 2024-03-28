@@ -399,6 +399,10 @@ body {
     .logo {
       fill: white;
     }
+
+    .mc > div:not(.microphone) p{
+      background-color: black;
+    }
   }
 
   @media (max-width: 420px) {
