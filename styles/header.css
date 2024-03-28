@@ -417,10 +417,6 @@ body {
     .most-popular > button {
       filter: invert();
     }
-
-    .mc > div:not(.microphone) p{
-      background-color: black;
-    }
   }
 
   @media (max-width: 420px) {
