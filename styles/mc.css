@@ -1,7 +1,7 @@
 .mc {
     padding: 0 2em;
     grid-area: 1 / 1;
-    height: clamp(2rem, calc(50vh - 6.5rem), 50vh);
+    height: clamp(2rem, calc(50vh - 7.5rem), 50vh);
     width: clamp(15em, 30vw, 20rem);
     transform: translateX(calc((50vw - 3.75rem) - 50%));
     display: flex;
