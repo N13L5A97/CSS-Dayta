@@ -1,27 +1,19 @@
 # css dayta
 
-## table of contents
+welkom bij ons project
 
-[maandag](#maandag)
-[dinsdag](#dinsdag)
-[woensdag](#woensdag)
-[donderdag](#donderdag)
+het is net zo chaotisch als dat wij zijn
 
-## maandag
+alvast sorry
 
-to do:
+groetjes,
 
-- prettier
-- talks kjken
-- brainstormen & schetsen
-
-## dinsdag
-
-## woensdag
+eva
+niels
+nicole
+en ferhat
 
 ## coding standards
-
-### css
 
 - @supports voor :has() en andere dingen die nog niet door alle browsers gesupport worden
 - css nesting
