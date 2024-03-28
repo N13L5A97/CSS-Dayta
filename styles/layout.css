@@ -6,32 +6,33 @@ main {
   height: 100vh;
   scroll-snap-type: y mandatory;
   overflow-y: auto;
-  scroll-behavior: smooth;
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
 
   &::-webkit-scrollbar {
     display: none;
   }
 }
 
-
 main > section:not(#flip-clock, .mcEmpty) {
   height: 100vh;
   scroll-snap-align: start;
   position: relative;
   z-index: 1;
-  background-image:
-  linear-gradient(
+  background-image: linear-gradient(
     in oklch to left,
     color-mix(in oklch, var(--year-color, papayawhip), transparent 50%) 0 7.5rem,
     color-mix(in oklch, var(--year-color, papayawhip), transparent 80%) 7.5rem
   );
 
   &::after {
-    content: "";
+    content: '';
     width: 100vw;
     height: 100vh;
-    position:absolute;
-    top:0;
+    position: absolute;
+    top: 0;
     background-image: url(../assets/mc/filmrollutje.png);
     background-size: clamp(45vw, 50vw, 10rem) 100vh;
     background-repeat: repeat-y;
