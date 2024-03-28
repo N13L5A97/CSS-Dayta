@@ -3,182 +3,189 @@ header {
   position: fixed;
   z-index: 3000;
 
-  /**********/
-  /* LOGO  */
-  /**********/
-
   .logo {
-    --initial-delay: 0s;
+    --initial-delay: 12s;
+    --ani-duration: 1.5s;
+  }
+}
 
-    width: clamp(11rem, 40vw, 15rem);
-    padding: 2rem;
+/**********/
+/* LOGO  */
+/**********/
 
+.logo {
+  --initial-delay: 6.5s;
+  --ani-duration: 2.5s;
+
+  width: clamp(11rem, 40vw, 15rem);
+  padding: 2rem;
+
+  rect {
+    --ani-delay: var(--initial-delay);
+    animation: var(--ani-name) var(--ani-duration) ease-out var(--ani-delay)
+      forwards;
+    transform: scaleX(0) scaleY(0);
+  }
+
+  .c {
     rect {
-      --ani-delay: var(--initial-delay);
-      animation: var(--ani-name) 1.5s ease-out var(--ani-delay) forwards;
-      transform: scaleX(0) scaleY(0);
-    }
+      &:first-of-type {
+        --ani-name: transform-horizontal;
+      }
 
-    .c {
-      rect {
-        &:first-of-type {
-          --ani-name: transform-horizontal;
-        }
+      &:nth-of-type(2) {
+        --ani-name: transform-vertical;
+        --ani-delay: calc(var(initial-delay) + 0.2s);
 
-        &:nth-of-type(2) {
-          --ani-name: transform-vertical;
-          --ani-delay: calc(var(initial-delay) + 0.2s);
+        transform-origin: 0 100px;
+      }
 
-          transform-origin: 0 100px;
-        }
-
-        &:nth-of-type(3) {
-          --ani-name: transform-horizontal;
-          --ani-delay: calc(var(initial-delay) + 0.6s);
-          transform-origin: 50px;
-        }
+      &:nth-of-type(3) {
+        --ani-name: transform-horizontal;
+        --ani-delay: calc(var(initial-delay) + 0.6s);
+        transform-origin: 50px;
       }
     }
+  }
 
-    .s-1 {
-      rect {
-        &:first-of-type {
-          --ani-name: transform-vertical;
-          --ani-delay: calc(var(initial-delay) + 0.2s);
-        }
+  .s-1 {
+    rect {
+      &:first-of-type {
+        --ani-name: transform-vertical;
+        --ani-delay: calc(var(initial-delay) + 0.2s);
+      }
 
-        &:nth-of-type(2) {
-          --ani-name: transform-horizontal;
-          transform-origin: 270px;
-        }
+      &:nth-of-type(2) {
+        --ani-name: transform-horizontal;
+        transform-origin: 270px;
+      }
 
-        &:nth-of-type(3) {
-          --ani-name: transform-horizontal;
-          --ani-delay: calc(var(initial-delay) + 0.5s);
-          transform-origin: 300px;
-        }
+      &:nth-of-type(3) {
+        --ani-name: transform-horizontal;
+        --ani-delay: calc(var(initial-delay) + 0.5s);
+        transform-origin: 300px;
+      }
 
-        &:nth-of-type(4) {
-          --ani-name: transform-vertical;
-          transform-origin: 0 60px;
-        }
+      &:nth-of-type(4) {
+        --ani-name: transform-vertical;
+        transform-origin: 0 60px;
+      }
 
-        &:nth-of-type(5) {
-          --ani-name: transform-horizontal;
-          --ani-delay: calc(var(initial-delay) + 0.2s);
-          transform-origin: 340px;
-        }
+      &:nth-of-type(5) {
+        --ani-name: transform-horizontal;
+        --ani-delay: calc(var(initial-delay) + 0.2s);
+        transform-origin: 340px;
       }
     }
+  }
 
-    .s-2 {
-      rect {
-        &:first-of-type {
-          --ani-name: transform-vertical;
-        }
+  .s-2 {
+    rect {
+      &:first-of-type {
+        --ani-name: transform-vertical;
+      }
 
-        &:nth-of-type(2) {
-          --ani-name: transform-horizontal;
-          transform-origin: 490px;
-        }
+      &:nth-of-type(2) {
+        --ani-name: transform-horizontal;
+        transform-origin: 490px;
+      }
 
-        &:nth-of-type(3) {
-          --ani-name: transform-horizontal;
-          --ani-delay: calc(var(initial-delay) + 0.3s);
-          transform-origin: 520px;
-        }
+      &:nth-of-type(3) {
+        --ani-name: transform-horizontal;
+        --ani-delay: calc(var(initial-delay) + 0.3s);
+        transform-origin: 520px;
+      }
 
-        &:nth-of-type(4) {
-          --ani-name: transform-vertical;
-          --ani-delay: calc(var(initial-delay) + 0.2s);
-          transform-origin: 0 60px;
-        }
+      &:nth-of-type(4) {
+        --ani-name: transform-vertical;
+        --ani-delay: calc(var(initial-delay) + 0.2s);
+        transform-origin: 0 60px;
+      }
 
-        &:nth-of-type(5) {
-          --ani-name: transform-horizontal;
-          --ani-delay: calc(var(initial-delay) + 0.6s);
-          transform-origin: 560px;
-        }
+      &:nth-of-type(5) {
+        --ani-name: transform-horizontal;
+        --ani-delay: calc(var(initial-delay) + 0.6s);
+        transform-origin: 560px;
       }
     }
+  }
 
-    .d {
-      rect {
-        &:first-of-type {
-          --ani-name: transform-horizontal;
-          --ani-delay: calc(var(initial-delay) + 0.2s);
-        }
+  .d {
+    rect {
+      &:first-of-type {
+        --ani-name: transform-horizontal;
+        --ani-delay: calc(var(initial-delay) + 0.2s);
+      }
 
-        &:nth-of-type(2) {
-          --ani-name: transform-vertical;
-          transform-origin: 0 320px;
-        }
+      &:nth-of-type(2) {
+        --ani-name: transform-vertical;
+        transform-origin: 0 320px;
+      }
 
-        &:nth-of-type(3) {
-          --ani-name: transform-vertical;
-          --ani-delay: calc(var(initial-delay) + 0.1s);
-          transform-origin: 0 260px;
-        }
+      &:nth-of-type(3) {
+        --ani-name: transform-vertical;
+        --ani-delay: calc(var(initial-delay) + 0.1s);
+        transform-origin: 0 260px;
+      }
 
-        &:nth-of-type(4) {
-          --ani-name: transform-horizontal;
-          transform-origin: 70px;
-        }
+      &:nth-of-type(4) {
+        --ani-name: transform-horizontal;
+        transform-origin: 70px;
       }
     }
+  }
 
-    .a {
-      rect {
-        &:first-of-type {
-          --ani-name: transform-horizontal;
-          transform-origin: 215px;
-        }
+  .a {
+    rect {
+      &:first-of-type {
+        --ani-name: transform-horizontal;
+        transform-origin: 215px;
+      }
 
-        &:nth-of-type(2) {
-          --ani-name: transform-vertical;
-          --ani-delay: calc(var(initial-delay) + 0.5s);
-          transform-origin: 0 385px;
-        }
+      &:nth-of-type(2) {
+        --ani-name: transform-vertical;
+        --ani-delay: calc(var(initial-delay) + 0.5s);
+        transform-origin: 0 385px;
+      }
 
-        &:nth-of-type(3) {
-          --ani-name: transform-vertical;
-          --ani-delay: calc(var(initial-delay) + 0.1s);
-          transform-origin: 0 260px;
-        }
+      &:nth-of-type(3) {
+        --ani-name: transform-vertical;
+        --ani-delay: calc(var(initial-delay) + 0.1s);
+        transform-origin: 0 260px;
+      }
 
-        &:nth-of-type(4) {
-          --ani-name: transform-horizontal;
-          --ani-delay: calc(var(initial-delay) + 0.2s);
-          transform-origin: 300px;
-        }
+      &:nth-of-type(4) {
+        --ani-name: transform-horizontal;
+        --ani-delay: calc(var(initial-delay) + 0.2s);
+        transform-origin: 300px;
       }
     }
+  }
 
-    .y {
-      rect {
-        &:first-of-type {
-          --ani-name: transform-vertical;
-          --ani-delay: calc(var(initial-delay) + 0.3s);
-          transform-origin: 0 210px;
-        }
+  .y {
+    rect {
+      &:first-of-type {
+        --ani-name: transform-vertical;
+        --ani-delay: calc(var(initial-delay) + 0.3s);
+        transform-origin: 0 210px;
+      }
 
-        &:nth-of-type(2) {
-          --ani-name: transform-vertical;
-          --ani-delay: calc(var(initial-delay) + 0.2s);
-          transform-origin: 0 385px;
-        }
+      &:nth-of-type(2) {
+        --ani-name: transform-vertical;
+        --ani-delay: calc(var(initial-delay) + 0.2s);
+        transform-origin: 0 385px;
+      }
 
-        &:nth-of-type(3) {
-          --ani-name: transform-horizontal;
-          --ani-delay: calc(var(initial-delay) + 0.6s);
-          transform-origin: 520px;
-        }
+      &:nth-of-type(3) {
+        --ani-name: transform-horizontal;
+        --ani-delay: calc(var(initial-delay) + 0.6s);
+        transform-origin: 520px;
+      }
 
-        &:nth-of-type(4) {
-          --ani-name: transform-horizontal;
-          --ani-delay: calc(var(initial-delay) + 0.1s);
-          transform-origin: 450px;
-        }
+      &:nth-of-type(4) {
+        --ani-name: transform-horizontal;
+        --ani-delay: calc(var(initial-delay) + 0.1s);
+        transform-origin: 450px;
       }
     }
   }
@@ -405,6 +412,10 @@ body {
 
     .logo {
       fill: white;
+    }
+
+    .most-popular > button {
+      filter: invert();
     }
   }
 

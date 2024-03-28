@@ -278,7 +278,7 @@ function showMostRelevantSpeaker(location) {
   const className = document.querySelector(
     'section:nth-of-type('.concat(location + ') .most-popular')
   );
-  className.style.display = 'block';
+  className.style.display = 'flex';
   const cameraAnimation = document.querySelector(
     'section:nth-of-type('.concat(location + ') .camera-wrapper')
   );
@@ -345,7 +345,7 @@ const openingAudio = new Audio('assets/audio/opening.mp3');
 openingAudio.currentTime = 5; // Stel de begintijd in op 5 seconden
 
 const startCountdown = () => {
-  //   openingAudio.play();
+  openingAudio.play();
   let count = 5;
   const interval = setInterval(() => {
     count--;
@@ -359,7 +359,7 @@ const startCountdown = () => {
 
   setTimeout(() => {
     openingAudio.pause();
-  }, 6500); // 5000 milliseconden = 5 seconden
+  }, 6500);
 };
 
 startCountdown();
