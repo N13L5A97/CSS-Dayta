@@ -298,6 +298,12 @@ body:has(input[name='show']:focus) .showable {
   transform: translateY(-10rem);
   transition: var(--transition-base);
 
+  @media (max-width: 1190px) {
+    transform: translateY(10rem) translateX(-20rem);
+    left: 0;
+    right: auto;
+  }
+
   label {
     flex: 1 1 4rem;
   }
@@ -305,6 +311,10 @@ body:has(input[name='show']:focus) .showable {
 
 body:has(input[name='show']:checked) .hideable {
   transform: translateY(0);
+
+  @media (max-width: 1190px) {
+    transform: translateY(10rem) translateX(0);
+  }
 }
 
 /************/
@@ -446,6 +456,10 @@ body {
 
 @media (max-width: 420px) {
   .showable {
+    display: none;
+  }
+
+  .hideable {
     display: none;
   }
 
