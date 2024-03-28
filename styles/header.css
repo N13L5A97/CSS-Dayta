@@ -492,5 +492,6 @@ body {
 
   header .logo {
     transform: translateX(calc(50vw - 50%));
+    padding: 2rem 0;
   }
 }

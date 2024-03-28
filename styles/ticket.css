@@ -76,6 +76,11 @@
     }
   }
 
+  @media (max-width: 420px){
+    transform: translateX(3rem) translateY(10vh);
+    scale: 0.7;
+  }
+
   @media (max-width: 700px) {
     scale: 0.8;
     transform: translateX(calc(-50vw + 9rem)) translateY(10vh);
