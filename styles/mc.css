@@ -1,7 +1,7 @@
 .mc {
     padding: 0 2em;
     grid-area: 1 / 1;
-    height: clamp(20em, calc(51vh - 10vw), 50em);
+    height: clamp(23em, calc(51vh - 10vw), 50em);
     width: clamp(15em, 30vw, 20rem);
     transform: translateX(calc((50vw - 3.75rem) - 50%));
     display: flex;
@@ -19,7 +19,7 @@
         width: clamp(5rem, 100%, 10rem);
         /* height: fit-content; */
         filter: drop-shadow(5px 0 0 black);
-        bottom: 0;
+        display: block;
 
         &.noColor2015 {
             filter: grayscale(100%) sepia(100%) hue-rotate(50deg);
@@ -129,20 +129,21 @@
 }
 
 
-@media (max-width: 790px) {
-    .mc {
-      .microphone {
+@media (max-width: 700px) {
+    .mc{
+        height: clamp(17rem, calc(46.5vh - 20vw), 44rem);
+
+    .microphone {
         width: 5em;
         height: 6em;
         margin: 0 -3em;
     }
-
-    }
+}
 }
 
 @media (max-width: 420px) {
     .mc {
-        transform: translateX(calc(50vw - 50%));
-
+        transform: translate(calc(50vw - 50%));
+        height: clamp(6em, 36vh, 40em);
     }
 }

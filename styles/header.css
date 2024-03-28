@@ -1,5 +1,5 @@
 header {
-  width: 100vw;
+  width: 30vw;
   position: fixed;
   z-index: 3000;
 
@@ -225,10 +225,10 @@ header {
 .showable {
   position: absolute;
   width: 0.2rem;
-  aspect-ratio: 1/30;
-  right: 30vw;
+  aspect-ratio: 1/50;
+  right: -50vw;
   background-color: gold;
-  transform: translateY(-0.5rem);
+  transform: translateY(-2rem);
   transition: var(--transition-base);
 
   &::before {
@@ -282,7 +282,6 @@ body:has(input[name='show']:checked) .showable {
 }
 
 body:has(input[name='show']:focus) .showable {
-  transform: translateY(0);
   box-shadow: 0 0.5rem 0.5rem white;
 }
 
@@ -290,13 +289,13 @@ body:has(input[name='show']:focus) .showable {
   background-color: white;
   position: absolute;
   top: 0;
-  right: 20rem;
+  left: 0;
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   padding: 1rem;
   width: 12rem;
-  transform: translateY(-10rem);
+  transform: translateY(10rem) translateX(-20rem);
   transition: var(--transition-base);
 
   label {
@@ -305,7 +304,7 @@ body:has(input[name='show']:focus) .showable {
 }
 
 body:has(input[name='show']:checked) .hideable {
-  transform: translateY(0);
+  transform: translateY(10rem) translateX(0);
 }
 
 /************/
@@ -350,34 +349,60 @@ body {
     color-scheme: dark;
 
     main > section:not(#flip-clock) {
-      background-image: linear-gradient(
-        to left,
-        color-mix(
-            in oklch,
-            color-mix(in oklch, var(--year-color, papayawhip), transparent 50%),
-            black 12.5%
-          )
-          0 7.5rem,
-        color-mix(
-            in oklch,
-            color-mix(in oklch, var(--year-color, papayawhip), transparent 50%),
-            black 20%
-          )
-          7.5rem
-      );
+      --bg-clr: #0f1219;
+      --bg-clr-2: #102a43;
+      --deg-1: 45deg;
+      --deg-2: 135deg;
+      --deg-3: 225deg;
+      --deg-4: 315deg;
+      --circle-position: bottom;
+
+      background-image: radial-gradient(
+          circle at var(--circle-position) in oklch,
+          rgba(13, 90, 168, 0.7) 1% 2%,
+          transparent 80%
+        ),
+        linear-gradient(
+          var(--deg-1) in oklch,
+          var(--bg-clr) 0%,
+          transparent 70%
+        ),
+        linear-gradient(
+          var(--deg-2) in oklch,
+          var(--bg-clr-2) 10%,
+          transparent 80%
+        ),
+        linear-gradient(
+          var(--deg-3) in oklch,
+          var(--bg-clr-2) 10%,
+          transparent 80%
+        ),
+        linear-gradient(
+          var(--deg-4) in oklch,
+          var(--bg-clr) 100%,
+          transparent 70%
+        );
+
+      &:nth-of-type(2n) {
+        --deg-1: 225deg;
+        --deg-2: 315deg;
+        --deg-3: -45deg;
+        --deg-4: -135deg;
+        --circle-position: top;
+      }
     }
 
     .hideable {
       filter: invert(100%);
     }
 
-    .logo{
+    .logo {
       fill: white;
     }
   }
 
-  @media (max-width: 420px){
-    body main > section:not(#flip-clock){
+  @media (max-width: 420px) {
+    body main > section:not(#flip-clock) {
       background-image: none;
       background-color: color-mix(
         in oklch,
@@ -386,7 +411,6 @@ body {
       );
     }
   }
-
 }
 
 @property --angle {
@@ -448,21 +472,26 @@ body {
 }
 
 @media (max-width: 790px) {
-  header{
+  header {
     display: flex;
 
-    .logo{
+    .logo {
       transform: translateX(calc(50vw - 3.8rem - 50%));
     }
   }
 }
 
 @media (max-width: 420px) {
-  .showable{
+  .showable {
     display: none;
   }
 
-  header .logo{
+  .hideable {
+    display: none;
+  }
+
+  header .logo {
     transform: translateX(calc(50vw - 50%));
+    padding: 2rem 0;
   }
 }

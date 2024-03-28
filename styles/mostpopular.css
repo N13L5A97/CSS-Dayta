@@ -125,6 +125,7 @@ body:has(.mostpopular:target) #flip-clock {
       black 15% 100%
     );
     top: 5rem;
+    z-index: 100;
 
     &::before {
       content: '';
@@ -197,12 +198,14 @@ body:has(.mostpopular:target) #flip-clock {
         ),
         linear-gradient(-160deg in okLCH, transparent 0 2.5rem, black 2.5rem);
     }
+
+
   }
 
   .statief {
     width: 80%;
-    height: 14.5rem;
-    bottom: 0;
+    height: 14rem;
+    bottom: 1.5rem;
     position: absolute;
     background-image: conic-gradient(
       transparent 0 45%,
@@ -214,6 +217,12 @@ body:has(.mostpopular:target) #flip-clock {
 
     background-size: 100% 250%;
     background-position: center bottom;
+  }
+
+  @media (max-width: 700px){
+    bottom: 5vh;
+    left: 50%;
+    transform: translateX(-150%);
   }
 }
 
