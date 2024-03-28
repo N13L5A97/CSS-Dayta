@@ -128,9 +128,14 @@ main {
   }
 }
 
-
 @media (max-width: 420px) {
- nav{
+  nav {
     display: none;
+  }
+}
+
+@container style(--colors:dark) {
+  nav ul {
+    filter: invert(80%);
   }
 }
