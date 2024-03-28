@@ -125,6 +125,11 @@ body:has(.mostpopular:target) #flip-clock {
   scale: 0.5;
   bottom: -15vh;
   cursor: pointer;
+  filter: drop-shadow(0.2rem -0.1rem 0 rgba(255, 255, 255, 0.5));
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: camera-glow 1.5s infinite ease-in-out alternate;
+  }
 
   &.playing,
   &:hover {
@@ -252,5 +257,17 @@ body:has(.mostpopular:target) #flip-clock {
 @keyframes spin-that-shit {
   to {
     rotate: 1turn;
+  }
+}
+
+@keyframes camera-glow {
+  0% {
+    filter: drop-shadow(0.1rem -0.1rem 0 rgba(255, 255, 255, 0.5))
+      drop-shadow(-0.1rem -0.1rem 0 rgba(255, 255, 255, 0.5));
+  }
+
+  100% {
+    filter: drop-shadow(0.4rem -0.2rem 0 rgba(255, 255, 255, 0.5))
+      drop-shadow(-0.4rem -0.2rem 0 rgba(255, 255, 255, 0.5));
   }
 }
