@@ -1,13 +1,14 @@
 .mc {
-  padding: 0 2em;
-  grid-area: 1 / 1;
-  height: clamp(30em, calc(51vh - 10vw), 50em);
-  width: clamp(15em, 30vw, 20rem);
-  transform: translateX(calc((50vw - 3.75rem) - 50%));
-  display: flex;
-  justify-content: space-around;
-  align-items: end;
-  /* background-image: url(../assets/mc/filmrol.png);
+
+    padding: 0 2em;
+    grid-area: 1 / 1;
+    height: clamp(2rem, calc(50vh - 7.5rem), 50vh);
+    width: clamp(15em, 30vw, 20rem);
+    transform: translateX(calc((50vw - 3.75rem) - 50%));
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    /* background-image: url(../assets/mc/filmrol.png);
     background-size: cover;
     border-bottom: 4px black solid; */
 
@@ -149,9 +150,16 @@
   }
 }
 
+@media (max-width: 1000px) {
+    .mc {
+        height: clamp(2rem, calc(50vh - 10vw), 50vh);
+    }
+}
+
+
 @media (max-width: 700px) {
-  .mc {
-    height: clamp(17rem, calc(46.5vh - 20vw), 44rem);
+    .mc{
+        height: clamp(2rem, calc(46.5vh - 18vw), 50vh);
 
     .microphone {
       width: 5em;
