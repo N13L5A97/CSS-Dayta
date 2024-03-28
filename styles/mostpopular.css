@@ -72,6 +72,11 @@
   a {
     text-decoration: underline;
 
+    &:focus {
+      opacity: 0.6;
+      outline: 2px dotted blue;
+    }
+
     &:last-of-type {
       order: -1;
 
@@ -103,6 +108,11 @@
     top: -1rem;
     right: calc(var(--width) * -1);
 
+    &:focus {
+      opacity: 0.6;
+      outline: 2px dotted blue;
+    }
+
     @media (prefers-reduced-motion: no-preference) {
       transition: var(--transition-base);
     }
@@ -126,6 +136,10 @@ body:has(.mostpopular:target) #flip-clock {
   bottom: -15vh;
   cursor: pointer;
   filter: drop-shadow(0.2rem -0.1rem 0 rgba(255, 255, 255, 0.5));
+
+  &:focus {
+    filter: drop-shadow(0.5rem -0.3rem white);
+  }
 
   @media (prefers-reduced-motion: no-preference) {
     animation: camera-glow 1.5s infinite ease-in-out alternate;

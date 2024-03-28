@@ -1,14 +1,13 @@
 .mc {
-
-    padding: 0 2em;
-    grid-area: 1 / 1;
-    height: clamp(2rem, calc(50vh - 7.5rem), 50vh);
-    width: clamp(15em, 30vw, 20rem);
-    transform: translateX(calc((50vw - 3.75rem) - 50%));
-    display: flex;
-    justify-content: space-around;
-    align-items: end;
-    /* background-image: url(../assets/mc/filmrol.png);
+  padding: 0 2em;
+  grid-area: 1 / 1;
+  height: clamp(2rem, calc(50vh - 7.5rem), 50vh);
+  width: clamp(15em, 30vw, 20rem);
+  transform: translateX(calc((50vw - 3.75rem) - 50%));
+  display: flex;
+  justify-content: space-around;
+  align-items: end;
+  /* background-image: url(../assets/mc/filmrol.png);
     background-size: cover;
     border-bottom: 4px black solid; */
 
@@ -35,7 +34,6 @@
 
   img {
     width: clamp(5rem, 100%, 10rem);
-    /* height: fit-content; */
     filter: drop-shadow(5px 0 0 black);
     display: block;
 
@@ -109,16 +107,6 @@
   }
 }
 
-/* .mc::after {
-  content: "";
-  position: absolute;
-  width: clamp(15em, 30vw, 20rem);
-  height: 250%;
-  background-image: url(../assets/mc/filmrollutje.png);
-  background-size: 100%;
-  transform: translateY(50dvh);
-} */
-
 #glitch1 {
   width: 0;
   height: 0;
@@ -151,15 +139,14 @@
 }
 
 @media (max-width: 1000px) {
-    .mc {
-        height: clamp(2rem, calc(50vh - 10vw), 50vh);
-    }
+  .mc {
+    height: clamp(2rem, calc(50vh - 10vw), 50vh);
+  }
 }
 
-
 @media (max-width: 700px) {
-    .mc{
-        height: clamp(2rem, calc(46.5vh - 18vw), 50vh);
+  .mc {
+    height: clamp(2rem, calc(46.5vh - 18vw), 50vh);
 
     .microphone {
       width: 5em;
