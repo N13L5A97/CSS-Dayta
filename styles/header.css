@@ -224,10 +224,15 @@ header {
 
 .showable {
   position: absolute;
-  width: 0.2rem;
-  aspect-ratio: 1/50;
+  width: 5rem;
+  height: 10rem;
   right: -50vw;
-  background-color: gold;
+  background-image: linear-gradient(
+    to right in oklch,
+    transparent 0 2.4rem,
+    gold 2.4rem 2.6rem,
+    transparent 2.6rem 5rem
+  );
   transform: translateY(-2rem);
   transition: var(--transition-base);
 
@@ -278,11 +283,13 @@ header {
 }
 
 body:has(input[name='show']:checked) .showable {
-  filter: invert(1);
+  filter: brightness(0);
 }
 
 body:has(input[name='show']:focus) .showable {
-  box-shadow: 0 0.5rem 0.5rem white;
+  &::after {
+    box-shadow: 0 0 1rem white;
+  }
 }
 
 .hideable {
