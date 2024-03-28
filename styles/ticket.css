@@ -53,8 +53,11 @@
   rotate: 10deg;
 
   &:hover {
-    animation: test 0.5s ease-out infinite;
     transform: translateY(-0.25rem);
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: test 0.5s ease-out infinite;
+    }
 
     time {
       &:first-of-type {
@@ -67,7 +70,9 @@
     }
 
     > span {
-      animation: ticket-bounce 0.5s ease-out infinite;
+      @media (prefers-reduced-motion: no-preference) {
+        animation: ticket-bounce 0.5s ease-out infinite;
+      }
     }
 
     @media (max-width: 700px) {
@@ -76,7 +81,7 @@
     }
   }
 
-  @media (max-width: 420px){
+  @media (max-width: 420px) {
     transform: translateX(3rem) translateY(10vh);
     scale: 0.7;
   }
@@ -126,9 +131,12 @@
         2px 0 0 var(--ticket-color),
         -2px 0 0 var(--ticket-color),
         0 -2px 0 var(--ticket-color);
-      transition: var(--transition-base);
       text-decoration: underline 1.3px var(--ticket-tertiary-color);
       text-underline-offset: 8px;
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: var(--transition-base);
+      }
 
       &:first-of-type {
         left: -28.7%;

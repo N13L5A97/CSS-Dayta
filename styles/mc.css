@@ -1,4 +1,5 @@
 .mc {
+
     padding: 0 2em;
     grid-area: 1 / 1;
     height: clamp(2rem, calc(50vh - 7.5rem), 50vh);
@@ -11,99 +12,101 @@
     background-size: cover;
     border-bottom: 4px black solid; */
 
-    > div:not(.microphone){
-        position: relative;
+  > div:not(.microphone) {
+    position: relative;
 
-        p {
-            position: absolute;
-            background-color: white;
-            padding: 0.5rem;
-            text-align: center;
-            color: var(--year-color);
-            top: -5vh;
-            left: -5rem;
-            white-space: nowrap;
-        }
+    p {
+      position: absolute;
+      background-color: white;
+      padding: 0.5rem;
+      text-align: center;
+      color: var(--year-color);
+      top: -5vh;
+      left: -5rem;
+      white-space: nowrap;
+    }
+  }
+
+  > div:nth-of-type(3) {
+    p {
+      left: 7vw;
+    }
+  }
+
+  img {
+    width: clamp(5rem, 100%, 10rem);
+    /* height: fit-content; */
+    filter: drop-shadow(5px 0 0 black);
+    display: block;
+
+    &.noColor2015 {
+      filter: grayscale(100%) sepia(100%) hue-rotate(50deg);
     }
 
-    > div:nth-of-type(3){
-        p {
-            left: 7vw;
-        }
+    &.noColor2013 {
+      filter: grayscale(100%) sepia(200%) hue-rotate(303deg) brightness(1.8)
+        saturate(1.5);
+    }
+  }
+
+  .microphone {
+    width: 10em;
+    height: 10em;
+    margin: 0em -5em;
+    aspect-ratio: 1 / 1;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    z-index: 10;
+
+    &:hover .part1 .part2 {
+      transform: translateY(-40%) rotateZ(-45deg) rotateY(20deg);
     }
 
-    img {
-        width: clamp(5rem, 100%, 10rem);
-        /* height: fit-content; */
-        filter: drop-shadow(5px 0 0 black);
-        display: block;
+    .part1 {
+      grid-area: 9 / 5 / 11 / 7;
+      background-color: lightgrey;
+      transform-style: preserve-3d;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      background-image: radial-gradient(
+        at top right,
+        white 10%,
+        transparent 40% 100%
+      );
 
-        &.noColor2015 {
-            filter: grayscale(100%) sepia(100%) hue-rotate(50deg);
+      .part2 {
+        width: 50%;
+        height: 100%;
+        background-color: grey;
+        transform-origin: bottom center;
+        margin: auto;
+        transform-style: preserve-3d;
+        transform: translateY(-40%) rotateY(20deg);
+        border-radius: 10%;
+        box-shadow: inset 0.1em 0.1em 2px lightgrey;
+
+        @media (prefers-reduced-motion: no-preference) {
+          transition: var(--transition-base);
         }
 
-        &.noColor2013 {
-            filter: grayscale(100%) sepia(200%) hue-rotate(303deg)
-                brightness(1.8) saturate(1.5);
+        .head {
+          width: 300%;
+          height: 200%;
+          background-color: lightgrey;
+          border-radius: 10px;
+          transform-origin: bottom center;
+          transform-style: preserve-3d;
+          transform: translateY(-90%) translateX(-32.5%) rotateY(-20deg);
+          background-image: radial-gradient(
+              circle at 70% 10%,
+              white 1%,
+              transparent 30% 100%
+            ),
+            repeating-linear-gradient(lightgrey 30%, darkgrey 40%);
         }
+      }
     }
-
-    .microphone {
-        width: 10em;
-        height: 10em;
-        margin: 0em -5em;
-        aspect-ratio: 1 / 1;
-        display: grid;
-        grid-template-columns: repeat(10, 1fr);
-        z-index: 10;
-
-        &:hover .part1 .part2 {
-            transform: translateY(-40%) rotateZ(-45deg) rotateY(20deg);
-        }
-
-        .part1 {
-            grid-area: 9 / 5 / 11 / 7;
-            background-color: lightgrey;
-            transform-style: preserve-3d;
-            border-top-left-radius: 50%;
-            border-top-right-radius: 50%;
-            background-image: radial-gradient(
-                at top right,
-                white 10%,
-                transparent 40% 100%
-            );
-
-            .part2 {
-                width: 50%;
-                height: 100%;
-                background-color: grey;
-                transform-origin: bottom center;
-                margin: auto;
-                transform-style: preserve-3d;
-                transform: translateY(-40%) rotateY(20deg);
-                border-radius: 10%;
-                box-shadow: inset 0.1em 0.1em 2px lightgrey;
-                transition: var(--transition-base);
-
-                .head {
-                    width: 300%;
-                    height: 200%;
-                    background-color: lightgrey;
-                    border-radius: 10px;
-                    transform-origin: bottom center;
-                    transform-style: preserve-3d;
-                    transform: translateY(-90%) translateX(-32.5%)
-                        rotateY(-20deg);
-                    background-image: radial-gradient(
-                            circle at 70% 10%,
-                            white 1%,
-                            transparent 30% 100%
-                        ),
-                        repeating-linear-gradient(lightgrey 30%, darkgrey 40%);
-                }
-            }
-        }
-    }
+  }
 }
 
 /* .mc::after {
@@ -117,32 +120,34 @@
 } */
 
 #glitch1 {
-    width: 0;
-    height: 0;
+  width: 0;
+  height: 0;
 }
 
 .mcEmpty {
-    width: 100dvw;
-    height: 80dvh;
-    background-color: blue;
-    opacity: 0.5;
-    filter: url(#glitch1);
+  width: 100dvw;
+  height: 80dvh;
+  background-color: blue;
+  opacity: 0.5;
+  filter: url(#glitch1);
 }
 
 @container style(--party:true) {
+  @media (prefers-reduced-motion: no-preference) {
     .mc img {
-        animation: partyImg 2s infinite;
+      animation: partyImg 2s infinite;
     }
+  }
 }
 
 @keyframes partyImg {
-    from {
-        filter: hue-rotate(0deg);
-    }
+  from {
+    filter: hue-rotate(0deg);
+  }
 
-    to {
-        filter: hue-rotate(360deg);
-    }
+  to {
+    filter: hue-rotate(360deg);
+  }
 }
 
 @media (max-width: 1000px) {
@@ -157,16 +162,16 @@
         height: clamp(2rem, calc(46.5vh - 18vw), 50vh);
 
     .microphone {
-        width: 5em;
-        height: 6em;
-        margin: 0 -3em;
+      width: 5em;
+      height: 6em;
+      margin: 0 -3em;
     }
-}
+  }
 }
 
 @media (max-width: 420px) {
-    .mc {
-        transform: translate(calc(50vw - 50%));
-        height: clamp(6em, 36vh, 40em);
-    }
+  .mc {
+    transform: translate(calc(50vw - 50%));
+    height: clamp(6em, 36vh, 40em);
+  }
 }

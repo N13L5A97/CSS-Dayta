@@ -74,7 +74,10 @@
 
     &:last-of-type {
       order: -1;
-      transition: var(--transition-base);
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: var(--transition-base);
+      }
 
       &:hover {
         opacity: 0.7;
@@ -99,7 +102,10 @@
     width: var(--width);
     top: -1rem;
     right: calc(var(--width) * -1);
-    transition: var(--transition-base);
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: var(--transition-base);
+    }
 
     &:hover {
       opacity: 0.8;
@@ -181,7 +187,9 @@ body:has(.mostpopular:target) #flip-clock {
         ),
         conic-gradient(white 0 15%, gray 15% 50%, white 50% 65%, gray 65% 100%);
 
-      animation: spin-that-shit 1s infinite linear paused;
+      @media (prefers-reduced-motion: no-preference) {
+        animation: spin-that-shit 1s infinite linear paused;
+      }
     }
 
     .circle-2 {
