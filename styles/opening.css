@@ -28,11 +28,11 @@
   position: fixed;
   z-index: 10000;
   scale: 1.2;
-  animation: shake 0.4s infinite alternate;
   display: none;
 
   @media (prefers-reduced-motion: no-preference) {
     display: block;
+    animation: fade-out 0.5s 6s forwards;
   }
 
   .opening {

@@ -5,7 +5,7 @@
 }
 
 .ticket {
-  --ticket-color: color-mix(in oklch, var(--year-color), white 50%);
+  --ticket-color: color-mix(in oklch, var(--year-color, #ffd940), white 50%);
 
   --ticket-secondary-color: #28232d;
   --ticket-tertiary-color: #ab0620;
@@ -228,7 +228,7 @@
 
 @container style(--colors:dark) {
   .ticket {
-    --ticket-color: color-mix(in oklch, var(--year-color), black 30%);
+    --ticket-color: color-mix(in oklch, var(--year-color, #ffd940), black 30%);
     --ticket-secondary-color: #fffdf2;
     --ticket-tertiary-color: #ff8585;
 
